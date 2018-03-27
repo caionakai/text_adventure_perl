@@ -4,6 +4,6 @@ BEGIN {
 }
 use Classe;
 
-new Classe("caio", "nakai");
+new Objeto(100, "utilizavel", "martelo", "grande demais", "voce usou corretamente", "voce usou errado", "use o comando X", "cena alvo q");
 
 
