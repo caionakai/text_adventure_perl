@@ -1,15 +1,15 @@
-use 5.010;
-use strict;
-use warnings;
-
-use XML::LibXML;
-
-my $Object_list = 'object.xml';
-
-my $dom = XML::LibXML->load_xml(location => $Object_list);
-
-foreach my $object ($dom->findnodes('/object')) {
-    say $object->findvalue("./id");
-    say $object->findvalue("./name");
-    say $object->findvalue("./damage");
+BEGIN {
+  unshift @INC,"./";
+  #@INC is the directory list, where perl searches for .pm files
 }
+use XMLRead;
+use Objeto;
+
+my @xml= new XMLRead("object.xml");
+
+foreach my $i(@xml){
+  print $i->get_nome,"\n";
+}
+#my $objr =$xml->load_objects;
+
+#say $xml;

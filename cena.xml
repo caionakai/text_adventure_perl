@@ -1,0 +1,12 @@
+<list>
+    <cena>
+        <id>1</id>
+        <titulo>Guilda dos Aventureiros</titulo>
+        <descricao>Local onde os aventureiros se encontram para realizar missões e fazer transações para adiquirir renda ou itens</descricao>
+        <itens>
+            <item>Ferreiro</item>
+            <item>Vendedor</item>
+            <item>Mural</item>
+        </itens>
+    </cena>
+</list>

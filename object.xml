@@ -1,5 +1,14 @@
+<list>
 <object>
     <id>1</id>
-    <name>Stone</name>
-    <damage>1.2</damage>
+    <tipo>refil</tipo>
+    <nome>Pedra</nome>
+    <descricao>Objeto duro que pode ser utilizado para fabricação de arma ou para arremesso</descricao>
 </object>
+<object>
+    <id>2</id>
+    <tipo>arma</tipo>
+    <nome>Espada de Ferro</nome>
+    <descricao>Afiada porem pesada</descricao>
+</object>
+</list>

@@ -1,8 +1,13 @@
-#!/usr/local/bin/perl
-use lib 'C:\Users\kaioe\OneDrive\Documentos\Universidade\5º Semestre\Linguagem de Prog\text_adventure_perl';
-use classe;
+BEGIN {
+  unshift @INC,"./";
+  #@INC is the directory list, where perl searches for .pm files
+}
+use 5.010;
+use strict;
+use warnings;
 
-$object = new Classe("caio", 123456);
-
-
-print "hello world\n";
+my $object = {
+    nome =>"caio",
+    ra => 123456,
+};
+print $object->{nome};
