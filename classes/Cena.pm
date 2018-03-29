@@ -19,4 +19,22 @@ sub get_titulo{
     return $CenaData->{titulo};
 }
 
+sub get_id{
+    my ($CenaData)= @_;
+
+    return $CenaData->{id};
+}
+
+sub get_descricao{
+    my ($CenaData)= @_;
+
+    return $CenaData->{descricao};
+}
+
+sub get_itens{
+    my ($CenaData)= @_;
+
+    return $CenaData->{itens};
+}
+
 1;

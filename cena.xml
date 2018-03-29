@@ -4,9 +4,9 @@
         <titulo>Guilda dos Aventureiros</titulo>
         <descricao>Local onde os aventureiros se encontram para realizar missões e efetuar transações para adquirir renda ou itens.</descricao>
         <itens>
-            <item>Ferreiro</item>
-            <item>Vendedor</item>
-            <item>Mural</item>
+            <item>FERREIRO</item>
+            <item>VENDEDOR</item>
+            <item>MURAL</item>
         </itens>
     </cena>
 
@@ -15,8 +15,8 @@
         <titulo>Feira</titulo>
         <descricao>Local onde é realizada a venda e compra de equipamentos e poções.</descricao>
         <itens>
-            <item>Comerciante de Equipamentos</item>
-            <item>Comerciante de Poções</item>
+            <item>COMERCIANTE DE EQUIPAMENTOS</item>
+            <item>COMERCIANTE DE POÇÕES</item>
         </itens>
 
     </cena>

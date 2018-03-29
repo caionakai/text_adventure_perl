@@ -3,7 +3,7 @@ BEGIN {
   #@INC is the directory list, where perl searches for .pm files
 }
 
-package XMLRead;
+package ObjetoRead;
 
 use 5.010;
 use strict;
