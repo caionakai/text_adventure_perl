@@ -2,10 +2,13 @@ BEGIN {
   unshift @INC,"./classes";
   #@INC is the directory list, where perl searches for .pm files
 }
+use strict;
+use warnings;
 use ObjetoRead;
 use Objeto;
 use CenaRead;
 use Cena;
+use Jogo;
 
 #my @xml= new ObjetoRead("object.xml");
 
@@ -14,13 +17,37 @@ use Cena;
 #}
 
 my @teste = new CenaRead("cena.xml");
+my $jogo = new Jogo(@teste);
+my @vetor = new Cena();
+my $n = 0;
 
-foreach my $x(@teste){
-	print $x->get_id,"\n";
-	print $x->get_titulo,"\n";
-	print $x->get_descricao,"\n";
-	print $x->get_itens,"\n";
-}
+#while ($n < 10){
+#	@vetor[$n] = new Cena();
+#	$n = $n + 1; 
+#}
+
+@vetor = $jogo->get_cenas;
+
+print $vetor[0]->get_titulo;
+
+#foreach my $elem(@vetor){
+#	print $elem->get_titulo;
+#}
+
+#foreach my $x($jogo->get_cenas){
+#	print $x->get_titulo;
+
+#}
+
+
+#foreach my $x(@teste){
+#	print $x->get_id,"\n";
+#	print $x->get_titulo,"\n";
+#	print $x->get_descricao,"\n";
+#	print $x->get_itens,"\n";
+#}
+
+
 
 #while (1) {
 	
