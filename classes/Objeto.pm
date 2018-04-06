@@ -1,4 +1,5 @@
 package Objeto;
+
 sub new
 {
     my ( $class ) = shift;
@@ -18,10 +19,9 @@ sub new
 
     return $ObjetoData;
 }
-sub get_nome{
+sub valor{
     my ($ObjetoData)= @_;
-
-    return $ObjetoData->{nome};
+    print $ObjetoData->{nome},"\n";
 }
 
 1;

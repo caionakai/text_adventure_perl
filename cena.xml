@@ -26,45 +26,45 @@
         <titulo>Covil dos Lobos</titulo>
         <descricao>Este ambiente possui pouca iluminação e possui várias espécies de lobos vivendo por aqui, é recomendável utilizar equipamentos básicos.</descricao>
         <itens>
-            <item></item>
-            <item></item>
-            <item></item>
+            <item>LOBO </item>
+            <item>LOBO SANGUINÁRIO</item>
+            <item>LOBO CHEFE</item>
         </itens>
 
     </cena>
 
     <cena>
         <id>4</id>
-        <titulo></titulo>
+        <titulo>Covil dos Goblins</titulo>
         <descricao></descricao>
         <itens>
-            <item></item>
-            <item></item>
-            <item></item>
+            <item>GOBLIN</item>
+            <item>HOBGOBLIN</item>
+            <item>GOBLIN CHEFE</item>
         </itens>
 
     </cena>
 
     <cena>
         <id>5</id>
-        <titulo></titulo>
+        <titulo>Covil dos Orcs</titulo>
         <descricao></descricao>
         <itens>
-            <item></item>
-            <item></item>
-            <item></item>
+            <item>ORC</item>
+            <item>ORC ZEN</item>
+            <item>ORC CHEFE</item>
         </itens>
 
     </cena>
 
     <cena>
         <id>6</id>
-        <titulo></titulo>
+        <titulo>Covil dos Minotauros</titulo>
         <descricao></descricao>
         <itens>
-            <item></item>
-            <item></item>
-            <item></item>
+            <item>MINOTAURO</item>
+            <item>MINOTAURO ARQUEIRO</item>
+            <item>MINOTAURO CHEFE</item>
         </itens>
 
     </cena>
@@ -80,40 +80,3 @@
         </itens>
 
     </cena>
-
-    <cena>
-        <id>8</id>
-        <titulo></titulo>
-        <descricao></descricao>
-        <itens>
-            <item></item>
-            <item></item>
-            <item></item>
-        </itens>
-
-    </cena>
-
-    <cena>
-        <id>9</id>
-        <titulo></titulo>
-        <descricao></descricao>
-        <itens>
-            <item></item>
-            <item></item>
-            <item></item>
-        </itens>
-
-    </cena>
-
-    <cena>
-        <id>10</id>
-        <titulo></titulo>
-        <descricao></descricao>
-        <itens>
-            <item></item>
-            <item></item>
-            <item></item>
-        </itens>
-
-    </cena>
-</list>

@@ -1,7 +1,8 @@
 BEGIN {
-  unshift @INC,"./";
+  unshift @INC,"./classes";
   #@INC is the directory list, where perl searches for .pm files
 }
+
 
 package CenaRead;
 
