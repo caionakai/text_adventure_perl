@@ -1,0 +1,23 @@
+<list>
+	<npc>
+		<id>1</id>
+		<nome>Lider da Guild</nome>
+		<falas>
+			<fala>Bem vindo! Vejo que você é novato aqui, dentro da guild dos aventureiros você pode aceitar várias missões, as missões possuem diferentes níveis de dificuldade, além disso elas concedem dinheiro para comprar novos equipamentos e poções, você pode escolher as missões que desejar!
+			</fala>
+			<fala>Missões! Missões! Estamos a procura de aventureiros para enfrentar os monstros e proteger a paz da vila! 
+			</fala>
+		<itens>
+		</falas>
+			<item>MISSAO RANK A</item>
+			<item>MISSAO RANK B</item>
+			<item>MISSAO RANK C</item>
+			<item>MISSAO RANK S</item>
+		</itens>
+	</npc>
+
+
+
+
+
+</list>
