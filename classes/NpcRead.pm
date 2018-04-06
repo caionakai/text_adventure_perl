@@ -4,16 +4,8 @@ BEGIN {
 }
 
 
-BEGIN {
-  unshift @INC,"./classes";
-  #@INC is the directory list, where perl searches for .pm files
-}
 
 package NpcRead;
-
-use 5.010;
-use strict;
-use warnings;
 
 use Npc;
 use XML::LibXML;

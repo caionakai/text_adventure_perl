@@ -11,6 +11,7 @@ use Cena;
 use Inventario;
 use Jogo;
 use Npc;
+use NpcRead;
 
 my @vet_npc = new NpcRead("npc.xml");
 print (@vet_npc);
