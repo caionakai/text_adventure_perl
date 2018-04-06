@@ -6,25 +6,23 @@ package Jogo;
 use strict;
 use warnings;
 use Cena;
+
+our @cenas;							#variavel global
+our $cena_atual;					#variavel global
 sub new
 {	
     my ( $class ) = shift;
-    my $JogoData = {
-        cenas => [],
-        cena_atual => shift,	#index do vetor 
+    @cenas = @_;					#vetor de cenas
+    $cena_atual = 0,				#index do vetor 
 
-    };
-    my @listCena;
-    bless $JogoData, $class;
-
-
-    return $JogoData;
+    return bless {}, $class;
 }
 
 sub get_cenas{
-    my ($JogoData)= @_;
-    #print $JogoData->{cenas}->get_titulo;
-    return @{$JogoData->{cenas}} ;
+	my $class=shift;
+	my $i = shift;
+	#print ($cenas[$i]);
+    return $cenas[$i];
 }
 
 

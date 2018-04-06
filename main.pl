@@ -18,17 +18,21 @@ use Jogo;
 
 my @teste = new CenaRead("cena.xml");
 my $jogo = new Jogo(@teste);
-my @vetor = new Cena();
-my $n = 0;
+#$jogo->get_cenas(1);
+print ($jogo->get_cenas(1)->get_titulo());
+
+#my @vetor = new Cena();
+#my $n = 0;
+
 
 #while ($n < 10){
 #	@vetor[$n] = new Cena();
 #	$n = $n + 1; 
 #}
 
-@vetor = $jogo->get_cenas;
+#@vetor = $jogo->get_cenas;
 
-print $vetor[0]->get_titulo;
+#print $vetor[0]->get_titulo;
 
 #foreach my $elem(@vetor){
 #	print $elem->get_titulo;
