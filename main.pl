@@ -10,14 +10,19 @@ use CenaRead;
 use Cena;
 use Inventario;
 use Jogo;
+use Npc;
 
-my @xml= new ObjetoRead("object.xml");
-my $inventory= new Inventario(5);
+my @vet_npc = new NpcRead("npc.xml");
+print (@vet_npc);
 
-foreach my $i (0 .. $#xml) {
-  $inventory->add_item($xml[$i]);
-}
-$inventory->print_list_of_itens();
+
+#my @xml= new ObjetoRead("object.xml");
+#my $inventory= new Inventario(5);
+
+#foreach my $i (0 .. $#xml) {
+#  $inventory->add_item($xml[$i]);
+#}
+#$inventory->print_list_of_itens();
 #$inventory->remove(0);
 #$inventory->print();
 
@@ -25,10 +30,10 @@ $inventory->print_list_of_itens();
 #  print $i->get_nome,"\n";
 #}
 
-my @teste = new CenaRead("cena.xml");
-my $jogo = new Jogo(@teste);
+#my @teste = new CenaRead("cena.xml");
+#my $jogo = new Jogo(@teste);
 #$jogo->get_cenas(1);
-print ($jogo->get_cenas(1)->get_titulo());
+#print ($jogo->get_cenas(1)->get_titulo());
 
 #my @vetor = new Cena();
 #my $n = 0;

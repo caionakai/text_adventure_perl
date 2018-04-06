@@ -22,7 +22,6 @@ sub new
     my $obj;
     my @list_of_object=();
     foreach my $object ($file->findnodes('/list/object')) {
-        
         $obj= new Objeto($object->findvalue("./id"),$object->findvalue("./tipo"),$object->findvalue("./nome"),$object->findvalue("./descricao"));
         push (@list_of_object,$obj);
     }
