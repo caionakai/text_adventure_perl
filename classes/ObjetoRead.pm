@@ -31,6 +31,7 @@ sub new
             new Objeto(
                 $object->findvalue("./id"),
                 $object->findvalue("./tipo"),
+                $object->findvalue("./espaco"),
                 $object->findvalue("./nome"),
                 $object->findvalue('./dano/@min'),
                 $object->findvalue('./dano/@max'),
