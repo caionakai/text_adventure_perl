@@ -8,6 +8,7 @@ BEGIN {
 package NpcRead;
 
 use Npc;
+use Objeto;
 use XML::LibXML;
 
 my $dom;
@@ -16,6 +17,7 @@ sub new
 {
     my ( $class ) = shift;
     my $file = XML::LibXML->load_xml(location => shift);
+    my $objeto= shift;
     my $temp;
     my @list_of_npc=();
   
@@ -30,8 +32,9 @@ sub new
         $temp->set_fala(@aux);
         # @aux2 recebe 'item' em cada posicao do array
         my @aux2 = map{
-            $_->to_literal(); 
+            $objeto->get_obj_by_id($_->to_literal()); 
         }$npc->findnodes('./itens/item');
+        
         $temp->set_item(@aux2);
 
         push (@list_of_npc,$temp);

@@ -14,11 +14,11 @@ use Npc;
 use NpcRead;
 
 ## CRIAR VETOR DE OBJETOS ##
-#my @vet_obj = new ObjetoRead("object.xml");
+my $objeto = new ObjetoRead("object.xml");
 
 ## CRIAR VETOR DE NPC ##
-my @vet_npc = new NpcRead("npc.xml");
-
+my @vet_npc = new NpcRead("npc.xml",$objeto);
+print ($vet_npc[0]->get_item(0)->get_nome());
 ## Fazer: 
 #$vet_npc[0]->set_item(@vet_obj);
 
@@ -35,9 +35,7 @@ my @vet_npc = new NpcRead("npc.xml");
 
 
 
-my @xml= new ObjetoRead("object.xml");
 
-$xml[0]->get_id();
 #my $inventory= new Inventario(5);
 
 #foreach my $i (0 .. $#xml) {

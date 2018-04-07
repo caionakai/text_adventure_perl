@@ -75,7 +75,6 @@ sub set_item{
 sub get_item{
     my $self = shift;
     my $i = shift;
-
     return $self->{itens}[$i];
 }
 
