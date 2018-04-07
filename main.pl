@@ -13,11 +13,14 @@ use Jogo;
 use Npc;
 use NpcRead;
 
+## CRIAR VETOR DE OBJETOS ##
+#my @vet_obj = new ObjetoRead("object.xml");
 
 ## CRIAR VETOR DE NPC ##
 my @vet_npc = new NpcRead("npc.xml");
 
-
+## Fazer: 
+#$vet_npc[0]->set_item(@vet_obj);
 
 
 ## RECEBER VETOR DE CENAS ##

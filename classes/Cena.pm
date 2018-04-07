@@ -2,39 +2,84 @@ package Cena;
 sub new
 {
     my ( $class ) = shift;
-    my $CenaData = {
-        id => shift,
-        titulo => shift,
-        descricao => shift,
-        itens => shift
+    my $self = { };
+    bless $self;
+    $self->{"id"} = "";
+    $self->{"titulo"} = "";
+    $self->{"descricao"} = "";
+    $self->{"itens"} = [];
+    $self->{"npcs"} = [];
 
-    };
-    bless $CenaData, $class;
-
-    return $CenaData;
+    return $self;
 }
 sub get_titulo{
-    my ($CenaData)= @_;
+    my $self = shift;
+    return $self->{titulo};
+}
 
-    return $CenaData->{titulo};
+sub set_titulo{
+    my $self = shift;
+    my $value = shift;
+
+    $self->{titulo} = $value;
 }
 
 sub get_id{
-    my ($CenaData)= @_;
+    my $self = shift;
+    return $self->{id};
+}
 
-    return $CenaData->{id};
+sub set_id{
+    my $self = shift;
+    my $value = shift;
+
+    $self->{id} = $value;
 }
 
 sub get_descricao{
-    my ($CenaData)= @_;
+    my $self = shift;
+    return $self->{descricao};
+}
 
-    return $CenaData->{descricao};
+sub set_descricao{
+    my $self = shift;
+    my $value = shift;
+
+    $self->{descricao} = $value;
 }
 
 sub get_itens{
-    my ($CenaData)= @_;
+    my $self = shift;
+    my $i = shift;
 
-    return $CenaData->{itens};
+    return $self->{itens}[$i];
+}
+
+sub set_item{
+    my $self = shift;
+    my @value = @_;
+    
+    # loop para colocar todas os 'item' dentro do vetor de'itens'
+    foreach my $i (0..$#value){
+        push ((@{$self->{itens}}), $value[$i]);
+    }
+}
+
+sub get_npcs{
+    my $self = shift;
+    my $i = shift;
+
+    return $self->{npcs}[$i];
+}
+
+sub set_npcs{
+    my $self = shift;
+    my @value = @_;
+    
+    # loop para colocar todas os 'npc' dentro do vetor de'npcs'
+    foreach my $i (0..$#value){
+        push ((@{$self->{npcs}}), $value[$i]);
+    }
 }
 
 1;

@@ -16,7 +16,14 @@
 		</itens>
 	</npc>
 
-
+	<npc>
+		<id>2</id>
+		<nome>Aventureiro Experiente</nome>
+		<falas>
+			<fala>Ouvi dizer que o covil dos lobos é um ótimo lugar para iniciantes juntarem dinheiro.</fala>
+			<fala>Tome cuidado com o covil dos minotaurous, nem mesmo eu consigo realizar missões por lá. Há boatos que o minotauro chefe despertou e desde então ninguém que entrou lá saiu com vida.</fala>
+		</falas>
+	</npc>
 
 
 

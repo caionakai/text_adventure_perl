@@ -33,4 +33,11 @@
     <descricao>Espada produzida com minerio de ferro.</descricao>
 </object>
 
+<object>
+    <id>4</id>
+    <tipo>missao</tipo>
+    <nome>MISSAO RANK A</nome>
+    <descricao>Elimine 5 goblins e 3 hobgoblins! Recompensa: 200 ouro.</descricao>
+</object>
+
 </list>
