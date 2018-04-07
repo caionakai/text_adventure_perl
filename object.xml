@@ -1,16 +1,36 @@
 <list>
 <object>
     <id>1</id>
-    <tipo>refil</tipo>
-    <nome>Pedra</nome>
-    <descricao>Objeto duro que pode ser utilizado para fabricação de arma ou para arremesso</descricao>
+    <tipo>espada</tipo>
+    <nome>Espada de madeira</nome>
+    <dano min="2" max="5"/>
+    <durabilidade>5</durabilidade>
+    <descricao>Espada produzida com minerio de ferro.</descricao>
 </object>
 
 <object>
     <id>2</id>
-    <tipo>arma</tipo>
+    <tipo>espada</tipo>
+    <nome>Espada de Pedra</nome>
+    <dano min="5" max="15"/>
+    <durabilidade>10</durabilidade>
+    <slots>
+        <slot>Empty</slot>
+    </slots>
+    <descricao>Espada produzida com pedras.</descricao>
+</object>
+
+<object>
+    <id>3</id>
+    <tipo>espada</tipo>
     <nome>Espada de Ferro</nome>
-    <descricao>Afiada porem pesada</descricao>
+    <dano min="10" max="25"/>
+    <durabilidade>20</durabilidade>
+    <slots>
+        <slot>Empty</slot>
+        <slot>Empty</slot>
+    </slots>
+    <descricao>Espada produzida com minerio de ferro.</descricao>
 </object>
 
 </list>

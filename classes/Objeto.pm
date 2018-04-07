@@ -1,5 +1,8 @@
 package Objeto;
 
+
+our @slots;
+
 sub new
 {
     my ( $class ) = shift;
@@ -7,7 +10,9 @@ sub new
         id => shift,
         tipo => shift,
         nome => shift,
-        descricao => shift,
+        dano_min=>shift,
+        dano_max=>shift,       
+        #descricao=>"",
         #resultado_positivo => shift,
         #resultado_negativo => shift,
         #comando_correto => shift,
@@ -15,13 +20,20 @@ sub new
         #resolvido => 0
 
     };
+    my $i=shift;
+    while($i >= 0){
+        push(@slots,shift);
+        $i=$i-1;
+    }
+    $ObjetoData->{descricao}=shift;
     bless $ObjetoData, $class;
 
     return $ObjetoData;
 }
 sub valor{
+    my $self=shift;
+    
     my ($ObjetoData)= @_;
     print $ObjetoData->{nome},"\n";
 }
-
 1;

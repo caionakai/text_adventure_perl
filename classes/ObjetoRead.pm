@@ -21,8 +21,23 @@ sub new
     my $file = XML::LibXML->load_xml(location => shift);
     my $obj;
     my @list_of_object=();
+    
     foreach my $object ($file->findnodes('/list/object')) {
-        $obj= new Objeto($object->findvalue("./id"),$object->findvalue("./tipo"),$object->findvalue("./nome"),$object->findvalue("./descricao"));
+        
+        # Pega um array de nodes e adiciona em um array!
+        my @slot= map {
+            $_->to_literal();
+        }$object->findnodes('./slots/slot');
+
+        $obj= new Objeto(
+            $object->findvalue("./id"),
+            $object->findvalue("./tipo"),
+            $object->findvalue("./nome"),
+            $object->findvalue('./dano/@min'),
+            $object->findvalue('./dano/@max'),
+            $#slot,#$i da ultima casas do array 
+            @slot,#array
+            $object->findvalue("./descricao"));
         push (@list_of_object,$obj);
     }
     return @list_of_object;
