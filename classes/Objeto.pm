@@ -21,8 +21,12 @@ sub new
 
     return $self;
 }
+sub get_nome(){
+    my $self=shift;
+    return $self->{nome};
+}
 sub get_id{
     my $self=shift;
-    print $self->{nome},"\n";
+    return $self->{id};
 }
 1;
