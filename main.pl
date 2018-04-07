@@ -13,8 +13,23 @@ use Jogo;
 use Npc;
 use NpcRead;
 
+
+## CRIAR VETOR DE NPC ##
 my @vet_npc = new NpcRead("npc.xml");
-print (@vet_npc);
+
+
+
+
+## RECEBER VETOR DE CENAS ##
+#my @vet_cena = new CenaRead("cena.xml");
+
+## INSTANCIAR JOGO PASSANDO O VETOR DE CENAS ##
+#my $jogo = new Jogo(@vet_cena);
+
+## 
+
+
+
 
 
 #my @xml= new ObjetoRead("object.xml");
@@ -31,8 +46,6 @@ print (@vet_npc);
 #  print $i->get_nome,"\n";
 #}
 
-#my @teste = new CenaRead("cena.xml");
-#my $jogo = new Jogo(@teste);
 #$jogo->get_cenas(1);
 #print ($jogo->get_cenas(1)->get_titulo());
 

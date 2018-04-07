@@ -18,8 +18,23 @@ sub new
     my $file = XML::LibXML->load_xml(location => shift);
     my $temp;
     my @list_of_npc=();
+  
     foreach my $npc ($file->findnodes('/list/npc')) {
         $temp= new Npc($npc->findvalue("./id"),$npc->findvalue("./nome"),$npc->findvalue("./falas/fala"),$npc->findvalue("./itens/item"));
+        $temp->set_id($npc->findvalue("./id"));
+        $temp->set_nome($npc->findvalue("./nome"));
+        # @aux recebe 'fala' em cada posicao do array
+        my @aux = map{
+            $_->to_literal(); 
+        }$npc->findnodes('./falas/fala');
+        $temp->set_fala(@aux);
+        # @aux2 recebe 'item' em cada posicao do array
+        my @aux2 = map{
+            $_->to_literal(); 
+        }$npc->findnodes('./itens/item');
+        $temp->set_item(@aux2);
+        print ($temp->get_item(0));
+
         push (@list_of_npc,$temp);
     }
     return @list_of_npc;
