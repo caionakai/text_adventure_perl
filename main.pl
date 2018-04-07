@@ -32,7 +32,9 @@ my @vet_npc = new NpcRead("npc.xml");
 
 
 
-#my @xml= new ObjetoRead("object.xml");
+my @xml= new ObjetoRead("object.xml");
+
+$xml[0]->get_id();
 #my $inventory= new Inventario(5);
 
 #foreach my $i (0 .. $#xml) {

@@ -33,7 +33,6 @@ sub new
             $_->to_literal(); 
         }$npc->findnodes('./itens/item');
         $temp->set_item(@aux2);
-        print ($temp->get_item(0));
 
         push (@list_of_npc,$temp);
     }
