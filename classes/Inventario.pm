@@ -6,30 +6,26 @@ BEGIN {
 }
 
 use Objeto;
-our @itens;
-our $limit;
 
 sub new {
-    @itens=();
-    $limit=5;
-
     my $class = shift;
-    return bless {}, $class;
+    my $self;
+    $self->{limite}=5;
+    $self->{itens}=[];
+    $self->{quantidade}=0;  
+    return bless $self, $class;
   }
 
 # use_item($comando,$item)
 sub use_item{ 
     my $self=shift;
-    my $comando=shift @_;
-    my $item=shift @_;
-
 }
 sub add_item{
     my $self=shift;
-    my $value= shift @_;
-    if(scalar @itens< $limit){
-        push @itens,$value;
-        $limit=$limit+1;
+    my $value= shift;
+    if(scalar @{$self->{itens}}< $self->{limite}){
+        push @{$self->{itens}},$value;
+        $self->{quantidade}=$value->{espaco}+$self->{quantidade};
         return 1;#Sucesso
     }
     else{
@@ -37,8 +33,9 @@ sub add_item{
     }
 }
 sub print_list_of_itens{
-    foreach my $i (0 .. $#itens) {
-        $itens[$i]->valor();
+    my $self=shift;
+    foreach my $i (0 .. $#{$self->{itens}}) {
+        ${$self->{itens}}[$i]->valor();
     }
 }
 

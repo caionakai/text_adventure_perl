@@ -5,18 +5,28 @@ sub new
 {
     my ( $class ) = shift;
     my $self = {};
+    bless $self, $class;
+    #padra em todos
     $self->{id}=shift;
     $self->{tipo}=shift;
+    $self->{espaco}=shift;
     $self->{nome}=shift;
-    $self->{dano_min}=shift;
-    $self->{dano_max}=shift;
-    $self->{slots}=[];
-    bless $self, $class;
-    my $i=shift;
-    while($i >= 0){
-        push(@{$self->{slots}},shift);
-        $i=$i-1;
+
+    if($self->{tipo}=="arma"){
+        $self->{dano_min}=shift;
+        $self->{dano_max}=shift;
+        $self->{slots}=[];
+        my $i=shift;
+        
+        while($i >= 0){
+            push(@{$self->{slots}},shift);
+            $i=$i-1;
+        }
     }
+    elsif($self->{tipo}=="missao"){
+
+    }
+
     $self->{descricao}=shift;
 
     return $self;

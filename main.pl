@@ -18,7 +18,6 @@ my $objeto = new ObjetoRead("object.xml");
 
 ## CRIAR VETOR DE NPC ##
 my @vet_npc = new NpcRead("npc.xml",$objeto);
-print ($vet_npc[0]->get_item(0)->get_nome());
 ## Fazer: 
 #$vet_npc[0]->set_item(@vet_obj);
 

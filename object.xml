@@ -1,7 +1,8 @@
 <list>
 <object>
     <id>1</id>
-    <tipo>espada</tipo>
+    <tipo>arma</tipo>
+    <espaco>1</espaco>
     <nome>Espada de madeira</nome>
     <dano min="2" max="5"/>
     <durabilidade>5</durabilidade>
@@ -10,7 +11,8 @@
 
 <object>
     <id>2</id>
-    <tipo>espada</tipo>
+    <tipo>arma</tipo>
+    <espaco>1</espaco>
     <nome>Espada de Pedra</nome>
     <dano min="5" max="15"/>
     <durabilidade>10</durabilidade>
@@ -22,7 +24,8 @@
 
 <object>
     <id>3</id>
-    <tipo>espada</tipo>
+    <tipo>arma</tipo>
+    <espaco>1</espaco>
     <nome>Espada de Ferro</nome>
     <dano min="10" max="25"/>
     <durabilidade>20</durabilidade>
@@ -36,6 +39,7 @@
 <object>
     <id>4</id>
     <tipo>missao</tipo>
+    <espaco>0</espaco>
     <nome>MISSAO RANK A</nome>
     <descricao>Elimine 5 goblins e 3 hobgoblins! Recompensa: 200 ouro.</descricao>
 </object>
