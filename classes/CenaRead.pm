@@ -23,7 +23,7 @@ sub new
     my $temp;
     my $self;
     $self->{npcs}=[];
-    
+
     foreach my $cena ($file->findnodes('/list/cena')) {
         
         $temp= new Cena();
@@ -33,12 +33,12 @@ sub new
         # @aux recebe 'npc' em cada posicao do array
         my @aux = map{
            $npc->get_npc_by_id($_->to_literal());
-        }$npc->findnodes('./npcs/npc');
-        $temp->set_npc(@aux);
+        }$cena->findnodes('./npcs/npc');
+        $temp->set_npcs(@aux);
 
         my @aux2 = map{
             $objeto->get_obj_by_id($_->to_literal()); 
-        }$npc->findnodes('./itens/item');
+        }$cena->findnodes('./itens/item');
         $temp->set_item(@aux2);
 
         push (@{$self->{npcs}},$temp);
