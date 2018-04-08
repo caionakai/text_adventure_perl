@@ -13,20 +13,40 @@ use warnings;
 use Cena;
 use XML::LibXML;
 
-my $dom;
 
 sub new
 {
     my ( $class ) = shift;
     my $file = XML::LibXML->load_xml(location => shift);
+    my $objeto = shift;
+    my $npc = shift;
     my $temp;
-    my @list_of_cena=();
+    my $self;
+    $self->{npcs}=[];
+    
     foreach my $cena ($file->findnodes('/list/cena')) {
         
-        $temp= new Cena($cena->findvalue("./id"),$cena->findvalue("./titulo"),$cena->findvalue("./descricao"),$cena->findvalue("./itens"));
-        push (@list_of_cena,$temp);
+        $temp= new Cena();
+        $temp->set_id($cena->findvalue("./id"));
+        $temp->set_titulo($cena->findvalue("./titulo"));
+        $temp->set_descricao($cena->findvalue("./descricao"));
+        # @aux recebe 'npc' em cada posicao do array
+        my @aux = map{
+           $npc->get_npc_by_id($_->to_literal());
+        }$npc->findnodes('./npcs/npc');
+        $temp->set_npc(@aux);
+
+        my @aux2 = map{
+            $objeto->get_obj_by_id($_->to_literal()); 
+        }$npc->findnodes('./itens/item');
+        $temp->set_item(@aux2);
+
+        push (@{$self->{npcs}},$temp);
     }
-    return @list_of_cena;
+    
+    return bless $self, $class;
 }
+
+
 
 1;

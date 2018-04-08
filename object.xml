@@ -44,4 +44,12 @@
     <descricao>Elimine 5 goblins e 3 hobgoblins! Recompensa: 200 ouro.</descricao>
 </object>
 
+<object>
+    <id>5</id>
+    <tipo>comum</tipo>
+    <espaco>1</espaco>
+    <nome>COPO DE CERVEJA</nome>
+    <descricao>Esta é uma cerveja deixada por um aventureiro.</descricao>
+</object>
+
 </list>

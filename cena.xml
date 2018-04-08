@@ -3,10 +3,12 @@
         <id>1</id>
         <titulo>Guilda dos Aventureiros</titulo>
         <descricao>Local onde os aventureiros se encontram para realizar missões e efetuar transações para adquirir renda ou itens.</descricao>
+        <npcs>
+            <npc>1</npc>
+            <npc>2</npc>
+        </npcs>
         <itens>
-            <item>FERREIRO</item>
-            <item>VENDEDOR</item>
-            <item>MURAL</item>
+            <item>5</item>
         </itens>
     </cena>
 
@@ -69,14 +71,5 @@
 
     </cena>
 
-    <cena>
-        <id>7</id>
-        <titulo></titulo>
-        <descricao></descricao>
-        <itens>
-            <item></item>
-            <item></item>
-            <item></item>
-        </itens>
 
-    </cena>
+</list>
