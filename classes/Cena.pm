@@ -82,4 +82,20 @@ sub set_npcs{
     }
 }
 
+sub print_all_npcs{
+    my $self = shift;
+    print ("NPCS: ");
+    foreach my $i (@{$self->{npcs}}){
+        print($i->get_nome(), ", ");
+    }
+}
+
+sub print_all_obj{
+    my $self = shift;
+    print ("OBJETOS: ");
+    foreach my $i (@{$self->{itens}}){
+        print($i->get_nome(), ", ");
+    }
+}
+
 1;

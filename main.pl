@@ -23,6 +23,12 @@ my $npc = new NpcRead("npc.xml",$objetos);
 ## INSTANCIAR CLASSE DE CENAS ##
 my $cenas = new CenaRead("cena.xml",$objetos,$npc);
 
+## @{$cenas->{npcs}} é na verdade um vetor de cenas '-'
+
+print (${$cenas->{npcs}}[0]->print_all_npcs());
+print (${$cenas->{npcs}}[0]->print_all_obj());
+
+
 ## INSTANCIAR JOGO PASSANDO O VETOR DE CENAS ##
 #my $jogo = new Jogo(@vet_cena);
 

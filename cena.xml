@@ -13,63 +13,17 @@
     </cena>
 
     <cena>
-        <id>2</id>
-        <titulo>Feira</titulo>
-        <descricao>Local onde é realizada a venda e compra de equipamentos e poções.</descricao>
-        <itens>
-            <item>COMERCIANTE DE EQUIPAMENTOS</item>
-            <item>COMERCIANTE DE POÇÕES</item>
-        </itens>
-
-    </cena>
-
-    <cena>
         <id>3</id>
         <titulo>Covil dos Lobos</titulo>
         <descricao>Este ambiente possui pouca iluminação e possui várias espécies de lobos vivendo por aqui, é recomendável utilizar equipamentos básicos.</descricao>
-        <itens>
-            <item>LOBO </item>
-            <item>LOBO SANGUINÁRIO</item>
-            <item>LOBO CHEFE</item>
-        </itens>
+        <monstros>
+            <monstro>6</monstro>
+            <monstro>7</monstro>
+            <monstro>8</monstro>
+        </monstros>
 
     </cena>
-
-    <cena>
-        <id>4</id>
-        <titulo>Covil dos Goblins</titulo>
-        <descricao></descricao>
-        <itens>
-            <item>GOBLIN</item>
-            <item>HOBGOBLIN</item>
-            <item>GOBLIN CHEFE</item>
-        </itens>
-
-    </cena>
-
-    <cena>
-        <id>5</id>
-        <titulo>Covil dos Orcs</titulo>
-        <descricao></descricao>
-        <itens>
-            <item>ORC</item>
-            <item>ORC ZEN</item>
-            <item>ORC CHEFE</item>
-        </itens>
-
-    </cena>
-
-    <cena>
-        <id>6</id>
-        <titulo>Covil dos Minotauros</titulo>
-        <descricao></descricao>
-        <itens>
-            <item>MINOTAURO</item>
-            <item>MINOTAURO ARQUEIRO</item>
-            <item>MINOTAURO CHEFE</item>
-        </itens>
-
-    </cena>
+    
 
 
 </list>

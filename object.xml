@@ -52,4 +52,29 @@
     <descricao>Esta é uma cerveja deixada por um aventureiro.</descricao>
 </object>
 
+<object>
+    <id>6</id>
+    <tipo>monstro</tipo>
+    <espaco>0</espaco>
+    <nome>LOBO</nome>
+    <descricao>Um pequeno lobo selvagem.</descricao>
+</object>
+
+<object>
+    <id>7</id>
+    <tipo>monstro</tipo>
+    <espaco>0</espaco>
+    <nome>LOBO SANGUINÁRIO</nome>
+    <descricao>Um pequeno lobo selvagem e sanguinário.</descricao>
+</object>
+
+<object>
+    <id>8</id>
+    <tipo>monstro</tipo>
+    <espaco>0</espaco>
+    <nome>LOBO CHEFE</nome>
+    <descricao>Um lobo alfa.</descricao>
+</object>
+
+
 </list>
