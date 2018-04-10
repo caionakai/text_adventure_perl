@@ -1,4 +1,4 @@
-package Inventario;
+package Personagem;
 
 BEGIN {
   unshift @INC,"./classes";
@@ -10,7 +10,17 @@ use Objeto;
 sub new {
     my $class = shift;
     my $self;
+
+    $self->{dinheiro}=0;
+    
+    #quest
+    $self->{missoes_concluidas}=[];
+    $self->{missoes_ativas}=[];
+    
+    
+    #bag sem mochila=5 
     $self->{limite}=5;
+    #inventario
     $self->{itens}=[];
     $self->{quantidade}=0;  
     return bless $self, $class;

@@ -7,7 +7,7 @@ use strict;
 use warnings;
 use Cena;
 use CenaRead;
-use Inventario;
+use Personagem;
 use ObjetoRead;
 use Objeto;
 use Npc;
@@ -18,12 +18,38 @@ sub new
     my ( $class ) = shift;
     my $self = { };
     bless $self;
-    $self->{"cenas"} = [];					#vetor de cenas
-    $self->{"cena_atual"} = 0;				#index do vetor 
-
+    $self->{cenas} = [];					#vetor de cenas
+    $self->{cena_atual} = 0;				#index do vetor 
+    
     return $self;
 }
+sub init{
+    my $self= shift;
+    ## INSTACIAR CLASSE DE OBJETOS ##
+    $self->{objetos} = new ObjetoRead("object.xml");
+    $self->{objetos}->preparar_missoes();
 
+
+    ## INSTANCIAR CLASSE DE NPCS ##
+    $self->{npc} = new NpcRead("npc.xml",$self->{objetos});
+
+
+    ## INSTANCIAR CLASSE DE CENAS ##
+    $self->{cenas} = new CenaRead("cena.xml",$self->{objetos},$self->{npc});
+}
+sub game_start{
+    my $self=shift;
+    print("Digite QUIT para sair!\n");
+    while(1){
+        my $evento= <>;# aguarda a entrada do usuario
+        chomp ($evento);#transforma $evento em uma string
+
+        if (lc $evento eq "sair" || lc $evento eq "quit" ){
+            print ("até a proxima velho amigo");
+            exit(1);
+        }
+    }
+}
 sub get_cenas{
 	my $self=shift;
 	my $i = shift;

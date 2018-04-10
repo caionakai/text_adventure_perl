@@ -41,7 +41,11 @@
     <tipo>missao</tipo>
     <espaco>0</espaco>
     <nome>MISSAO RANK A</nome>
-    <descricao>Elimine 5 goblins e 3 hobgoblins! Recompensa: 200 ouro.</descricao>
+    <descricao>Alguns lobos estão aterrorizando os viagentes, por favor ajude-nos a eliminarmos essa ameaça.</descricao>
+    <recompensa>200</recompensa>
+    <quest>
+        <objetivo id="7" numero="5"></objetivo>
+    </quest>
 </object>
 
 <object>

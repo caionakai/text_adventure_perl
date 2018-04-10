@@ -19,27 +19,37 @@ sub new
     my $file = XML::LibXML->load_xml(location => shift);
     my $self;
     $self->{objects}=[];
-    
     foreach my $object ($file->findnodes('/list/object')) {
         
         # Pega um array de nodes e adiciona em um array!
-        my @slot= map {
-            $_->to_literal();
-        }$object->findnodes('./slots/slot');
+        my $new_object= new Objeto();
+        $new_object->set_id($object->findvalue("./id"));
+        $new_object->set_tipo($object->findvalue("./tipo"));
+        $new_object->set_espaco($object->findvalue("./espaco"));
+        $new_object->set_nome($object->findvalue("./nome"));
+        $new_object->set_descricao($object->findvalue("./descricao"));
 
-        push @{$self->{objects}} ,
-            new Objeto(
-                $object->findvalue("./id"),
-                $object->findvalue("./tipo"),
-                $object->findvalue("./espaco"),
-                $object->findvalue("./nome"),
-                $object->findvalue('./dano/@min'),
-                $object->findvalue('./dano/@max'),
-                $#slot,#$i da ultima casas do array 
-                @slot,#array
-                $object->findvalue("./descricao")
-            );
+        if($object->findvalue("./tipo") eq "arma"){
+            my @slot= map {
+                $_->to_literal();
+            }$object->findnodes('./slots/slot');
 
+            $new_object->set_slots(@slot);
+            $new_object->set_dano_min($object->findvalue('./dano/@min'));
+            $new_object->set_dano_max($object->findvalue('./dano/@max'));
+        }
+        elsif($object->findvalue("./tipo") eq "missao"){
+            my @quest= map {
+                {
+                    alvo=>$_->findvalue('./@id'),
+                    quantidade=>$_->findvalue('./@numero'),
+                };
+            }$object->findnodes('./quest/objetivo');
+            
+            $new_object->set_objetivo(@quest);
+            $new_object->set_recompensa($object->findvalue('./recompensa'));
+        }
+        push @{$self->{objects}},$new_object;
     }
     return bless $self,$class;
 }
@@ -57,5 +67,22 @@ sub get_obj_by_id(){
         }
     }
     return -1;
+}
+sub preparar_missoes(){
+    my $self= shift;
+    foreach my $i (@{$self->{objects}}){
+        if($i->is_mission()){
+            my @objetivos= $i->get_objetivo();
+            my @new_objetivos=();
+            foreach my $j (@objetivos){
+                push @new_objetivos, { 
+                    alvo=>          $self->get_obj_by_id($j->{alvo}),
+                    quantidade=>    $j->{quantidade}
+                    };
+            }
+            $i->set_objetivo(@new_objetivos);
+            
+        }
+    }
 }
 1;

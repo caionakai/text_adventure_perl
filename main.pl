@@ -8,25 +8,19 @@ use ObjetoRead;
 use Objeto;
 use CenaRead;
 use Cena;
-use Inventario;
+use Personagem;
 use Jogo;
 use Npc;
 use NpcRead;
 
-## INSTACIAR CLASSE DE OBJETOS ##
-my $objetos = new ObjetoRead("object.xml");
 
-## INSTANCIAR CLASSE DE NPCS ##
-my $npc = new NpcRead("npc.xml",$objetos);
-
-
-## INSTANCIAR CLASSE DE CENAS ##
-my $cenas = new CenaRead("cena.xml",$objetos,$npc);
-
+my $game = new Jogo();
+$game->init();
+$game->game_start;
 ## @{$cenas->{npcs}} é na verdade um vetor de cenas '-'
 
-print (${$cenas->{npcs}}[0]->print_all_npcs());
-print (${$cenas->{npcs}}[0]->print_all_obj());
+#print (${$cenas->{npcs}}[0]->print_all_npcs());
+#print (${$cenas->{npcs}}[0]->print_all_obj());
 
 
 ## INSTANCIAR JOGO PASSANDO O VETOR DE CENAS ##
