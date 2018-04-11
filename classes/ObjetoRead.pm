@@ -29,14 +29,19 @@ sub new
         $new_object->set_nome($object->findvalue("./nome"));
         $new_object->set_descricao($object->findvalue("./descricao"));
 
-        if($object->findvalue("./tipo") eq "arma"){
+        if($object->findvalue("./tipo") eq "arma" || $object->findvalue("./tipo") eq "armadura"){
             my @slot= map {
                 $_->to_literal();
             }$object->findnodes('./slots/slot');
 
             $new_object->set_slots(@slot);
-            $new_object->set_dano_min($object->findvalue('./dano/@min'));
-            $new_object->set_dano_max($object->findvalue('./dano/@max'));
+            if($object->findvalue("./tipo") eq "armadura"){
+                $new_object->set_defesa($object->findvalue('./defesa'));
+            }
+            else{
+                $new_object->set_dano_min($object->findvalue('./dano/@min'));
+                $new_object->set_dano_max($object->findvalue('./dano/@max'));  
+            }
         }
         elsif($object->findvalue("./tipo") eq "missao"){
             my @quest= map {
@@ -48,6 +53,12 @@ sub new
             
             $new_object->set_objetivo(@quest);
             $new_object->set_recompensa($object->findvalue('./recompensa'));
+        }
+        elsif( $object->findvalue("./tipo") eq  "monstro" || $object->findvalue("./tipo") eq  "personagem"){
+            
+            $new_object->set_dano_min($object->findvalue('./dano/@min'));
+            $new_object->set_dano_max($object->findvalue('./dano/@max'));
+            $new_object->set_defesa($object->findvalue('./defesa'));
         }
         push @{$self->{objects}},$new_object;
     }

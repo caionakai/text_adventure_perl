@@ -19,12 +19,18 @@ sub new
     #armas e armaduras
     $self->{slots}=[];
     
+    #armas e monstros
     $self->{dano_min}=0;
     $self->{dano_max}=0;
     
-    $self->{armadura}=0;
+    # armadura e monstro
+    $self->{defesa}=0;
 
     return $self;
+}
+sub set_defesa(){
+    my $self=shift;
+    $self->{defesa}=shift;
 }
 sub set_recompensa(){
     my $self=shift;

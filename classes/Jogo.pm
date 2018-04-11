@@ -36,6 +36,9 @@ sub init{
 
     ## INSTANCIAR CLASSE DE CENAS ##
     $self->{cenas} = new CenaRead("cena.xml",$self->{objetos},$self->{npc});
+
+    ## Inicializar Inventario ##
+    
 }
 sub game_start{
     my $self=shift;

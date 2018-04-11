@@ -1,5 +1,15 @@
 <list>
 <object>
+    <id>0</id>
+    <tipo>personagem</tipo>
+    <espaco>-5</espaco>
+    <nome>JOHN DOE</nome>
+    <descricao>Aventureiro iniciante.</descricao>
+    <dano min="2" max="5"/>
+    <defesa>10</defesa>
+</object>
+
+<object>
     <id>1</id>
     <tipo>arma</tipo>
     <espaco>1</espaco>
@@ -62,6 +72,8 @@
     <espaco>0</espaco>
     <nome>LOBO</nome>
     <descricao>Um pequeno lobo selvagem.</descricao>
+    <dano min="3" max="5"/>
+    <defesa>5</defesa>
 </object>
 
 <object>
@@ -70,6 +82,8 @@
     <espaco>0</espaco>
     <nome>LOBO SANGUINÁRIO</nome>
     <descricao>Um pequeno lobo selvagem e sanguinário.</descricao>
+    <dano min="10" max="25"/>
+    <defesa>20</defesa>
 </object>
 
 <object>
@@ -78,6 +92,17 @@
     <espaco>0</espaco>
     <nome>LOBO CHEFE</nome>
     <descricao>Um lobo alfa.</descricao>
+    <dano min="20" max="30"/>
+    <defesa>25</defesa>
+</object>
+
+<object>
+    <id>9</id>
+    <tipo>armadura</tipo>
+    <espaco>1</espaco>
+    <nome>ARMADURA DE COURO</nome>
+    <descricao>Armadura feita usando couro de um monstro.</descricao>
+    <defesa>5</defesa>
 </object>
 
 
