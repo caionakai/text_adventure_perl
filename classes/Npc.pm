@@ -78,4 +78,17 @@ sub get_item{
     return $self->{itens}[$i];
 }
 
+sub comandos_possiveis{
+    my $self=shift;
+    my @commandos=();
+
+    foreach my $i (@{$self->{itens}}){
+        push @commandos, ("buy",$i->get_nome);
+        push @commandos, ("sell",$i->get_nome);
+        push @commandos, ("check",$i->get_nome);
+    }
+    push @commandos, "bye";
+    return @commandos;
+}
+
 1;

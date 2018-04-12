@@ -105,5 +105,12 @@
     <defesa>5</defesa>
 </object>
 
+<object>
+    <id>10</id>
+    <tipo>espacial</tipo>
+    <espaco>0</espaco>
+    <nome>PEDRA DE TELETRANSPORTE</nome>
+    <descricao>Um objeto misterioso criado por um grande mago, a qual interfere com as leis espaciais.</descricao>
+</object>
 
 </list>

@@ -10,6 +10,8 @@
         <itens>
             <item>5</item>
         </itens>
+        <cena_anterior>0</cena_anterior>
+        <cena_seguinte>3</cena_seguinte>
     </cena>
 
     <cena>
@@ -21,7 +23,8 @@
             <monstro>7</monstro>
             <monstro>8</monstro>
         </monstros>
-
+        <cena_anterior>1</cena_anterior>
+        <cena_seguinte>0</cena_seguinte>
     </cena>
     
 

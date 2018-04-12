@@ -30,6 +30,8 @@ sub new
         $temp->set_id($cena->findvalue("./id"));
         $temp->set_titulo($cena->findvalue("./titulo"));
         $temp->set_descricao($cena->findvalue("./descricao"));
+        $temp->set_cena_anterior($cena->findvalue("./cena_anterior"));
+        $temp->set_cena_seguinte($cena->findvalue("./cena_seguinte"));
         # @aux recebe 'npc' em cada posicao do array
         my @aux = map{
            $npc->get_npc_by_id($_->to_literal());

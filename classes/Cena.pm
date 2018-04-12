@@ -4,19 +4,31 @@ sub new
     my ( $class ) = shift;
     my $self = { };
     bless $self;
-    $self->{"id"} = "";
-    $self->{"titulo"} = "";
-    $self->{"descricao"} = "";
-    $self->{"itens"} = [];
-    $self->{"npcs"} = [];
-
+    $self->{id} = "";
+    $self->{titulo} = "";
+    $self->{descricao} = "";
+    $self->{itens} = [];
+    $self->{npcs} = [];
+    $self->{cena_anterior}=0;
+    $self->{cena_seguinte}=0;
     return $self;
 }
 sub get_titulo{
     my $self = shift;
     return $self->{titulo};
 }
+sub set_cena_anterior{
+    my $self = shift;
+    my $value = shift;
 
+    $self->{cena_anterior} = $value;
+}
+sub set_cena_seguinte{
+    my $self = shift;
+    my $value = shift;
+
+    $self->{cena_seguinte} = $value;
+}
 sub set_titulo{
     my $self = shift;
     my $value = shift;
@@ -34,6 +46,26 @@ sub set_id{
     my $value = shift;
 
     $self->{id} = $value;
+}
+sub comandos_possiveis{
+    my $self=shift;
+    my @commands;
+    if($self->$self->{cena_anterior}){
+        push @commands, ("go",$self->{cena_anterior});
+    }
+    if($self->$self->{cena_seguinte}){
+        push @commands, ("go",$self->{cena_seguinte});
+    }
+    foreach my $i (@{$self->{npcs}}){
+        push @commands, ("talk", $i->get_nome);
+    }
+
+    foreach my $i (@{$self->{itens}}){
+        push @commands, ("pick",$i->get_nome);
+        push @commands, ("check",$i->get_nome);
+    }
+    push @commands, ("quit");
+    return @commands;
 }
 
 sub get_descricao{

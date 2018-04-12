@@ -20,7 +20,7 @@ sub new
     bless $self;
     $self->{cenas} = [];					#vetor de cenas
     $self->{cena_atual} = 0;				#index do vetor 
-    
+    $self->{comandos}= [];
     return $self;
 }
 sub init{
@@ -38,7 +38,7 @@ sub init{
     $self->{cenas} = new CenaRead("cena.xml",$self->{objetos},$self->{npc});
 
     ## Inicializar Inventario ##
-    
+
 }
 sub game_start{
     my $self=shift;

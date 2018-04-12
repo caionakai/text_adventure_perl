@@ -79,6 +79,10 @@ sub get_nome(){
     }
     return undef;
 }
+sub get_espaco{
+    my $self=shift;
+    return $self->{espaco};
+}
 sub get_id{
     my $self=shift;
     if($self != -1){
@@ -93,9 +97,61 @@ sub is_mission{
     }
     return 0;
 }
+sub is_personagem{
+    my $self=shift;
+    if ($self->{tipo} eq "personagem"){
+        return 1;
+    }
+    return 0;
+}
+sub is_armadura{
+    my $self=shift;
+    if ($self->{tipo} eq "armadura"){
+        return 1;
+    }
+    return 0;
+}
+sub is_arma{
+    my $self=shift;
+    if ($self->{tipo} eq "arma"){
+        return 1;
+    }
+    return 0;
+}
+sub is_espacial{
+    my $self=shift;
+    if ($self->{tipo} eq "espacial"){
+        return 1;
+    }
+    return 0;
+}
+sub get_dano{
+    my $self=shift;
+    if($self->is_arma || $self->is_personagem){
+        return $self->{dano_min}+ int rand($self->{dano_max}-$self->{dano_min});
+    }
+}
 sub get_objetivo{
     my $self=shift;
     return @{$self->{objetivo}};
+}
+sub comandos_possiveis{
+    my $self=shift;
+    my @commandos=();
+    push @commandos, "drop";
+    push @commandos, "pick";
+    push @commandos, "info";
+    
+    if($self->is_arma){
+        push @commandos, "attak";
+    }
+    if($self->is_mission){
+        push @commandos, "view";
+    }
+    if($self->is_espacial){
+        push @commandos, "use";        
+    }
+    return @commandos;
 }
 
 sub print_quest{
