@@ -2,6 +2,7 @@ BEGIN {
   unshift @INC,"./classes";
   #@INC is the directory list, where perl searches for .pm files
 }
+use utf8;
 use strict;
 use warnings;
 use ObjetoRead;
