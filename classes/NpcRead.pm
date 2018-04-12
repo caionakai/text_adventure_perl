@@ -54,4 +54,9 @@ sub get_npc_by_id(){
     return -1;
 }
 
+sub get_npc_list(){
+    my $self=shift;
+    return $self->{npcs};
+}
+
 1;

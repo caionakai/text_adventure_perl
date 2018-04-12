@@ -22,7 +22,7 @@ sub new
     my $npc = shift;
     my $temp;
     my $self;
-    $self->{npcs}=[];
+    $self->{cenas}=[];
 
     foreach my $cena ($file->findnodes('/list/cena')) {
         
@@ -41,12 +41,15 @@ sub new
         }$cena->findnodes('./itens/item');
         $temp->set_item(@aux2);
 
-        push (@{$self->{npcs}},$temp);
+        push (@{$self->{cenas}},$temp);
     }
     
     return bless $self, $class;
 }
 
-
+sub get_cena_list(){
+    my $self=shift;
+    return $self->{cenas};
+}
 
 1;
