@@ -21,6 +21,7 @@ sub new
     $self->{cenas} = [];					#vetor de cenas
     $self->{cena_atual} = 0;				#index do vetor 
     $self->{comandos}= [];
+    $self->{npc_ativo}=0;
     return $self;
 }
 sub init{
@@ -46,18 +47,18 @@ sub game_start{
     print("Digite QUIT para sair!\n");
 
     print("Este jogo possui várias cenas, para cada cena é apresentado um título e uma descrição, é possível navegar entre as cenas.\n",
-        "Cada cena possui objetos utilizáveis, ou seja, eles resultam em algum efeito quando combinado com um comando, além disso os objetos utilizáveis são apresentados em letra maiúscula.\n\n",
-        "Os comandos possíveis são: use, attack, buy, sell, talk, pick, help, save, load, newgame.\n\n");
+        "Cada cena possui objetos utilizáveis, ou seja, eles resultam em algum efeito quando combinado com um comando, além disso os objetos utilizáveis são apresentados em letra maiúscula.\n\n");
+        #"Os comandos possíveis são: use, attack, buy, sell, talk, pick, help, save, load, newgame.\n\n");
     while(1){
         # IMPRIMIR CENA ATUAL
         print (${$self->{cenas}}[$self->{cena_atual}]->get_titulo(), "\n");
         print (${$self->{cenas}}[$self->{cena_atual}]->get_descricao(), "\n");
         print (${$self->{cenas}}[$self->{cena_atual}]->print_all_npcs(), "\n");
 
-
         # COMANDOS DIGITADOS PELO JOGADOR
         my $entrada= <>;# aguarda a entrada do usuario
         chomp ($entrada);#transforma $entrada em uma string
+
 
         if (lc $entrada eq "sair" || lc $entrada eq "quit" ){
             print ("\nAté a próxima velho amigo!");
@@ -68,16 +69,26 @@ sub game_start{
 
     }
 }
+sub comandos_disponiveis{
+    my $self=shift;
+    
+    print($self->get_cena_atual());
+    #@{$self->{comandos}}=$self->get_cena_atual()->comandos_possiveis();
+    return @{$self->{comandos}};
+}
 
 sub verifica_comando{
     my $self=shift;
     my @tokens = split / /, shift;
     my $temp = $tokens[0];
-    my @comandos = ('use', 'attack', 'buy', 'sell', 'talk', 'pick', 'help', 'save', 'load', 'newgame');
+
+    $self->comandos_disponiveis();
+
     my $cont = 0;   #variável para verificação do comando digitado
 
     #verifica se o comando digitado é válido
-    foreach my $i (@comandos){
+    foreach my $i (@{$self->{comandos}}){
+        print($i);
         if($i eq lc $temp){
             $cont = 1;
         }
