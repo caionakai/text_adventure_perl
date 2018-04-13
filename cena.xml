@@ -15,9 +15,20 @@
     </cena>
 
     <cena>
+        <id>2</id>
+        <titulo>Feira</titulo>
+        <descricao>Local onde é realizada a venda e compra de equipamentos e poções. É necessário ouro para comprar os itens.</descricao>
+        <npcs>
+            <npc>3</npc>
+            <npc>4</npc>
+        </npcs>
+
+    </cena>
+
+    <cena>
         <id>3</id>
         <titulo>Covil dos Lobos</titulo>
-        <descricao>Este ambiente possui pouca iluminação e possui várias espécies de lobos vivendo por aqui, é recomendável utilizar equipamentos básicos.</descricao>
+        <descricao>Este covil possui pouca iluminação e possui várias espécies de lobos vivendo por aqui, é recomendável utilizar equipamentos básicos.</descricao>
         <monstros>
             <monstro>6</monstro>
             <monstro>7</monstro>
@@ -26,6 +37,45 @@
         <cena_anterior>1</cena_anterior>
         <cena_seguinte>0</cena_seguinte>
     </cena>
+
+    <cena>
+        <id>4</id>
+        <titulo>Floresta dos Goblins</titulo>
+        <descricao>Esta floresta possuem muitos goblins, eles são mais desenvolvidos do que os lobos, portanto é interessante utilizar equipamentos melhores para caçá-los. Existem três especies de goblins diferentes, você precisa enfrentá-los para descobrir sua verdadeira força!</descricao>
+        <monstros>
+            <monstro>12</monstro>
+            <monstro>13</monstro>
+            <monstro>14</monstro>
+        </monstros>
+
+    </cena>
+
+
+    <cena>
+        <id>5</id>
+        <titulo>Mina dos Orcs</titulo>
+        <descricao>Nesta mina estão os orcs mais violentos, eles tomaram conta deste lugar há muito tempo atrás, um aventureiro sem experiência não sobreviveria nem mesmo alguns minutos.</descricao>
+        <monstros>
+            <monstro>15</monstro>
+            <monstro>16</monstro>
+            <monstro>17</monstro>
+        </monstros>
+
+    </cena>
+
+    <cena>
+        <id>6</id>
+        <titulo>Fortaleza dos Minotauros</titulo>
+        <descricao>Aqui vivem as criaturas mais fortes do reino, os Minotauros possuem inteligência e vivem em sociedade assim como os humanos, invadir a fortaleza dessas criaturas não será nada fácil.</descricao>
+        <monstros>
+            <monstro>18</monstro>
+            <monstro>19</monstro>
+            <monstro>20</monstro>
+        </monstros>
+
+    </cena>
+
+
     
 
 

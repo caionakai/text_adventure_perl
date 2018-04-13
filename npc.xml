@@ -22,6 +22,30 @@
 		</falas>
 	</npc>
 
+	<npc>
+		<id>3</id>
+		<nome>COMERCIANTE DE EQUIPAMENTOS</nome>
+		<falas>
+			<fala>Olá aventureiro, tenho muitos equipamentos a disposição, para comprar digite BUY 'nome do equipamento', ou para vender digite SELL 'nome do equipamento'.</fala>
+		</falas>
+	</npc>
+	<itens>
+		<item>1</item>
+		<item>2</item>
+	</itens>
+
+
+	<npc>
+		<id>4</id>
+		<nome>COMERCIANTE DE POÇÕES</nome>
+		<falas>
+			<fala>Olá aventureiro, tenho muitos equipamentos a disposição, para comprar digite BUY 'nome do equipamento', ou para vender digite SELL 'nome do equipamento'.</fala>
+		</falas>
+	</npc>
+	<itens>
+		<item>11</item>
+	</itens>
+
 
 
 </list>

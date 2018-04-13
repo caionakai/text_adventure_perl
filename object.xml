@@ -113,4 +113,103 @@
     <descricao>Um objeto misterioso criado por um grande mago, a qual interfere com as leis espaciais.</descricao>
 </object>
 
+<object>
+    <id>11</id>
+    <tipo>comum</tipo>
+    <espaco>1</espaco>
+    <nome>POCAO DE VIDA</nome>
+    <descricao>Restaura um pouco de vida ao ser utilizada.</descricao>
+</object>
+
+<object>
+    <id>12</id>
+    <tipo>monstro</tipo>
+    <espaco>0</espaco>
+    <nome>GOBLIN</nome>
+    <descricao>Um goblin nem sempre está sozinho!</descricao>
+    <dano min="6" max="14"/>
+    <defesa>8</defesa>
+</object>
+
+<object>
+    <id>13</id>
+    <tipo>monstro</tipo>
+    <espaco>0</espaco>
+    <nome>HOBGOBLIN</nome>
+    <descricao>Hobgoblins arremessam pedras.</descricao>
+    <dano min="14" max="28"/>
+    <defesa>16</defesa>
+</object>
+
+<object>
+    <id>14</id>
+    <tipo>monstro</tipo>
+    <espaco>0</espaco>
+    <nome>GOBLIN CHEFE</nome>
+    <descricao>Goblins Chefes dropam itens valiosos!</descricao>
+    <dano min="25" max="36"/>
+    <defesa>28</defesa>
+</object>
+
+<object>
+    <id>15</id>
+    <tipo>monstro</tipo>
+    <espaco>0</espaco>
+    <nome>ORC</nome>
+    <descricao>ORCs possuem muita força fisica!</descricao>
+    <dano min="20" max="26"/>
+    <defesa>22</defesa>
+</object>
+
+<object>
+    <id>16</id>
+    <tipo>monstro</tipo>
+    <espaco>0</espaco>
+    <nome>ORC ZEN</nome>
+    <descricao>ORCs ZEN geralmente andam sozinhos!</descricao>
+    <dano min="26" max="33"/>
+    <defesa>28</defesa>
+</object>
+
+<object>
+    <id>17</id>
+    <tipo>monstro</tipo>
+    <espaco>0</espaco>
+    <nome>ORC CHEFE</nome>
+    <descricao>Melhor não enfrentá-lo sozinho!</descricao>
+    <dano min="40" max="50"/>
+    <defesa>35</defesa>
+</object>
+
+<object>
+    <id>18</id>
+    <tipo>monstro</tipo>
+    <espaco>0</espaco>
+    <nome>MINOTAURO</nome>
+    <descricao>Minotauros possuem uma força esmagadora!</descricao>
+    <dano min="50" max="60"/>
+    <defesa>40</defesa>
+</object>
+
+<object>
+    <id>19</id>
+    <tipo>monstro</tipo>
+    <espaco>0</espaco>
+    <nome>MINOTAURO ARQUEIRO</nome>
+    <descricao>Realizam ataques a distância e possuem uma destreza inimaginável!</descricao>
+    <dano min="60" max="70"/>
+    <defesa>45</defesa>
+</object>
+
+<object>
+    <id>20</id>
+    <tipo>monstro</tipo>
+    <espaco>0</espaco>
+    <nome>MINOTAURO CHEFE</nome>
+    <descricao>Ninguém nunca foi capaz de enfrentá-lo, a criatura mais forte do reino, a resistência dele equivale a de 2 minotauros juntos. É melhor estar preparado!</descricao>
+    <dano min="70" max="80"/>
+    <defesa>80</defesa>
+</object>
+
+
 </list>
