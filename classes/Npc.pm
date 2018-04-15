@@ -7,16 +7,18 @@ use strict;
 use warnings;
 use Objeto;
 
+use Data::Dumper qw(Dumper);
+
 
 sub new
 {
     my $class = shift;
     my $self = { };
     bless $self;
-    $self->{"id"} = "";
-    $self->{"nome"} = "";
-    $self->{"falas"} = [];
-    $self->{"itens"} = [];
+    $self->{id} = "";
+    $self->{nome} = "";
+    $self->{falas} = [];
+    $self->{itens} = [];
 
     return $self;
 }
@@ -71,6 +73,14 @@ sub set_item{
         push ((@{$self->{itens}}), $value[$i]);
     }
 }
+sub it_is_me_by_nome{
+    my $self= shift;
+    my $nome=shift;
+    if(lc $nome eq lc $self->{nome}){
+        return 1;
+    }
+    return 0;
+}
 
 sub get_item{
     my $self = shift;
@@ -83,6 +93,7 @@ sub comandos_possiveis{
     my @commandos=();
 
     foreach my $i (@{$self->{itens}}){
+        
         push @commandos, ({comando=>"buy",alvo=>$i->get_nome});
         push @commandos, ({comando=>"sell",alvo=>$i->get_nome});
         push @commandos, ({comando=>"check",alvo=>$i->get_nome});
@@ -93,21 +104,84 @@ sub comandos_possiveis{
 
 sub conversa{
     my $self=shift;
+    print "$_ \n" for @{$self->{falas}};
+    my @comando= $self->comandos_possiveis();
+    
+    if(scalar @comando == 1){
+        return 0;
+    }
+    my $msg=$self->get_nome;
+    
+    print("Digite bye para sair\n");
+    print("$msg->");
+    my $entrada= <>;# aguarda a entrada do usuario
+    chomp ($entrada);#transforma $entrada em uma string
     while(1){
-        print("Digite bye para sair\n");
-        my $entrada= <>;# aguarda a entrada do usuario
-        chomp ($entrada);#transforma $entrada em uma string
 
-        my @comando= $self->comandos_possiveis();
+
+         my @tokens = split / /, $entrada;
 
         if (lc $entrada eq "bye" || lc $entrada eq "quit" ){
-            print ("\nAté a próxima velho amigo!");
-            return;
+            print ("\nAté a próxima velho amigo!\n");
+            return 0;
+        }
+        if (lc $entrada eq "help" ){
+            print("Comandos Disponiveis:\n");
+             foreach (@comando){
+                 if ($_->{alvo}){
+                     print("\t- ", $_->{comando}," ", $_->{alvo},"\n");
+                 }
+                 else{
+                     print("\t- ", $_->{comando},"\n");
+                 }
+             }
         }
 
+        #separa os comando pelo primeiro argumento
+        my @cont=();
+        foreach my $i (@{$self->{comandos}}){
+        
+            if($i->{comando} eq lc $tokens[0]){
+                push @cont,$i;
+            }
+        }
 
+         #como existe mais de um comando possivel verifica qual o alvo do comando
+        my @cont2 = ();
+        foreach my $i (@cont){
+            my $test2;
+            if(scalar @tokens <2){
+                $test2="";
+            }
+            else{
+                $test2=lc $tokens[1];
+            }
+            $_= lc $i->{alvo};
+
+            if(/$test2/){
+                push @cont2,$i;
+            }
+        }
+        #verifica se o alvo existe
+        if(scalar @cont2==0){
+            print("comando invalido!!\n");
+        }
+
+        #caso tenha mais de um coamndo disponivel lista todos e volta a tela de comandos
+        if(scalar @cont2>1){
+            print("voce pode usar os seguintes comandos:\n");
+            foreach (@cont2){
+                print("\t- ", $_->{comando}," ", $_->{alvo},"\n");
+            }
+        }
+
+        #comando escolhido como uma hash(comando, alvo)
+        my $comando_usado=$cont2[0];
+        print("$msg->");
+        $entrada= <>;# aguarda a entrada do usuario
+        chomp ($entrada);#transforma $entrada em uma string
     }
-
+    return 0;
 }
 
 1;

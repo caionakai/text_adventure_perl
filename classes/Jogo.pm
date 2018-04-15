@@ -50,25 +50,43 @@ sub game_start{
     print("Este jogo possui várias cenas, para cada cena é apresentado um título e uma descrição, é possível navegar entre as cenas.\n",
         "Cada cena possui objetos utilizáveis, ou seja, eles resultam em algum efeito quando combinado com um comando, além disso os objetos utilizáveis são apresentados em letra maiúscula.\n\n");
         #"Os comandos possíveis são: use, attack, buy, sell, talk, pick, help, save, load, newgame.\n\n");
-    while(1){
         # IMPRIMIR CENA ATUAL
-        print (${$self->{cenas}}[$self->{cena_atual}]->get_titulo(), "\n");
-        print (${$self->{cenas}}[$self->{cena_atual}]->get_descricao(), "\n");
-        print (${$self->{cenas}}[$self->{cena_atual}]->print_all_npcs(), "\n");
-        print (${$self->{cenas}}[$self->{cena_atual}]->print_all_obj, "\n");
-
-        # COMANDOS DIGITADOS PELO JOGADOR
+        my @comando=$self->comandos_disponiveis();
+        my $msg=${$self->{cenas}}[$self->{cena_atual}]->get_titulo();
+        print("$msg->");
+        my $nova_cena=1;
+        if($nova_cena==1){
+            print (${$self->{cenas}}[$self->{cena_atual}]->get_titulo(), "\n");
+            print (${$self->{cenas}}[$self->{cena_atual}]->get_descricao(), "\n");
+            print (${$self->{cenas}}[$self->{cena_atual}]->print_all_npcs(), "\n");
+            print (${$self->{cenas}}[$self->{cena_atual}]->print_all_obj, "\n");
+            $nova_cena=0;
+        }
         my $entrada= <>;# aguarda a entrada do usuario
         chomp ($entrada);#transforma $entrada em uma string
-
-
+    while(1){
+        if (lc $entrada eq "help" ){
+            print("Comandos Disponiveis:\n");
+             foreach (@comando){
+                 if ($_->{alvo}){
+                     print("\t- ", $_->{comando}," ", $_->{alvo},"\n");
+                 }
+                 else{
+                     print("\t- ", $_->{comando},"\n");
+                 }
+             }
+             $nova_cena=0;
+        }
         if (lc $entrada eq "sair" || lc $entrada eq "quit" ){
             print ("\nAté a próxima velho amigo!");
             exit(1);
         }
-        $self->verifica_comando($entrada);
-
-
+        $nova_cena=$self->verifica_comando($entrada);
+       
+        # COMANDOS DIGITADOS PELO JOGADOR
+        print("$msg->");
+        $entrada= <>;# aguarda a entrada do usuario
+        chomp ($entrada);#transforma $entrada em uma string
     }
 }
 sub comandos_disponiveis{
@@ -82,6 +100,9 @@ sub verifica_comando{
     my $self=shift;
     my @tokens = split / /, shift;
     my $temp = $tokens[0];
+    if(lc $temp eq "help"){
+        return 0;
+    }
 
     $self->comandos_disponiveis();
 
@@ -100,7 +121,7 @@ sub verifica_comando{
     #verifica se existe o comando usado
     if(scalar @cont==0){
         print("Comando Inválido! Digite 'help' para ajuda.\n");
-        return;
+        return 0;
     }
 
     if($tokens[0] eq lc "help"){
@@ -126,7 +147,7 @@ sub verifica_comando{
     #verifica se o alvo existe
     if(scalar @cont2==0){
         print("comando invalido!!\n");
-        return;
+        return 0;
     }
     #caso tenha mais de um coamndo disponivel lista todos e volta a tela de comandos
     if(scalar @cont2>1){
@@ -134,7 +155,7 @@ sub verifica_comando{
         foreach (@cont2){
             print("\t- ", $_->{comando}," ", $_->{alvo},"\n");
         }
-        return;
+        return 0;
     }
 
     #comando escolhido como uma hash(comando, alvo)
@@ -143,16 +164,19 @@ sub verifica_comando{
 
     #tratamento do comando talk
     if($comando_usado->{comando} eq "talk"){
-        #não implementado ainda
-        #my $npc=$self->get_npc_by_nome();
-        #$npc->conversa();
+        my $npc=$self->get_npc_by_nome($comando_usado->{alvo});
+        return $npc->conversa();
     }
-
-    print (Dumper $comando_usado);
+    return 1;
 }
 sub get_npc_by_nome{
     my $self=shift;
-
+    my $nome=shift;
+    foreach my $i (${$self->{cenas}}[$self->{cena_atual}]->get_all_npc()){
+        if($i->it_is_me_by_nome($nome)){
+            return $i;
+        }
+    }
 }
 
 
