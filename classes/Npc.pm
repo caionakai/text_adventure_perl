@@ -106,21 +106,20 @@ sub conversa{
     my $self=shift;
     print "$_ \n" for @{$self->{falas}};
     my @comando= $self->comandos_possiveis();
-    
+    my $inventario=shift;
     if(scalar @comando == 1){
         return 0;
     }
     my $msg=$self->get_nome;
+    
     
     print("Digite bye para sair\n");
     print("$msg->");
     my $entrada= <>;# aguarda a entrada do usuario
     chomp ($entrada);#transforma $entrada em uma string
     while(1){
-
-
-         my @tokens = split / /, $entrada;
-
+        my @tokens = split / /, $entrada;
+        
         if (lc $entrada eq "bye" || lc $entrada eq "quit" ){
             print ("\nAté a próxima velho amigo!\n");
             return 0;
@@ -145,7 +144,7 @@ sub conversa{
                 push @cont,$i;
             }
         }
-
+        print Dumper @cont;
          #como existe mais de um comando possivel verifica qual o alvo do comando
         my @cont2 = ();
         foreach my $i (@cont){
@@ -177,6 +176,11 @@ sub conversa{
 
         #comando escolhido como uma hash(comando, alvo)
         my $comando_usado=$cont2[0];
+        
+        #if(lc $comando_usado->{comando} eq lc "buy"){
+        #    print Dumper $comando_usado;
+        #}
+        
         print("$msg->");
         $entrada= <>;# aguarda a entrada do usuario
         chomp ($entrada);#transforma $entrada em uma string

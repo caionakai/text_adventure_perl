@@ -41,6 +41,7 @@ sub init{
     $self->{cenas} = $temp->get_cena_list();
 
     ## Inicializar Inventario ##
+    $self->{personagem}=new Personagem();
 
 }
 sub game_start{
@@ -165,7 +166,7 @@ sub verifica_comando{
     #tratamento do comando talk
     if($comando_usado->{comando} eq "talk"){
         my $npc=$self->get_npc_by_nome($comando_usado->{alvo});
-        return $npc->conversa();
+        return $npc->conversa($self->{personagem});
     }
     return 1;
 }
