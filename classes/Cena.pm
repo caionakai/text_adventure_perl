@@ -99,6 +99,10 @@ sub get_npcs{
 
     return $self->{npcs}[$i];
 }
+sub get_all_npc{
+    my $self= shift;
+    return @{$self->{npcs}};
+}
 
 sub set_npcs{
     my $self = shift;
