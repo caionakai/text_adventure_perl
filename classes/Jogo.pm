@@ -156,7 +156,7 @@ sub verifica_comando{
         #print(Dumper $objeto);
     }
 
-    #print (Dumper $comando_usado);
+    print (Dumper $comando_usado);
 }
 sub get_npc_by_nome{
     my $self=shift;
