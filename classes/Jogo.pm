@@ -153,7 +153,6 @@ sub verifica_comando{
         #não implementado ainda
         my $objeto = ${$self->{cenas}}[$self->{cena_atual}]->get_item_by_nome($comando_usado->{alvo});
         $objeto->imprimi_objeto($objeto);
-        #print(Dumper $objeto);
     }
 
     print (Dumper $comando_usado);
