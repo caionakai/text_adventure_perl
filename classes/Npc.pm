@@ -93,7 +93,21 @@ sub comandos_possiveis{
 
 sub conversa{
     my $self=shift;
-    
+    while(1){
+        print("Digite bye para sair\n");
+        my $entrada= <>;# aguarda a entrada do usuario
+        chomp ($entrada);#transforma $entrada em uma string
+
+        my @comando= $self->comandos_possiveis();
+
+        if (lc $entrada eq "bye" || lc $entrada eq "quit" ){
+            print ("\nAté a próxima velho amigo!");
+            return;
+        }
+
+
+    }
+
 }
 
 1;

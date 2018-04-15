@@ -88,12 +88,16 @@ sub verifica_comando{
     my @cont = ();   #variável para verificação do comando digitado
    
     #verifica se o comando digitado é válido
+
+    #separa os comando pelo primeiro argumento
     foreach my $i (@{$self->{comandos}}){
         
         if($i->{comando} eq lc $temp){
             push @cont,$i;
         }
     }
+
+    #verifica se existe o comando usado
     if(scalar @cont==0){
         print("Comando Inválido! Digite 'help' para ajuda.\n");
         return;
@@ -103,6 +107,7 @@ sub verifica_comando{
         print("Os comandos possíveis são: use, attack, buy, sell, talk, pick, help, save, load, newgame.\n");
     }
 
+    #como existe mais de um comando possivel verifica qual o alvo do comando
     my @cont2 = ();
     foreach my $i (@cont){
         my $test2;
@@ -118,10 +123,12 @@ sub verifica_comando{
             push @cont2,$i;
         }
     }
+    #verifica se o alvo existe
     if(scalar @cont2==0){
         print("comando invalido!!\n");
         return;
     }
+    #caso tenha mais de um coamndo disponivel lista todos e volta a tela de comandos
     if(scalar @cont2>1){
         print("voce pode usar os seguintes comandos:\n");
         foreach (@cont2){
@@ -130,15 +137,23 @@ sub verifica_comando{
         return;
     }
 
+    #comando escolhido como uma hash(comando, alvo)
     my $comando_usado=$cont2[0];
 
+
+    #tratamento do comando talk
     if($comando_usado->{comando} eq "talk"){
-        print (Dumper $comando_usado);
+        #não implementado ainda
+        #my $npc=$self->get_npc_by_nome();
+        #$npc->conversa();
     }
 
     print (Dumper $comando_usado);
 }
+sub get_npc_by_nome{
+    my $self=shift;
 
+}
 
 
 sub get_cenas{
