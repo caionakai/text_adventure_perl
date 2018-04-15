@@ -168,6 +168,11 @@ sub verifica_comando{
         my $npc=$self->get_npc_by_nome($comando_usado->{alvo});
         return $npc->conversa($self->{personagem});
     }
+    if($comando_usado->{comando} eq "check"){
+        #não implementado ainda
+        my $objeto = ${$self->{cenas}}[$self->{cena_atual}]->get_item_by_nome($comando_usado->{alvo});
+        $objeto->imprimi_objeto($objeto);
+    }
     return 1;
 }
 sub get_npc_by_nome{

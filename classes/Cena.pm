@@ -130,4 +130,14 @@ sub print_all_obj{
     }
 }
 
+sub get_item_by_nome{
+    my $self = shift;
+    my $nome = shift;
+    foreach my $i (@{$self->{itens}}){
+        if(lc $i->get_nome eq lc $nome){
+            return $i;
+        }
+    }
+}
+
 1;
