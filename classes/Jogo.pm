@@ -103,6 +103,7 @@ sub verifica_comando{
         return;
     }
 
+    #se o cara digita help aparece isso
     if($tokens[0] eq lc "help"){
         print("Os comandos possíveis são: use, attack, buy, sell, talk, pick, help, save, load, newgame.\n");
     }
@@ -148,7 +149,14 @@ sub verifica_comando{
         #$npc->conversa();
     }
 
-    print (Dumper $comando_usado);
+    if($comando_usado->{comando} eq "check"){
+        #não implementado ainda
+        my $objeto = ${$self->{cenas}}[$self->{cena_atual}]->get_item_by_nome($comando_usado->{alvo});
+        $objeto->imprimi_objeto($objeto);
+        #print(Dumper $objeto);
+    }
+
+    #print (Dumper $comando_usado);
 }
 sub get_npc_by_nome{
     my $self=shift;

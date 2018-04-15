@@ -6,7 +6,7 @@ sub new
     my ( $class ) = shift;
     my $self = {};
     bless $self, $class;
-    #padra em todos
+    #padrao em todos
     $self->{id}=0;
     $self->{tipo}="";
     $self->{espaco}="";
@@ -157,10 +157,39 @@ sub comandos_possiveis{
 sub print_quest{
     my $self=shift;
     if ($self->is_mission()){
-        print($self->{descricao},"\n");
+        #print($self->{descricao},"\n");
         foreach my $i (@{$self->{objetivo}}){
             print($i->{alvo}->get_nome," ",$i->{quantidade},"\n");
         }
     }
 }
+
+sub imprimi_objeto{
+    my $self=shift;
+    print(
+        "\tTipo: $self->{tipo}\n", 
+        "\tEspaço: $self->{espaco}\n",
+        "\tNome: $self->{nome}\n",
+        "\tDescricao: $self->{descricao}\n"
+    );
+    # verifica se existe uma quest 
+    if($self->is_mission()){
+        $self->print_quest();
+    }
+
+    #verifica se eh arma
+    if($self->is_arma()){
+        print(
+            $self->get_dano()
+        );
+    }
+
+    #verifica se eh armadura
+    if($self->is_armadura){
+        print(
+            $self->{defesa}
+        );
+    }
+}
+
 1;
