@@ -12,6 +12,7 @@ use ObjetoRead;
 use Objeto;
 use Npc;
 use NpcRead;
+use Data::Dumper qw(Dumper);
 
 sub new
 {	
@@ -72,9 +73,8 @@ sub game_start{
 }
 sub comandos_disponiveis{
     my $self=shift;
-    
-    print($self->get_cena_atual());
-    #@{$self->{comandos}}=$self->get_cena_atual()->comandos_possiveis();
+    my $cena=$self->get_cenas($self->get_cena_atual());
+    @{$self->{comandos}}=$cena->comandos_possiveis();
     return @{$self->{comandos}};
 }
 
@@ -85,16 +85,16 @@ sub verifica_comando{
 
     $self->comandos_disponiveis();
 
-    my $cont = 0;   #variável para verificação do comando digitado
-
+    my @cont = ();   #variável para verificação do comando digitado
+   
     #verifica se o comando digitado é válido
     foreach my $i (@{$self->{comandos}}){
-        print($i);
-        if($i eq lc $temp){
-            $cont = 1;
+        
+        if($i->{comando} eq lc $temp){
+            push @cont,$i;
         }
     }
-    if($cont==0){
+    if(scalar @cont==0){
         print("Comando Inválido! Digite 'help' para ajuda.\n");
         return;
     }
@@ -103,11 +103,40 @@ sub verifica_comando{
         print("Os comandos possíveis são: use, attack, buy, sell, talk, pick, help, save, load, newgame.\n");
     }
 
+    my @cont2 = ();
+    foreach my $i (@cont){
+        my $test2;
+        if(scalar @tokens <2){
+            $test2="";
+        }
+        else{
+            $test2=lc $tokens[1];
+        }
+        $_= lc $i->{alvo};
 
-  #  if($tokens[0] eq lc "buy"){
-  #      
-  #  }
+        if(/$test2/){
+            push @cont2,$i;
+        }
+    }
+    if(scalar @cont2==0){
+        print("comando invalido!!\n");
+        return;
+    }
+    if(scalar @cont2>1){
+        print("voce pode usar os seguintes comandos:\n");
+        foreach (@cont2){
+            print("\t- ", $_->{comando}," ", $_->{alvo},"\n");
+        }
+        return;
+    }
 
+    my $comando_usado=$cont2[0];
+
+    if($comando_usado->{comando} eq "talk"){
+        print (Dumper $comando_usado);
+    }
+
+    print (Dumper $comando_usado);
 }
 
 

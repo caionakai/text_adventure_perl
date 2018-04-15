@@ -83,12 +83,17 @@ sub comandos_possiveis{
     my @commandos=();
 
     foreach my $i (@{$self->{itens}}){
-        push @commandos, ("buy",$i->get_nome);
-        push @commandos, ("sell",$i->get_nome);
-        push @commandos, ("check",$i->get_nome);
+        push @commandos, ({comando=>"buy",alvo=>$i->get_nome});
+        push @commandos, ({comando=>"sell",alvo=>$i->get_nome});
+        push @commandos, ({comando=>"check",alvo=>$i->get_nome});
     }
-    push @commandos, "bye";
+    push @commandos, {comando=>"bye"};
     return @commandos;
+}
+
+sub conversa{
+    my $self=shift;
+    
 }
 
 1;

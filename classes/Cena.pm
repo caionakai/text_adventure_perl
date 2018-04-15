@@ -1,4 +1,6 @@
 package Cena;
+
+use Data::Dumper qw(Dumper);
 sub new
 {
     my ( $class ) = shift;
@@ -50,21 +52,15 @@ sub set_id{
 sub comandos_possiveis{
     my $self=shift;
     my @commands;
-    if($self->$self->{cena_anterior}){
-        push @commands, ("go",$self->{cena_anterior});
-    }
-    if($self->$self->{cena_seguinte}){
-        push @commands, ("go",$self->{cena_seguinte});
-    }
     foreach my $i (@{$self->{npcs}}){
-        push @commands, ("talk", $i->get_nome);
+        push @commands, ({comando=>"talk", alvo=>$i->get_nome});
     }
 
     foreach my $i (@{$self->{itens}}){
-        push @commands, ("pick",$i->get_nome);
-        push @commands, ("check",$i->get_nome);
+        push @commands, ({comando=>"pick",alvo=>$i->get_nome});
+        push @commands, ({comando=>"check",alvo=>$i->get_nome});
     }
-    push @commands, ("quit");
+    push @commands, ({comando=>"quit"});
     return @commands;
 }
 
