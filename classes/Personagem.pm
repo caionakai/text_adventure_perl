@@ -22,7 +22,7 @@ sub new {
     #quest
     $self->{missoes_concluidas}=[];
     $self->{missoes_ativas}=[];
-    
+    $self->{ouro}=0;
     
     #personagem 
     # numero de itens: $self->{limite};
@@ -35,6 +35,18 @@ sub new {
 sub set_personagem{
     my $self=shift;
     ${$self->{equipes}}[0]=shift;
+}
+sub get_ouro{
+    my $self=shift;
+    return $self->{ouro};
+}
+sub remove_ouro{
+    my $self=shift;
+    $self->{ouro}=$self->{ouro}-shift;
+}
+sub add_ouro{
+    my $self=shift;
+    $self->{ouro}=$self->{ouro}+shift;
 }
 sub set_arma{
     my $self=shift;

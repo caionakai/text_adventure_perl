@@ -63,6 +63,7 @@ sub game_start{
             print (${$self->{cenas}}[$self->{cena_atual}]->print_all_obj, "\n");
             $nova_cena=0;
         }
+        print("$msg->");
         my $entrada= <>;# aguarda a entrada do usuario
         chomp ($entrada);#transforma $entrada em uma string
     while(1){
