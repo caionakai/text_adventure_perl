@@ -134,6 +134,13 @@ sub is_arma{
     }
     return 0;
 }
+sub is_monstro{
+    my $self=shift;
+    if ($self->{tipo} eq "monstro"){
+        return 1;
+    }
+    return 0;
+}
 sub is_espacial{
     my $self=shift;
     if ($self->{tipo} eq "espacial"){
