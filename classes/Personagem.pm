@@ -108,7 +108,7 @@ sub calcula_personagem{
 sub remove_item{ 
     my $self=shift;
     my $item=shift;
-    
+    $self->{quantidade}= $item->get_espaco + $self->{quantidade};
     @{$self->{itens}} = grep {$_ != $item}  @{$self->{itens}};
 }
 sub find_item{
