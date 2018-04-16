@@ -166,12 +166,12 @@ sub conversa{
         }
         #verifica se o alvo existe
         if(scalar @cont2==0){
-            print("comando invalido!!\n");
+            print("Comando inválido!!\n");
         }
 
         #caso tenha mais de um coamndo disponivel lista todos e volta a tela de comandos
         if(scalar @cont2>1){
-            print("voce pode usar os seguintes comandos:\n");
+            print("Você pode usar os seguintes comandos:\n");
             foreach (@cont2){
                 print("\t- ", $_->{comando}," ", $_->{alvo},"\n");
             }
@@ -200,7 +200,7 @@ sub conversa{
                     $inventario->remove_ouro($obj->get_preco_de_venda() );
                 }
                 else{
-                    print("Item ão encontrado no inventario\n");
+                    print("Item não encontrado no inventário!\n");
                 }
             }
 
