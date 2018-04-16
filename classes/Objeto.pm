@@ -176,6 +176,7 @@ sub drop{
     my @drop=();
     foreach (@{$self->{drops}}){
         if( int rand(100) <30){
+            print("Você dropou: ", $_->get_nome, "\n");
             push @drop, $_;
         }
     }
