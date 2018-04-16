@@ -12,6 +12,7 @@ sub new
     $self->{espaco}="";
     $self->{nome}="";
     $self->{descricao}="";
+    $self->{preco_de_compra}="";
 
     #quest
     $self->{objetivo}=[];
