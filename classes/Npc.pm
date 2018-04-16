@@ -7,6 +7,7 @@ use strict;
 use warnings;
 use Objeto;
 
+use Storable 'dclone';
 use Data::Dumper qw(Dumper);
 
 
@@ -193,12 +194,16 @@ sub conversa{
             my $comando_usado=shift @cont2;
             
             if(lc $comando_usado->{comando} eq lc "buy"){
-                my $obj=$self->get_item_by_nome($comando_usado->{alvo});
+                my $obj= dclone $self->get_item_by_nome($comando_usado->{alvo});
                
                 if($inventario->get_ouro() >= $obj->get_preco_de_compra() ){
-                    $inventario->add_item($obj);
-                    $inventario->remove_ouro($obj->get_preco_de_compra());
-                    print("Você comprou: ", $obj->get_nome,"\n");
+                    if($inventario->add_item($obj)){
+                        $inventario->remove_ouro($obj->get_preco_de_compra());
+                        print("Você comprou: ", $obj->get_nome,"\n");
+                    }
+                    else{
+                        print("Inventario cheio!\n");
+                    }
                 }
                 else{
                     print("Dinheiro insuficiente\n");

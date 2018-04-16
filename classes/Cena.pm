@@ -2,6 +2,7 @@ package Cena;
 use Time::HiRes qw(sleep);
 use Data::Dumper qw(Dumper);
 use Storable 'dclone';
+
 sub new
 {
     my ( $class ) = shift;
@@ -66,7 +67,7 @@ sub comandos_possiveis{
         push @commands, ({comando=>"talk", alvo=>$i->get_nome});
     }
     foreach my $i (@{$self->{monstro}}){
-        push @commands, ({comando=>"attak",alvo=>$i->get_nome});
+        push @commands, ({comando=>"attack",alvo=>$i->get_nome});
         push @commands, ({comando=>"check",alvo=>$i->get_nome});
     }
 
@@ -81,8 +82,12 @@ sub comandos_possiveis{
     if($self->{cena_seguinte}){
         push @commands, ({comando=>"walk",alvo=>$self->{cena_seguinte}->get_titulo});
     }
-
+    push @commands, ({comando=>"open",alvo=>"inventario"});
+    push @commands, ({comando=>"open",alvo=>"status"});
+    push @commands, ({comando=>"open",alvo=>"equipamentos"});
+    
     push @commands, ({comando=>"quit"});
+
     return @commands;
 }
 
@@ -202,8 +207,7 @@ sub duelo{
         if($enemy->get_defesa <=0){
             print("Você matou o ",$enemy->get_nome,"\n");
             $self->set_item($enemy->drop());
-            #$self->comandos_possiveis();
-            return 0;
+            return 3;
         }
         sleep(1);
     }

@@ -96,12 +96,12 @@ sub atualiza_vida{
 sub calcula_personagem{
     my $self=shift;
     $self->{dano}=0;
+    $self->{defesa}=0;
+    $self->{limite_bag}=0;
     foreach my $i (@{$self->{equipes}}){
         $self->{dano}=$self->{dano}+$i->get_dano();
-    }
-    $self->{defesa}=0;
-    foreach my $i (@{$self->{equipes}}){
         $self->{defesa}=$self->{defesa}+$i->get_defesa();
+        $self->{limite_bag}=$self->{limite_bag}+$i->get_espaco();
     }
 }
 # use_item($comando,$item)
@@ -121,12 +121,18 @@ sub find_item{
     }
 return 0;
 }
+sub open_menu{
+    my $self=shift;
+
+    print("Menu personagem!");
+}
+
 sub add_item{
     my $self=shift;
     my $value= shift;
-    if(scalar @{$self->{itens}}+ $value->get_espaco <= $self->{limite}){
+    $self->calcula_personagem();
+    if($self->{limite_bag} + $value->get_espaco + $self->{quantidade} <=0){
         push @{$self->{itens}},$value;
-
         $self->{quantidade}= $value->get_espaco + $self->{quantidade};
         
         return 1;#Sucesso

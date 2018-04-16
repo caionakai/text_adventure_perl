@@ -13,7 +13,7 @@ use Objeto;
 use Npc;
 use NpcRead;
 use Data::Dumper qw(Dumper);
-
+use Win32::Console;
 sub new
 {	
     my ( $class ) = shift;
@@ -86,6 +86,8 @@ sub game_start{
         print("$msg->");
         my $entrada= <>;# aguarda a entrada do usuario
         chomp ($entrada);#transforma $entrada em uma string
+        my $OUT = Win32::Console->new(STD_OUTPUT_HANDLE);
+        my $clear_string = $OUT->Cls;
     while(1){
         if (lc $entrada eq "help" ){
             print("Comandos Disponiveis:\n");
@@ -112,6 +114,9 @@ sub game_start{
             print (${$self->{cenas}}[$self->{cena_atual}]->print_all_obj, "\n");
             print (${$self->{cenas}}[$self->{cena_atual}]->print_all_monstro, "\n");
             $nova_cena=0;
+        }
+        if($nova_cena==3){
+            print (${$self->{cenas}}[$self->{cena_atual}]->print_all_obj, "\n");
         }
 
         $self->comandos_disponiveis();
@@ -227,10 +232,19 @@ sub verifica_comando{
         return 1;
     }
     #Comando atakk dos animais
-    if($comando_usado->{comando} eq "attak"){
+    if($comando_usado->{comando} eq "attack"){
         my $lutar_com =${$self->{cenas}}[$self->{cena_atual}]->get_monstro_by_nome($comando_usado->{alvo});
        ${$self->{cenas}}[$self->{cena_atual}]->duelo($lutar_com,$self->{personagem});
 
+    }
+    if($comando_usado->{comando} eq "pick"){
+        my $personagem=$self->{personagem};
+        
+        my $obj=${$self->{cenas}}[$self->{cena_atual}]->get_item_by_nome($comando_usado->{alvo});
+
+        if($personagem->add_item($obj)==0){
+            print("Inventario cheio!!");
+        }
     }
 
     return 0;
