@@ -87,7 +87,7 @@ sub game_start{
         my $entrada= <>;# aguarda a entrada do usuario
         chomp ($entrada);#transforma $entrada em uma string
         my $OUT = Win32::Console->new(STD_OUTPUT_HANDLE);
-        my $clear_string = $OUT->Cls;
+        $OUT->Cls;
     while(1){
         if (lc $entrada eq "help" ){
             print("Comandos Disponiveis:\n");
@@ -108,6 +108,7 @@ sub game_start{
        
         $msg=${$self->{cenas}}[$self->{cena_atual}]->get_titulo();
         if($nova_cena==1){
+            $OUT->Cls;
             print (${$self->{cenas}}[$self->{cena_atual}]->get_titulo(), "\n");
             print (${$self->{cenas}}[$self->{cena_atual}]->get_descricao(), "\n");
             print (${$self->{cenas}}[$self->{cena_atual}]->print_all_npcs(), "\n");
@@ -245,6 +246,11 @@ sub verifica_comando{
         if($personagem->add_item($obj)==0){
             print("Inventario cheio!!");
         }
+    }
+    if($comando_usado->{comando} eq "open"){
+        my $personagem=$self->{personagem};
+        
+        return $personagem->open_menu($comando_usado->{alvo});
     }
 
     return 0;

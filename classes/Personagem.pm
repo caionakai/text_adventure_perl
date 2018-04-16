@@ -4,7 +4,7 @@ BEGIN {
   unshift @INC,"./classes";
   #@INC is the directory list, where perl searches for .pm files
 }
-
+use Time::HiRes qw(sleep);
 use Objeto;
 
 use Data::Dumper qw(Dumper);
@@ -111,6 +111,11 @@ sub remove_item{
     $self->{quantidade}= $item->get_espaco + $self->{quantidade};
     @{$self->{itens}} = grep {$_ != $item}  @{$self->{itens}};
 }
+sub unequipe{ 
+    my $self=shift;
+    my $item=shift;
+    @{$self->{equipes}} = grep {$_ != $item}  @{$self->{equipes}};
+}
 sub find_item{
     my $self=shift;
     my $item=shift;
@@ -121,12 +126,168 @@ sub find_item{
     }
 return 0;
 }
-sub open_menu{
+sub comandos_possiveis{
     my $self=shift;
-
-    print("Menu personagem!");
+    my @commands;
+    foreach my $i (@{$self->{itens}}){
+        push @commands, ({comando=>"check", alvo=>$i->get_nome});
+        if($i->is_arma || $i->is_armadura){
+            push @commands, ({comando=>"equip", alvo=>$i->get_nome});
+        }
+    }
+    foreach my $i (@{$self->{equipes}}){
+        push @commands, ({comando=>"check", alvo=>$i->get_nome});
+        if($i->is_arma || $i->is_armadura){
+            push @commands, ({comando=>"unequip", alvo=>$i->get_nome});
+        }
+    }
+    return @commands;
 }
 
+sub open_menu{
+    my $self=shift;
+    my $comando=shift;
+    $self->calcula_personagem();
+    print("Menu personagem!\n");
+    my @comando= $self->comandos_possiveis();
+    if(lc $comando eq "inventario"){
+        print("Espaço disponivel: ",($self->{limite_bag} +$self->{quantidade})*-1,"\n");
+        foreach my $i (@{$self->{itens}}){
+            print($i->get_nome);
+        }
+        
+        my $msg="inventário";
+
+        print("\nDigite quit para voltar\n");
+        print("$msg->");
+        my $entrada= <>;# aguarda a entrada do usuario
+        chomp ($entrada);#transforma $entrada em uma string
+        while(1){
+            my @tokens = split / /, $entrada;
+            my $comando1= shift @tokens;
+            my $comando2= join " ", @tokens;
+            if (lc $entrada eq "bye" || lc $entrada eq "quit" ){
+                #print ("Até a próxima velho amigo!\n");
+                return 1;
+            }
+            if (lc $entrada eq "help" ){
+                print("Comandos Disponiveis:\n");
+                foreach (@comando){
+                    if ($_->{alvo}){
+                        print("\t- ", $_->{comando}," ", $_->{alvo},"\n");
+                    }
+                    else{
+                        print("\t- ", $_->{comando},"\n");
+                    }
+                }
+            }
+            else{
+                #separa os comando pelo primeiro argumento
+                my @cont=();
+                foreach my $i (@comando){
+                
+                    if($i->{comando} eq lc $comando1){
+                        push @cont,$i;
+                    }
+                }
+                #como existe mais de um comando possivel verifica qual o alvo do comando
+                my @cont2 = ();
+                foreach my $i (@cont){
+                    if(lc $comando2 eq lc $i->{alvo} ){
+                        push @cont2,$i;
+                        last;
+                    }
+                }
+                if(scalar @cont2==0){
+                    foreach my $i (@cont){
+                        my $test2;
+                        if(scalar @tokens <2){
+                            $test2="";
+                        }
+                        else{
+                            $test2=lc $comando2;
+                        }
+                        $_= lc $i->{alvo};
+
+                        if(/$test2/){
+                            push @cont2,$i;
+                        }
+                    }
+                }
+                #verifica se o alvo existe
+                if(scalar @cont2==0){
+                    print("Comando inválido!!\n");
+                }
+
+                #caso tenha mais de um coamndo disponivel lista todos e volta a tela de comandos
+                if(scalar @cont2>1){
+                    print("Você pode usar os seguintes comandos:\n");
+                    foreach (@cont2){
+                        print("\t- ", $_->{comando}," ", $_->{alvo},"\n");
+                    }
+                }
+                else{
+
+                    #comando escolhido como uma hash(comando, alvo)
+                    my $comando_usado=shift @cont2;
+                    if(lc $comando_usado->{comando} eq lc "check"){
+                        my $obj=$self->get_item_by_nome($comando_usado->{alvo});
+                        $obj->imprimi_objeto();
+                    }
+                    if(lc $comando_usado->{comando} eq lc "equipe"){
+                        my $obj=$self->get_item_by_nome($comando_usado->{alvo});
+                        if($obj->is_arma){
+                            $self->set_arma($obj);
+                        }
+                        if($obj->is_armadura){
+                            $self->set_armadura($obj);
+                        }
+                        if($obj->is_mochila){
+                            $self->set_mochila($obj);
+                        }
+                        #$obj->imprimi_objeto();
+
+                    }
+                    if(lc $comando_usado->{comando} eq lc "unequipe"){
+                        my $obj=$self->get_item_by_nome($comando_usado->{alvo});
+                        #$obj->imprimi_objeto();
+                        $self->unequipe($obj);
+                    }
+                }
+            }
+        print("$msg->");
+        $entrada= <>;# aguarda a entrada do usuario
+        chomp ($entrada);#transforma $entrada em uma string
+        }
+    }
+    if(lc $comando eq "status"){
+        print(
+            "Meus Status:\n",
+            "defesa:",$self->get_defesa(),"/",$self->{defesa},"\n",
+            "ataque:",$self->get_dano(),"\n"
+            );
+        print("Equipamentos:\n");
+        if(${$self->{equipes}}[1]){
+        print("arma:",${$self->{equipes}}[1]->get_nome,"\n");
+        }
+        if(${$self->{equipes}}[2]){
+        print("armadura:",${$self->{equipes}}[2]->get_nome,"\n")
+        }
+        if(${$self->{equipes}}[3]){
+        print("mochila:",${$self->{equipes}}[3]->get_nome,"\n");
+        }
+        sleep(2);
+    }
+}
+sub get_item_by_nome{
+    my $self = shift;
+    my $nome = shift;
+    foreach my $i (@{$self->{itens}}){
+        if(lc $i->get_nome eq lc $nome){
+            return $i;
+        }
+    }
+}
 sub add_item{
     my $self=shift;
     my $value= shift;

@@ -84,8 +84,7 @@ sub comandos_possiveis{
     }
     push @commands, ({comando=>"open",alvo=>"inventario"});
     push @commands, ({comando=>"open",alvo=>"status"});
-    push @commands, ({comando=>"open",alvo=>"equipamentos"});
-    
+
     push @commands, ({comando=>"quit"});
 
     return @commands;

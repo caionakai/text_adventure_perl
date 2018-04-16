@@ -158,6 +158,13 @@ sub is_monstro{
     }
     return 0;
 }
+sub is_mochila{
+    my $self=shift;
+    if ($self->{tipo} eq "comum" && $self->{espaco}<0){
+        return 1;
+    }
+    return 0;
+}
 sub is_espacial{
     my $self=shift;
     if ($self->{tipo} eq "espacial"){
