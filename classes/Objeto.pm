@@ -87,6 +87,10 @@ sub get_espaco{
     my $self=shift;
     return $self->{espaco};
 }
+sub get_descricao{
+    my $self=shift;
+    return $self->{descricao};
+}
 sub get_id{
     my $self=shift;
     if($self != -1){

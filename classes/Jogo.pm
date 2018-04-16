@@ -175,7 +175,6 @@ sub verifica_comando{
         }
     }
 
-    print (Dumper @cont2);
     #verifica se o alvo existe
     if(scalar @cont2==0){
         print("comando invalido!!\n");
@@ -201,8 +200,13 @@ sub verifica_comando{
     }
     #tratamento do comando check
     if($comando_usado->{comando} eq "check"){
-        my $objeto = ${$self->{cenas}}[$self->{cena_atual}]->get_item_by_nome($comando_usado->{alvo});
-        $objeto->imprimi_objeto();
+        if(${$self->{cenas}}[$self->{cena_atual}]->is_monster_by_nome($comando_usado->{alvo})){
+            ${$self->{cenas}}[$self->{cena_atual}]->print_monster_by_nome($comando_usado->{alvo});
+        }
+        else{   
+            my $objeto = ${$self->{cenas}}[$self->{cena_atual}]->get_item_by_nome($comando_usado->{alvo});
+            $objeto->imprimi_objeto();
+        }
     }
 
     #tratamento do comando walk
