@@ -65,7 +65,7 @@ sub game_start{
     print("Digite QUIT para sair!\n");
 
     #atribui 500 de ouro pro personagem
-    $self->{personagem}->add_ouro(500);
+    $self->{personagem}->add_ouro(50);
 
     print("Este jogo possui várias cenas, para cada cena é apresentado um título e uma descrição, é possível navegar entre as cenas.\n",
         "Cada cena possui objetos utilizáveis, ou seja, eles resultam em algum efeito quando combinado com um comando, além disso os objetos utilizáveis são apresentados em letra maiúscula.\n\n");

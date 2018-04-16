@@ -109,12 +109,13 @@ sub remove_item{
     my $self=shift;
     my $item=shift;
     $self->{quantidade}= $item->get_espaco + $self->{quantidade};
-    @{$self->{itens}} = grep {$_ != $item}  @{$self->{itens}};
+    return pop @{$self->{equipes}}, $item
 }
 sub unequipe{ 
     my $self=shift;
     my $item=shift;
-    @{$self->{equipes}} = grep {$_ != $item}  @{$self->{equipes}};
+
+    return pop @{$self->{equipes}}, $item;
 }
 sub find_item{
     my $self=shift;
@@ -153,7 +154,7 @@ sub open_menu{
     if(lc $comando eq "inventario"){
         print("Espaço disponivel: ",($self->{limite_bag} +$self->{quantidade})*-1,"\n");
         foreach my $i (@{$self->{itens}}){
-            print($i->get_nome);
+            print("|",$i->get_nome,"| \n");
         }
         
         my $msg="inventário";
@@ -163,6 +164,7 @@ sub open_menu{
         my $entrada= <>;# aguarda a entrada do usuario
         chomp ($entrada);#transforma $entrada em uma string
         while(1){
+            @comando= $self->comandos_possiveis();
             my @tokens = split / /, $entrada;
             my $comando1= shift @tokens;
             my $comando2= join " ", @tokens;
@@ -239,10 +241,10 @@ sub open_menu{
                         if($obj->is_arma){
                             $self->set_arma($obj);
                         }
-                        if($obj->is_armadura){
+                        elsif($obj->is_armadura){
                             $self->set_armadura($obj);
                         }
-                        if($obj->is_mochila){
+                        elsif($obj->is_mochila){
                             $self->set_mochila($obj);
                         }
                         #$obj->imprimi_objeto();
