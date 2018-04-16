@@ -194,10 +194,11 @@ sub conversa{
             
             if(lc $comando_usado->{comando} eq lc "buy"){
                 my $obj=$self->get_item_by_nome($comando_usado->{alvo});
-                
+               
                 if($inventario->get_ouro() >= $obj->get_preco_de_compra() ){
                     $inventario->add_item($obj);
                     $inventario->remove_ouro($obj->get_preco_de_compra());
+                    print("Você comprou: ", $obj->get_nome,"\n");
                 }
                 else{
                     print("Dinheiro insuficiente\n");

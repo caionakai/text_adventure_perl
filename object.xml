@@ -145,6 +145,8 @@
     <espaco>1</espaco>
     <nome>POCAO DE VIDA</nome>
     <descricao>Restaura um pouco de vida ao ser utilizada.</descricao>
+    <preco_de_compra>5</preco_de_compra>
+    <preco_de_venda>3</preco_de_venda>
 </object>
 
 <object>

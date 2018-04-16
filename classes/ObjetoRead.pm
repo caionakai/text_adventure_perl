@@ -28,6 +28,8 @@ sub new
         $new_object->set_espaco($object->findvalue("./espaco"));
         $new_object->set_nome($object->findvalue("./nome"));
         $new_object->set_descricao($object->findvalue("./descricao"));
+        $new_object->set_preco_de_compra($object->findvalue("./preco_de_compra"));
+        $new_object->set_preco_de_venda($object->findvalue("./preco_de_venda"));
 
         $new_object->set_descricao($object->findvalue("./descricao"));
 
@@ -35,9 +37,6 @@ sub new
             my @slot= map {
                 $_->to_literal();
             }$object->findnodes('./slots/slot');
-
-            $new_object->set_preco_de_compra($object->findvalue("./preco_de_compra"));
-            $new_object->set_preco_de_venda($object->findvalue("./preco_de_venda"));
         
 
             $new_object->set_slots(@slot);
