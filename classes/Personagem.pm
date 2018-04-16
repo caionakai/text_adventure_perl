@@ -76,6 +76,10 @@ sub calcula_personagem{
     foreach my $i (@{$self->{equipes}}){
         $self->{dano}=$self->{dano}+$i->get_dano();
     }
+    $self->{defesa}=0;
+    foreach my $i (@{$self->{equipes}}){
+        $self->{defesa}=$self->{defesa}+$i->get_defesa();
+    }
 }
 # use_item($comando,$item)
 sub remove_item{ 

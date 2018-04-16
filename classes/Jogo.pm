@@ -30,7 +30,7 @@ sub init{
     ## INSTACIAR CLASSE DE OBJETOS ##
     $self->{objetos} = new ObjetoRead("object.xml");
     $self->{objetos}->preparar_missoes();
-
+    my $personagem= $self->{objetos}->get_user();
 
     ## INSTANCIAR CLASSE DE NPCS ##
     $self->{npc} = new NpcRead("npc.xml",$self->{objetos});
@@ -43,7 +43,7 @@ sub init{
 
     ## Inicializar Inventario ##
     $self->{personagem}=new Personagem();
-
+    $self->{personagem}->set_personagem($personagem);
 }
 sub preparar_cenas{
     my $self=shift;
@@ -211,6 +211,14 @@ sub verifica_comando{
         $self->{cena_atual} = $id_to_go;
         return 1;
     }
+    #Comando atakk dos animais
+    if($comando_usado->{comando} eq "attak"){
+        my $lutar_com = ${$self->{cenas}}[$self->{cena_atual}]->get_item_by_nome($comando_usado->{alvo});
+        print Dumper $lutar_com;
+        #$self->{cena_atual} = $id_to_go;
+        #return 1;
+    }
+
     return 1;
 }
 sub get_npc_by_nome{

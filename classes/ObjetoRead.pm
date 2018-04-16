@@ -70,6 +70,10 @@ sub new
     }
     return bless $self,$class;
 }
+sub get_user{
+    my $self=shift;
+    return ${$self->{objects}}[0];
+}
 sub get_object_list(){
     my $self=shift;
     return $self->{objects};

@@ -32,6 +32,10 @@ sub set_defesa(){
     my $self=shift;
     $self->{defesa}=shift;
 }
+sub get_defesa(){
+    my $self=shift;
+    return $self->{defesa};
+}
 sub set_recompensa(){
     my $self=shift;
     $self->{recompensa}=shift;
