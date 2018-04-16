@@ -64,6 +64,10 @@ sub comandos_possiveis{
     foreach my $i (@{$self->{npcs}}){
         push @commands, ({comando=>"talk", alvo=>$i->get_nome});
     }
+    foreach my $i (@{$self->{monstro}}){
+        push @commands, ({comando=>"attak",alvo=>$i->get_nome});
+        push @commands, ({comando=>"check",alvo=>$i->get_nome});
+    }
 
     foreach my $i (@{$self->{itens}}){
         push @commands, ({comando=>"pick",alvo=>$i->get_nome});
