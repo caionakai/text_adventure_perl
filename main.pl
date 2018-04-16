@@ -1,6 +1,6 @@
 BEGIN {
-  unshift @INC,"./classes";
   #@INC is the directory list, where perl searches for .pm files
+  unshift @INC,"./classes";
 }
 use utf8;
 use strict;
@@ -14,14 +14,20 @@ use Jogo;
 use Npc;
 use NpcRead;
 
- my $mp3 = "Naruto Soundtrack- Sadness and Sorrow FULL VERSION.wav";
-  system(qq{play mplay32 /play /close "$mp3" "$mp3"});
+use Data::Dumper;
 
+# my $mp3 = "Naruto Abertura 01 - Rocks.mp3";
+#my $result = Win32::Sound::Play($mp3);
+
+#$player->poll(1) until $player->state == 0;
+
+my $dump = new XML::Dumper;
 my $game = new Jogo();
 $game->init();
 $game->game_start;
 
-
+#my $test=$dump->xml2pl($file);
+#print (Dumper $test);
 
 ## @{$cenas->{npcs}} é na verdade um vetor de cenas '-'
 

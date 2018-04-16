@@ -84,6 +84,8 @@ sub comandos_possiveis{
     }
     push @commands, ({comando=>"open",alvo=>"inventario"});
     push @commands, ({comando=>"open",alvo=>"status"});
+    push @commands, ({comando=>"savegame",alvo=>""});
+    push @commands, ({comando=>"loadgame",alvo=>""});
 
     push @commands, ({comando=>"quit"});
 

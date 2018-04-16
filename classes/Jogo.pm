@@ -14,6 +14,10 @@ use Npc;
 use NpcRead;
 use Data::Dumper qw(Dumper);
 use Win32::Console;
+
+
+use XML::Dumper;
+
 sub new
 {	
     my ( $class ) = shift;
@@ -44,6 +48,8 @@ sub init{
     ## Inicializar Inventario ##
     $self->{personagem}=new Personagem();
     $self->{personagem}->set_personagem($personagem);
+
+
 }
 sub preparar_cenas{
     my $self=shift;
@@ -164,17 +170,15 @@ sub verifica_comando{
         return 0;
     }
 
-    if($tokens[0] eq lc "help"){
-        print("Os comandos possíveis são: use, attack, buy, sell, talk, pick, help, save, load, newgame.\n");
-    }
 
     #como existe mais de um comando possivel verifica qual o alvo do comando
     my @cont2 = ();
     foreach my $i (@cont){
-    if(lc $temp2 eq lc $i->{alvo} ){
+        if(lc $temp2 eq lc $i->{alvo} ){
             push @cont2,$i;
             last;
         }
+        
     }
     if(scalar @cont2==0){
         foreach my $i (@cont){
@@ -232,6 +236,17 @@ sub verifica_comando{
         $self->{cena_atual} = $id_to_go;
         return 1;
     }
+    if($comando_usado->{comando} eq "savegame"){
+        my $dump = new XML::Dumper;
+        my $file = $temp2;
+        my $xml = $dump->pl2xml( $self->{personagem} ,$file);
+    }
+    if($comando_usado->{comando} eq "loadgame"){
+        my $dump = new XML::Dumper;
+        my $file = $temp2;
+        $self->{personagem} = $dump->xml2pl($file);
+    }
+    
     #Comando atakk dos animais
     if($comando_usado->{comando} eq "attack"){
         my $lutar_com =${$self->{cenas}}[$self->{cena_atual}]->get_monstro_by_nome($comando_usado->{alvo});
@@ -252,7 +267,6 @@ sub verifica_comando{
         
         return $personagem->open_menu($comando_usado->{alvo});
     }
-
     return 0;
 }
 sub get_npc_by_nome{
