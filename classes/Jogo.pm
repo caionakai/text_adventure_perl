@@ -127,10 +127,12 @@ sub comandos_disponiveis{
 sub verifica_comando{
     my $self=shift;
     my @tokens = split / /, shift;
-    my $temp = $tokens[0];
+    my $temp =shift @tokens;
     if(lc $temp eq "help"){
         return 0;
     }
+    
+    my $temp2= join " ", @tokens;
 
     $self->comandos_disponiveis();
 
@@ -164,7 +166,7 @@ sub verifica_comando{
             $test2="";
         }
         else{
-            $test2=lc $tokens[1];
+            $test2=lc $temp2;
         }
         $_= lc $i->{alvo};
 

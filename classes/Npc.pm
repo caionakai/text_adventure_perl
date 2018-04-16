@@ -121,7 +121,8 @@ sub conversa{
 
     while(1){
         my @tokens = split / /, $entrada;
-        
+        my $comando1= shift @tokens;
+        my $comando2= join " ", @tokens;
         if (lc $entrada eq "bye" || lc $entrada eq "quit" ){
             print ("Até a próxima velho amigo!\n");
             return 0;
@@ -144,7 +145,7 @@ sub conversa{
         my @cont=();
         foreach my $i (@comando){
         
-            if($i->{comando} eq lc $tokens[0]){
+            if($i->{comando} eq lc $comando1){
                 push @cont,$i;
             }
         }
@@ -156,7 +157,7 @@ sub conversa{
                 $test2="";
             }
             else{
-                $test2=lc $tokens[1];
+                $test2=lc $comando2;
             }
             $_= lc $i->{alvo};
 
