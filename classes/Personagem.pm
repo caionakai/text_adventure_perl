@@ -25,6 +25,7 @@ sub new {
     $self->{missoes_ativas}=[];
     $self->{ouro}=0;
     
+    $self->{vida}=0;
     #personagem 
     # numero de itens: $self->{limite};
     # 
@@ -69,6 +70,28 @@ sub set_mochila{
         $self->add_item(${$self->{equipes}}[3]);
     }
     ${$self->{equipes}}[3]=shift;
+}
+sub get_dano{
+    my $self=shift;
+    return $self->{dano};
+}
+sub get_defesa{
+    my $self=shift;
+    return $self->{defesa}-$self->{vida};
+}
+sub atualiza_vida{
+    my $self=shift;
+    my $vida=shift;
+    if($vida>0){
+        print("você perdeu $vida de vida\n");
+    }
+    else{
+        print("você foi curado com $vida de vida\n");
+    }
+    $self->{vida}=$self->{vida}+$vida;
+    if($self->{vida}<0){
+        $self->{vida}=0;
+    }
 }
 sub calcula_personagem{
     my $self=shift;

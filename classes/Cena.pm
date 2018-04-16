@@ -1,6 +1,7 @@
 package Cena;
-
+use Time::HiRes qw(sleep);
 use Data::Dumper qw(Dumper);
+use Storable 'dclone';
 sub new
 {
     my ( $class ) = shift;
@@ -168,6 +169,45 @@ sub get_item_by_nome{
             return $i;
         }
     }
+}
+sub get_monstro_by_nome{
+    my $self = shift;
+    my $nome = shift;
+    foreach my $i (@{$self->{monstro}}){
+        if(lc $i->get_nome eq lc $nome){
+            return $i;
+        }
+    }
+}
+sub duelo{
+    my $self=shift;
+    my $enemy= dclone shift;
+
+    my $personagem=shift;
+
+    while($enemy->get_defesa >0){
+
+        $personagem->calcula_personagem();
+        if($personagem->get_defesa<=0){
+            print("Voce morreu!\n");
+            return(2);
+        }
+        else{
+            my $dano_do_monstro=$enemy->get_dano();
+            my $dano_do_personagem=$personagem->get_dano();
+            $enemy->ataque($dano_do_personagem);
+            $personagem->atualiza_vida($dano_do_monstro);
+
+        }
+        if($enemy->get_defesa <=0){
+            print("Você matou o ",$enemy->get_nome,"\n");
+            $self->set_item($enemy->drop());
+            #$self->comandos_possiveis();
+            return 0;
+        }
+        sleep(1);
+    }
+    return 0;
 }
 
 sub print_all_monstro{

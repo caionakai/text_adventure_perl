@@ -154,17 +154,25 @@ sub conversa{
          #como existe mais de um comando possivel verifica qual o alvo do comando
         my @cont2 = ();
         foreach my $i (@cont){
-            my $test2;
-            if(scalar @tokens <2){
-                $test2="";
-            }
-            else{
-                $test2=lc $comando2;
-            }
-            $_= lc $i->{alvo};
-
-            if(/$test2/){
+            if(lc $comando2 eq lc $i->{alvo} ){
                 push @cont2,$i;
+                last;
+            }
+        }
+        if(scalar @cont2==0){
+            foreach my $i (@cont){
+                my $test2;
+                if(scalar @tokens <2){
+                    $test2="";
+                }
+                else{
+                    $test2=lc $comando2;
+                }
+                $_= lc $i->{alvo};
+
+                if(/$test2/){
+                    push @cont2,$i;
+                }
             }
         }
         #verifica se o alvo existe
@@ -182,7 +190,7 @@ sub conversa{
         else{
 
             #comando escolhido como uma hash(comando, alvo)
-            my $comando_usado=$cont2[0];
+            my $comando_usado=shift @cont2;
             
             if(lc $comando_usado->{comando} eq lc "buy"){
                 my $obj=$self->get_item_by_nome($comando_usado->{alvo});

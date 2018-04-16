@@ -61,7 +61,12 @@ sub new
             $new_object->set_recompensa($object->findvalue('./recompensa'));
         }
         elsif( $object->findvalue("./tipo") eq  "monstro" || $object->findvalue("./tipo") eq  "personagem"){
-            
+            my @drop= map {
+                 $_->to_literal()
+                
+            }$object->findnodes('./drops/drop');
+            $new_object->set_drops(@drop);
+
             $new_object->set_dano_min($object->findvalue('./dano/@min'));
             $new_object->set_dano_max($object->findvalue('./dano/@max'));
             $new_object->set_defesa($object->findvalue('./defesa'));
@@ -103,6 +108,14 @@ sub preparar_missoes(){
             }
             $i->set_objetivo(@new_objetivos);
             
+        }
+        if($i->is_monstro()){
+            my @objetivos=$i->get_drops();
+            my @new_drop=();
+            foreach my $j (@objetivos){
+                push @new_drop,$self->get_obj_by_id($j);
+            }
+            $i->set_drops(@new_drop);
         }
     }
 }

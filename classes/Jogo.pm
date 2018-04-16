@@ -86,7 +86,7 @@ sub game_start{
     while(1){
         if (lc $entrada eq "help" ){
             print("Comandos Disponiveis:\n");
-             foreach (@comando){
+             foreach (@{$self->{comandos}}){
                  if ($_->{alvo}){
                      print("\t- ", $_->{comando}," ", $_->{alvo},"\n");
                  }
@@ -110,7 +110,8 @@ sub game_start{
             print (${$self->{cenas}}[$self->{cena_atual}]->print_all_monstro, "\n");
             $nova_cena=0;
         }
-        @comando=$self->comandos_disponiveis();
+
+        $self->comandos_disponiveis();
         # COMANDOS DIGITADOS PELO JOGADOR
         print("$msg->");
         $entrada= <>;# aguarda a entrada do usuario
@@ -161,17 +162,24 @@ sub verifica_comando{
     #como existe mais de um comando possivel verifica qual o alvo do comando
     my @cont2 = ();
     foreach my $i (@cont){
-        my $test2;
-        if(scalar @tokens <2){
-            $test2="";
-        }
-        else{
-            $test2=lc $temp2;
-        }
-        $_= lc $i->{alvo};
-
-        if(/$test2/){
+    if(lc $temp2 eq lc $i->{alvo} ){
             push @cont2,$i;
+            last;
+        }
+    }
+    if(scalar @cont2==0){
+        foreach my $i (@cont){
+            my $test2;
+            if(scalar @tokens <2){
+                $test2="";
+            }
+            else{
+                $test2=lc $temp2;
+            }
+            $_= lc $i->{alvo};
+            if(/$test2/){
+                push @cont2,$i;
+            }
         }
     }
 
@@ -181,7 +189,7 @@ sub verifica_comando{
         return 0;
     }
     #caso tenha mais de um coamndo disponivel lista todos e volta a tela de comandos
-    if(scalar @cont2>1){
+    if(scalar @cont2>1 ){
         print("voce pode usar os seguintes comandos:\n");
         foreach (@cont2){
             print("\t- ", $_->{comando}," ", $_->{alvo},"\n");
@@ -190,7 +198,7 @@ sub verifica_comando{
     }
 
     #comando escolhido como uma hash(comando, alvo)
-    my $comando_usado=$cont2[0];
+    my $comando_usado=shift @cont2;
 
 
     #tratamento do comando talk
@@ -217,13 +225,12 @@ sub verifica_comando{
     }
     #Comando atakk dos animais
     if($comando_usado->{comando} eq "attak"){
-        my $lutar_com = ${$self->{cenas}}[$self->{cena_atual}]->get_item_by_nome($comando_usado->{alvo});
-        print Dumper $lutar_com;
-        #$self->{cena_atual} = $id_to_go;
-        #return 1;
+        my $lutar_com =${$self->{cenas}}[$self->{cena_atual}]->get_monstro_by_nome($comando_usado->{alvo});
+       ${$self->{cenas}}[$self->{cena_atual}]->duelo($lutar_com,$self->{personagem});
+
     }
 
-    return 1;
+    return 0;
 }
 sub get_npc_by_nome{
     my $self=shift;

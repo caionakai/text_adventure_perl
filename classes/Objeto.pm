@@ -1,6 +1,6 @@
 package Objeto;
 
-
+use Data::Dumper qw(Dumper);
 sub new
 {
     my ( $class ) = shift;
@@ -43,6 +43,14 @@ sub set_recompensa(){
 sub set_objetivo(){
     my $self=shift;
     @{$self->{objetivo}}=@_;
+}
+sub set_drops(){
+    my $self=shift;
+    @{$self->{drops}}=@_;
+}
+sub get_drops(){
+    my $self=shift;
+    @{$self->{drops}};
 }
 sub set_descricao(){
     my $self=shift;
@@ -158,9 +166,26 @@ sub is_espacial{
 }
 sub get_dano{
     my $self=shift;
-    if($self->is_arma || $self->is_personagem){
+    if($self->is_arma || $self->is_personagem || $self->is_monstro ){
         return $self->{dano_min}+ int rand($self->{dano_max}-$self->{dano_min});
     }
+}
+sub drop{
+    my $self=shift;
+    my @drop=();
+    foreach (@{$self->{drops}}){
+        if( int rand(100) <30){
+            push @drop, $_;
+        }
+    }
+
+    return @drop;
+}
+sub ataque{
+    my $self=shift;
+    my $vida=shift;
+    $self->{defesa}=$self->{defesa}-$vida;
+    print("seu ataque no ",$self->{nome}," causou ",$vida, "de dano\n");
 }
 sub get_objetivo{
     my $self=shift;

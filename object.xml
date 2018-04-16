@@ -6,7 +6,7 @@
     <nome>JOHN DOE</nome>
     <descricao>Aventureiro iniciante.</descricao>
     <dano min="2" max="5"/>
-    <defesa>10</defesa>
+    <defesa>100</defesa>
 </object>
 
 <object>
@@ -81,6 +81,10 @@
     <nome>LOBO</nome>
     <descricao>Um pequeno lobo selvagem.</descricao>
     <dano min="3" max="5"/>
+    <drops>
+        <drop>1</drop>
+        <drop>11</drop>
+    </drops>
     <defesa>5</defesa>
 </object>
 
@@ -91,6 +95,11 @@
     <nome>LOBO SANGUINÁRIO</nome>
     <descricao>Um pequeno lobo selvagem e sanguinário.</descricao>
     <dano min="10" max="25"/>
+    <drops>
+        <drop>2</drop>
+        <drop>1</drop>
+        <drop>11</drop>
+    </drops>
     <defesa>20</defesa>
 </object>
 
@@ -101,6 +110,11 @@
     <nome>LOBO CHEFE</nome>
     <descricao>Um lobo alfa.</descricao>
     <dano min="20" max="30"/>
+    <drops>
+        <drop>2</drop>
+        <drop>3</drop>
+        <drop>11</drop>
+    </drops>
     <defesa>25</defesa>
 </object>
 
