@@ -104,7 +104,9 @@ sub comandos_possiveis{
 
 sub conversa{
     my $self=shift;
+    print "($self->{nome}):";
     print "$_ \n" for @{$self->{falas}};
+    print ("|", $_->get_nome, "| ") for @{$self->{itens}};
     my @comando= $self->comandos_possiveis();
     my $inventario=shift;
     if(scalar @comando == 1){
@@ -113,7 +115,7 @@ sub conversa{
     my $msg=$self->get_nome;
     
     
-    print("Digite bye para sair\n");
+    print("\nDigite bye para sair\n");
     print("$msg->");
     my $entrada= <>;# aguarda a entrada do usuario
     chomp ($entrada);#transforma $entrada em uma string

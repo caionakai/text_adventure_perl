@@ -179,4 +179,30 @@ sub print_all_monstro{
 
 }
 
+sub is_monster_by_nome{
+    my $self = shift;
+    my $nome = shift;
+    foreach my $i (@{$self->{monstro}}){
+        if(lc $i->get_nome() eq lc $nome){
+            return 1;
+        }
+    }
+
+}
+
+sub print_monster_by_nome{
+    my $self = shift;
+    my $nome = shift;
+    foreach my $i (@{$self->{monstro}}){
+        if(lc $i->get_nome() eq lc $nome){
+            #print (Dumper $i);
+            print(
+              "\tNome: ", $i->get_nome(), "\n", 
+              "\tDescricao:", $i->get_descricao(), "\n",
+              "\tDano: ", $i->get_dano(), "\n",
+            );
+        }
+    }
+}
+
 1;
