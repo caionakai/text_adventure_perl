@@ -77,6 +77,7 @@ sub game_start{
             print (${$self->{cenas}}[$self->{cena_atual}]->get_descricao(), "\n");
             print (${$self->{cenas}}[$self->{cena_atual}]->print_all_npcs(), "\n");
             print (${$self->{cenas}}[$self->{cena_atual}]->print_all_obj, "\n");
+            print (${$self->{cenas}}[$self->{cena_atual}]->print_all_monstro, "\n");
             $nova_cena=0;
         }
         print("$msg->");
@@ -106,6 +107,7 @@ sub game_start{
             print (${$self->{cenas}}[$self->{cena_atual}]->get_descricao(), "\n");
             print (${$self->{cenas}}[$self->{cena_atual}]->print_all_npcs(), "\n");
             print (${$self->{cenas}}[$self->{cena_atual}]->print_all_obj, "\n");
+            print (${$self->{cenas}}[$self->{cena_atual}]->print_all_monstro, "\n");
             $nova_cena=0;
         }
         @comando=$self->comandos_disponiveis();

@@ -166,6 +166,15 @@ sub get_item_by_nome{
     }
 }
 
+sub print_all_monstro{
+    my $self = shift;
+    print ("MONSTROS: ");
+    foreach my $i (@{$self->{itens}}){
+        if($i->is_monstro()){
+            print($i->get_nome(), ", ");
+        }
+    }
 
+}
 
 1;
