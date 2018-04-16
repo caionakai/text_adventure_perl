@@ -14,10 +14,15 @@ use Jogo;
 use Npc;
 use NpcRead;
 
+ my $mp3 = "Naruto Soundtrack- Sadness and Sorrow FULL VERSION.wav";
+  system(qq{play mplay32 /play /close "$mp3" "$mp3"});
 
 my $game = new Jogo();
 $game->init();
 $game->game_start;
+
+
+
 ## @{$cenas->{npcs}} é na verdade um vetor de cenas '-'
 
 #print (${$cenas->{npcs}}[0]->print_all_npcs());

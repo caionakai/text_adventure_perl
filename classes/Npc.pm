@@ -94,8 +94,9 @@ sub comandos_possiveis{
     my @commandos=();
 
     foreach my $i (@{$self->{itens}}){
-        
-        push @commandos, ({comando=>"buy",alvo=>$i->get_nome});
+        if($i->get_preco_de_compra>0){
+            push @commandos, ({comando=>"buy",alvo=>$i->get_nome});
+        }
         push @commandos, ({comando=>"sell",alvo=>$i->get_nome});
         push @commandos, ({comando=>"check",alvo=>$i->get_nome});
     }

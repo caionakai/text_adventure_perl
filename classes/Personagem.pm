@@ -234,7 +234,7 @@ sub open_menu{
                         my $obj=$self->get_item_by_nome($comando_usado->{alvo});
                         $obj->imprimi_objeto();
                     }
-                    if(lc $comando_usado->{comando} eq lc "equipe"){
+                    if(lc $comando_usado->{comando} eq lc "equip"){
                         my $obj=$self->get_item_by_nome($comando_usado->{alvo});
                         if($obj->is_arma){
                             $self->set_arma($obj);
@@ -284,7 +284,7 @@ sub get_item_by_nome{
     my $nome = shift;
     foreach my $i (@{$self->{itens}}){
         if(lc $i->get_nome eq lc $nome){
-            return $i;
+            return pop @{$self->{itens}}, $i;
         }
     }
 }
