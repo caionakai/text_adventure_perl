@@ -2,7 +2,7 @@
 <object>
     <id>0</id>
     <tipo>personagem</tipo>
-    <espaco>-5</espaco>
+    <espaco>-10</espaco>
     <nome>JOHN DOE</nome>
     <descricao>Aventureiro iniciante.</descricao>
     <dano min="2" max="5"/>
@@ -84,6 +84,8 @@
     <drops>
         <drop>1</drop>
         <drop>11</drop>
+        <drop>21</drop>
+        <drop>22</drop>
     </drops>
     <defesa>5</defesa>
 </object>
@@ -99,6 +101,8 @@
         <drop>2</drop>
         <drop>1</drop>
         <drop>11</drop>
+        <drop>21</drop>
+        <drop>22</drop>
     </drops>
     <defesa>20</defesa>
 </object>
@@ -114,6 +118,9 @@
         <drop>2</drop>
         <drop>3</drop>
         <drop>11</drop>
+        <drop>21</drop>
+        <drop>22</drop>
+        <drop>23</drop>
     </drops>
     <defesa>25</defesa>
 </object>
@@ -156,7 +163,13 @@
     <nome>GOBLIN</nome>
     <descricao>Um goblin nem sempre está sozinho!</descricao>
     <dano min="6" max="14"/>
-    <defesa>8</defesa>
+    <drops>
+        <drop>24</drop>
+        <drop>25</drop>
+        <drop>31</drop>
+        <drop>37</drop>
+    </drops>
+    <defesa>16</defesa>
 </object>
 
 <object>
@@ -166,7 +179,13 @@
     <nome>HOBGOBLIN</nome>
     <descricao>Hobgoblins arremessam pedras.</descricao>
     <dano min="14" max="28"/>
-    <defesa>16</defesa>
+    <drops>
+        <drop>24</drop>
+        <drop>25</drop>
+        <drop>31</drop>
+        <drop>37</drop>
+    </drops>
+    <defesa>20</defesa>
 </object>
 
 <object>
@@ -176,7 +195,13 @@
     <nome>GOBLIN CHEFE</nome>
     <descricao>Goblins Chefes dropam itens valiosos!</descricao>
     <dano min="25" max="36"/>
-    <defesa>28</defesa>
+    <drops>
+        <drop>24</drop>
+        <drop>25</drop>
+        <drop>26</drop>
+        <drop>27</drop>
+    </drops>
+    <defesa>35</defesa>
 </object>
 
 <object>
@@ -186,7 +211,13 @@
     <nome>ORC</nome>
     <descricao>ORCs possuem muita força fisica!</descricao>
     <dano min="20" max="26"/>
-    <defesa>22</defesa>
+    <drops>
+        <drop>27</drop>
+        <drop>28</drop>
+        <drop>29</drop>
+        <drop>38</drop>
+    </drops>
+    <defesa>30</defesa>
 </object>
 
 <object>
@@ -196,7 +227,13 @@
     <nome>ORC ZEN</nome>
     <descricao>ORCs ZEN geralmente andam sozinhos!</descricao>
     <dano min="26" max="33"/>
-    <defesa>28</defesa>
+    <drops>
+        <drop>27</drop>
+        <drop>28</drop>
+        <drop>29</drop>
+        <drop>38</drop>
+    </drops>
+    <defesa>35</defesa>
 </object>
 
 <object>
@@ -206,7 +243,14 @@
     <nome>ORC CHEFE</nome>
     <descricao>Melhor não enfrentá-lo sozinho!</descricao>
     <dano min="40" max="50"/>
-    <defesa>35</defesa>
+    <drops>
+        <drop>27</drop>
+        <drop>28</drop>
+        <drop>29</drop>
+        <drop>30</drop>
+        <drop>38</drop>
+    </drops>
+    <defesa>50</defesa>
 </object>
 
 <object>
@@ -216,7 +260,13 @@
     <nome>MINOTAURO</nome>
     <descricao>Minotauros possuem uma força esmagadora!</descricao>
     <dano min="50" max="60"/>
-    <defesa>40</defesa>
+    <drops>
+        <drop>32</drop>
+        <drop>33</drop>
+        <drop>34</drop>
+        <drop>39</drop>
+    </drops>
+    <defesa>50</defesa>
 </object>
 
 <object>
@@ -226,7 +276,13 @@
     <nome>MINOTAURO ARQUEIRO</nome>
     <descricao>Realizam ataques a distância e possuem uma destreza inimaginável!</descricao>
     <dano min="60" max="70"/>
-    <defesa>45</defesa>
+    <drops>
+        <drop>33</drop>
+        <drop>34</drop>
+        <drop>35</drop>
+        <drop>39</drop>
+    </drops>
+    <defesa>55</defesa>
 </object>
 
 <object>
@@ -236,8 +292,265 @@
     <nome>MINOTAURO CHEFE</nome>
     <descricao>Ninguém nunca foi capaz de enfrentá-lo, a criatura mais forte do reino, a resistência dele equivale a de 2 minotauros juntos. É melhor estar preparado!</descricao>
     <dano min="70" max="80"/>
-    <defesa>80</defesa>
+    <drops>
+        <drop>32</drop>
+        <drop>33</drop>
+        <drop>34</drop>
+        <drop>35</drop>
+        <drop>36</drop>
+        <drop>40</drop>
+    </drops>
+    <defesa>100</defesa>
 </object>
 
+<object>
+    <id>21</id>
+    <tipo>comum</tipo>
+    <espaco>1</espaco>
+    <nome>DENTE DE LOBO</nome>
+    <preco_de_compra>0</preco_de_compra>
+    <preco_de_venda>7</preco_de_venda>
+    <descricao>Este item pode ser vendido na feira.</descricao>
+</object>
+
+<object>
+    <id>22</id>
+    <tipo>comum</tipo>
+    <espaco>1</espaco>
+    <nome>PELE DE LOBO</nome>
+    <preco_de_compra>0</preco_de_compra>
+    <preco_de_venda>11</preco_de_venda>
+    <descricao>Este item pode ser vendido na feira.</descricao>
+</object>
+
+<object>
+    <id>23</id>
+    <tipo>comum</tipo>
+    <espaco>1</espaco>
+    <nome>CABECA DO LOBO CHEFE</nome>
+    <preco_de_compra>0</preco_de_compra>
+    <preco_de_venda>30</preco_de_venda>
+    <descricao>Este item é valioso!</descricao>
+</object>
+
+<object>
+    <id>24</id>
+    <tipo>comum</tipo>
+    <espaco>1</espaco>
+    <nome>BRACELETE DE METAL</nome>
+    <preco_de_compra>0</preco_de_compra>
+    <preco_de_venda>16</preco_de_venda>
+    <descricao>Este item pode ser vendido na feira.</descricao>
+</object>
+
+<object>
+    <id>25</id>
+    <tipo>comum</tipo>
+    <espaco>1</espaco>
+    <nome>SAPATO DE GOBLIN</nome>
+    <preco_de_compra>0</preco_de_compra>
+    <preco_de_venda>22</preco_de_venda>
+    <descricao>Este item pode ser vendido na feira.</descricao>
+</object>
+
+<object>
+    <id>26</id>
+    <tipo>comum</tipo>
+    <espaco>1</espaco>
+    <nome>CHAPEU DO GOBLIN CHEFE</nome>
+    <preco_de_compra>0</preco_de_compra>
+    <preco_de_venda>40</preco_de_venda>
+    <descricao>Este item é valioso!</descricao>
+</object>
+
+<object>
+    <id>27</id>
+    <tipo>comum</tipo>
+    <espaco>1</espaco>
+    <nome>SAFIRA</nome>
+    <preco_de_compra>0</preco_de_compra>
+    <preco_de_venda>30</preco_de_venda>
+    <descricao>Este item pode ser vendido na feira.</descricao>
+</object>
+
+<object>
+    <id>28</id>
+    <tipo>comum</tipo>
+    <espaco>1</espaco>
+    <nome>RUBI</nome>
+    <preco_de_compra>0</preco_de_compra>
+    <preco_de_venda>30</preco_de_venda>
+    <descricao>Este item pode ser vendido na feira.</descricao>
+</object>
+
+<object>
+    <id>29</id>
+    <tipo>comum</tipo>
+    <espaco>1</espaco>
+    <nome>ESMERALDA</nome>
+    <preco_de_compra>0</preco_de_compra>
+    <preco_de_venda>30</preco_de_venda>
+    <descricao>Este item pode ser vendido na feira.</descricao>
+</object>
+
+<object>
+    <id>30</id>
+    <tipo>arma</tipo>
+    <espaco>1</espaco>
+    <nome>Espada de Obsidiana</nome>
+    <dano min="10" max="25"/>
+    <durabilidade>20</durabilidade>
+    <preco_de_compra>100</preco_de_compra>
+    <preco_de_venda>70</preco_de_venda>
+    <slots>
+        <slot>Empty</slot>
+        <slot>Empty</slot>
+    </slots>
+    <descricao>Espada pistolinha.</descricao>
+</object>
+
+<object>
+    <id>31</id>
+    <tipo>arma</tipo>
+    <espaco>1</espaco>
+    <nome>Lanca De Ferro</nome>
+    <dano min="5" max="20"/>
+    <durabilidade>20</durabilidade>
+    <preco_de_compra>50</preco_de_compra>
+    <preco_de_venda>25</preco_de_venda>
+    <slots>
+        <slot>Empty</slot>
+        <slot>Empty</slot>
+    </slots>
+    <descricao>Lanca feita pelos goblins.</descricao>
+</object>
+
+<object>
+    <id>32</id>
+    <tipo>arma</tipo>
+    <espaco>1</espaco>
+    <nome>Espada de Plenilunia</nome>
+    <dano min="15" max="30"/>
+    <durabilidade>20</durabilidade>
+    <preco_de_compra>150</preco_de_compra>
+    <preco_de_venda>75</preco_de_venda>
+    <slots>
+        <slot>Empty</slot>
+        <slot>Empty</slot>
+    </slots>
+    <descricao>Forjada com odio e sangue pelos ferreiros escravizados.</descricao>
+</object>
+
+<object>
+    <id>33</id>
+    <tipo>comum</tipo>
+    <espaco>1</espaco>
+    <nome>CAPACETE DE MINOTAURO</nome>
+    <preco_de_compra>0</preco_de_compra>
+    <preco_de_venda>45</preco_de_venda>
+    <descricao>Este item pode ser vendido na feira.</descricao>
+</object>
+
+<object>
+    <id>34</id>
+    <tipo>arma</tipo>
+    <espaco>1</espaco>
+    <nome>Ferro Vermelho</nome>
+    <dano min="25" max="25"/>
+    <durabilidade>20</durabilidade>
+    <preco_de_compra>150</preco_de_compra>
+    <preco_de_venda>75</preco_de_venda>
+    <slots>
+        <slot>Empty</slot>
+        <slot>Empty</slot>
+    </slots>
+    <descricao>Forjada com odio e sangue pelos ferreiros escravizados.</descricao>
+</object>
+
+<object>
+    <id>35</id>
+    <tipo>arma</tipo>
+    <espaco>1</espaco>
+    <nome>ARCO FLECHA INFERNAL</nome>
+    <dano min="5" max="50"/>
+    <durabilidade>20</durabilidade>
+    <preco_de_compra>150</preco_de_compra>
+    <preco_de_venda>75</preco_de_venda>
+    <slots>
+        <slot>Empty</slot>
+        <slot>Empty</slot>
+    </slots>
+    <descricao>O dano deste item varia horrores!.</descricao>
+</object>
+
+<object>
+    <id>36</id>
+    <tipo>arma</tipo>
+    <espaco>1</espaco>
+    <nome>PUNHAL DO DEUS DRAGAO</nome>
+    <dano min="50" max="100"/>
+    <durabilidade>20</durabilidade>
+    <preco_de_compra>1000</preco_de_compra>
+    <preco_de_venda>500</preco_de_venda>
+    <slots>
+        <slot>Empty</slot>
+        <slot>Empty</slot>
+    </slots>
+    <descricao>O ITEM MAIS FORTE DE TODO O REINO APENAS O MINOTAURO CHEFE O POSSUI.</descricao>
+</object>
+
+<object>
+    <id>37</id>
+    <tipo>armadura</tipo>
+    <espaco>1</espaco>
+    <nome>VESTIMENTA DE PANO</nome>
+    <preco_de_compra>20</preco_de_compra>
+    <preco_de_venda>10</preco_de_venda>
+    <descricao>A ultima moda dos goblins.</descricao>
+    <defesa>25</defesa>
+</object>
+
+<object>
+    <id>38</id>
+    <tipo>armadura</tipo>
+    <espaco>1</espaco>
+    <nome>ARMADURA DE BRONZE</nome>
+    <preco_de_compra>60</preco_de_compra>
+    <preco_de_venda>20</preco_de_venda>
+    <descricao>Muito comum entre os ORCS.</descricao>
+    <defesa>40</defesa>
+</object>
+
+<object>
+    <id>39</id>
+    <tipo>armadura</tipo>
+    <espaco>1</espaco>
+    <nome>PLACA DE FERRO</nome>
+    <preco_de_compra>120</preco_de_compra>
+    <preco_de_venda>50</preco_de_venda>
+    <descricao>Nao e facil conseguir uma dessas.</descricao>
+    <defesa>70</defesa>
+</object>
+
+<object>
+    <id>40</id>
+    <tipo>armadura</tipo>
+    <espaco>1</espaco>
+    <nome>ARMADURA DO DEUS DRAGAO</nome>
+    <preco_de_compra>1000</preco_de_compra>
+    <preco_de_venda>500</preco_de_venda>
+    <descricao>A melhor armadura do jogo.</descricao>
+    <defesa>200</defesa>
+</object>
+
+<object>
+    <id>41</id>
+    <tipo>comum</tipo>
+    <espaco>-20</espaco>
+    <nome>MOCHILA ESPACOSA</nome>
+    <preco_de_compra>30</preco_de_compra>
+    <preco_de_venda>10</preco_de_venda>
+    <descricao>Esta mochila permite que voce carregue muitas coisas.</descricao>
+</object>
 
 </list>
