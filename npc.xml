@@ -28,11 +28,11 @@
 		<falas>
 			<fala>Olá aventureiro, tenho muitos equipamentos a disposição, para comprar digite BUY 'nome do equipamento', ou para vender digite SELL 'nome do equipamento'.</fala>
 		</falas>
+		<itens>
+			<item>1</item>
+			<item>2</item>
+		</itens>
 	</npc>
-	<itens>
-		<item>1</item>
-		<item>2</item>
-	</itens>
 
 
 	<npc>
@@ -41,10 +41,10 @@
 		<falas>
 			<fala>Olá aventureiro, tenho muitos equipamentos a disposição, para comprar digite BUY 'nome do equipamento', ou para vender digite SELL 'nome do equipamento'.</fala>
 		</falas>
+		<itens>
+			<item>11</item>
+		</itens>
 	</npc>
-	<itens>
-		<item>11</item>
-	</itens>
 
 
 

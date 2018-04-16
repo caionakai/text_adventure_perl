@@ -38,6 +38,11 @@ sub new
         }$cena->findnodes('./npcs/npc');
         $temp->set_npcs(@aux);
 
+        my @aux3 = map{
+            $objeto->get_obj_by_id($_->to_literal()); 
+        }$cena->findnodes('./monstros/monstro');
+        $temp->set_monstro(@aux3);
+
         my @aux2 = map{
             $objeto->get_obj_by_id($_->to_literal()); 
         }$cena->findnodes('./itens/item');

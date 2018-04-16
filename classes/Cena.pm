@@ -11,6 +11,7 @@ sub new
     $self->{descricao} = "";
     $self->{itens} = [];
     $self->{npcs} = [];
+    $self->{monstro}= ();
     $self->{cena_anterior}=0;
     $self->{cena_seguinte}=0;
     return $self;
@@ -120,6 +121,15 @@ sub get_all_npc{
     return @{$self->{npcs}};
 }
 
+sub set_monstro{
+    my $self = shift;
+    my @value = @_;
+    
+    # loop para colocar todas os 'npc' dentro do vetor de'npcs'
+    foreach my $i (0..$#value){
+        push ((@{$self->{monstro}}), $value[$i]);
+    }
+}
 sub set_npcs{
     my $self = shift;
     my @value = @_;
