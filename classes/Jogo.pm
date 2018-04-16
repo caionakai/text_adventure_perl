@@ -39,9 +39,25 @@ sub init{
     ## INSTANCIAR CLASSE DE CENAS ##
     my $temp =  new CenaRead("cena.xml",$self->{objetos},$self->{npc});
     $self->{cenas} = $temp->get_cena_list();
+    $self->preparar_cenas();
 
     ## Inicializar Inventario ##
     $self->{personagem}=new Personagem();
+
+}
+sub preparar_cenas{
+    my $self=shift;
+    foreach (@{$self->{cenas}}){
+        if($_->get_cena_anterior()>=0){
+            my $temp= $self->get_cenas_by_id($_->get_cena_anterior());
+            $_->set_cena_anterior($temp);
+        }
+        
+        if($_->get_cena_seguinte()>=0){
+            my $temp2= $self->get_cenas_by_id($_->get_cena_seguinte());
+            $_->set_cena_seguinte($temp2);
+        }
+    }
 
 }
 sub game_start{
@@ -77,7 +93,6 @@ sub game_start{
                      print("\t- ", $_->{comando},"\n");
                  }
              }
-             $nova_cena=0;
         }
         if (lc $entrada eq "sair" || lc $entrada eq "quit" ){
             print ("\nAté a próxima velho amigo!");
@@ -85,6 +100,15 @@ sub game_start{
         }
         $nova_cena=$self->verifica_comando($entrada);
        
+        $msg=${$self->{cenas}}[$self->{cena_atual}]->get_titulo();
+        if($nova_cena==1){
+            print (${$self->{cenas}}[$self->{cena_atual}]->get_titulo(), "\n");
+            print (${$self->{cenas}}[$self->{cena_atual}]->get_descricao(), "\n");
+            print (${$self->{cenas}}[$self->{cena_atual}]->print_all_npcs(), "\n");
+            print (${$self->{cenas}}[$self->{cena_atual}]->print_all_obj, "\n");
+            $nova_cena=0;
+        }
+        @comando=$self->comandos_disponiveis();
         # COMANDOS DIGITADOS PELO JOGADOR
         print("$msg->");
         $entrada= <>;# aguarda a entrada do usuario
@@ -146,6 +170,8 @@ sub verifica_comando{
             push @cont2,$i;
         }
     }
+
+    print (Dumper @cont2);
     #verifica se o alvo existe
     if(scalar @cont2==0){
         print("comando invalido!!\n");
@@ -169,10 +195,17 @@ sub verifica_comando{
         my $npc=$self->get_npc_by_nome($comando_usado->{alvo});
         return $npc->conversa($self->{personagem});
     }
+    #tratamento do comando check
     if($comando_usado->{comando} eq "check"){
-        #não implementado ainda
         my $objeto = ${$self->{cenas}}[$self->{cena_atual}]->get_item_by_nome($comando_usado->{alvo});
         $objeto->imprimi_objeto($objeto);
+    }
+
+    #tratamento do comando walk
+    if($comando_usado->{comando} eq "walk"){
+        my $id_to_go = $self->get_id_cena_by_nome($comando_usado->{alvo});
+        $self->{cena_atual} = $id_to_go;
+        return 1;
     }
     return 1;
 }
@@ -192,6 +225,28 @@ sub get_cenas{
 	my $i = shift;
 
   return $self->{cenas}[$i];
+}
+
+sub get_cenas_by_id{
+    my $self=shift;
+    my $id = shift;
+    foreach my $i(@{$self->{cenas}}){
+        if($i->get_id() == $id){
+            return $i;
+        }
+    }
+    
+
+}
+
+sub get_id_cena_by_nome{
+    my $self=shift;
+    my $nome = shift;
+    foreach my $i( 0 .. $#{$self->{cenas}}){
+        if(lc ${$self->{cenas}}[$i]->get_titulo() eq lc $nome){
+            return $i;
+        }
+    }
 }
 
 sub get_cena_atual{
