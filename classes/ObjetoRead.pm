@@ -29,10 +29,16 @@ sub new
         $new_object->set_nome($object->findvalue("./nome"));
         $new_object->set_descricao($object->findvalue("./descricao"));
 
+        $new_object->set_descricao($object->findvalue("./descricao"));
+
         if($object->findvalue("./tipo") eq "arma" || $object->findvalue("./tipo") eq "armadura"){
             my @slot= map {
                 $_->to_literal();
             }$object->findnodes('./slots/slot');
+
+            $new_object->set_preco_de_compra($object->findvalue("./preco_de_compra"));
+            $new_object->set_preco_de_venda($object->findvalue("./preco_de_venda"));
+        
 
             $new_object->set_slots(@slot);
             if($object->findvalue("./tipo") eq "armadura"){
@@ -50,7 +56,7 @@ sub new
                     quantidade=>$_->findvalue('./@numero'),
                 };
             }$object->findnodes('./quest/objetivo');
-            
+        
             $new_object->set_objetivo(@quest);
             $new_object->set_recompensa($object->findvalue('./recompensa'));
         }

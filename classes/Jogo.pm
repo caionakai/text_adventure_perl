@@ -172,7 +172,7 @@ sub verifica_comando{
     if($comando_usado->{comando} eq "check"){
         #não implementado ainda
         my $objeto = ${$self->{cenas}}[$self->{cena_atual}]->get_item_by_nome($comando_usado->{alvo});
-        $objeto->imprimi_objeto($objeto);
+        $objeto->imprimi_objeto();
     }
     return 1;
 }

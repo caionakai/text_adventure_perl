@@ -90,6 +90,22 @@ sub get_id{
     }
     return undef;
 }
+sub set_preco_de_compra{
+    my $self=shift;
+    $self->{preco_de_compra}=shift;
+}
+sub get_preco_de_compra{
+    my $self=shift;
+    return $self->{preco_de_compra};
+}
+sub get_preco_de_venda{
+    my $self=shift;
+    return $self->{preco_de_venda};
+}
+sub set_preco_de_venda{
+    my $self=shift;
+    $self->{preco_de_venda}=shift;
+}
 sub is_mission{
     my $self=shift;
     if ($self->{tipo} eq "missao"){

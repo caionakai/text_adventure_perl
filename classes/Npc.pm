@@ -117,11 +117,13 @@ sub conversa{
     print("$msg->");
     my $entrada= <>;# aguarda a entrada do usuario
     chomp ($entrada);#transforma $entrada em uma string
+
+
     while(1){
         my @tokens = split / /, $entrada;
         
         if (lc $entrada eq "bye" || lc $entrada eq "quit" ){
-            print ("\nAté a próxima velho amigo!\n");
+            print ("Até a próxima velho amigo!\n");
             return 0;
         }
         if (lc $entrada eq "help" ){
@@ -135,16 +137,17 @@ sub conversa{
                  }
              }
         }
+        else{
+
 
         #separa os comando pelo primeiro argumento
         my @cont=();
-        foreach my $i (@{$self->{comandos}}){
+        foreach my $i (@comando){
         
             if($i->{comando} eq lc $tokens[0]){
                 push @cont,$i;
             }
         }
-        print Dumper @cont;
          #como existe mais de um comando possivel verifica qual o alvo do comando
         my @cont2 = ();
         foreach my $i (@cont){
@@ -173,19 +176,55 @@ sub conversa{
                 print("\t- ", $_->{comando}," ", $_->{alvo},"\n");
             }
         }
+        else{
 
-        #comando escolhido como uma hash(comando, alvo)
-        my $comando_usado=$cont2[0];
-        
-        #if(lc $comando_usado->{comando} eq lc "buy"){
-        #    print Dumper $comando_usado;
-        #}
-        
+            #comando escolhido como uma hash(comando, alvo)
+            my $comando_usado=$cont2[0];
+            
+            if(lc $comando_usado->{comando} eq lc "buy"){
+                my $obj=$self->get_item_by_nome($comando_usado->{alvo});
+                
+                if($inventario->get_ouro() >= $obj->get_preco_de_compra() ){
+                    $inventario->add_item($obj);
+                    $inventario->remove_ouro($obj->get_preco_de_compra());
+                }
+                else{
+                    print("Dinheiro insuficiente\n");
+                }
+            }
+
+            if(lc $comando_usado->{comando} eq lc "sell"){
+                my $obj=$self->get_item_by_nome($comando_usado->{alvo});
+                if($inventario->find_item()){
+                    $inventario->remove_item($obj);
+                    $inventario->remove_ouro($obj->get_preco_de_venda() );
+                }
+                else{
+                    print("Item ão encontrado no inventario\n");
+                }
+            }
+
+            if(lc $comando_usado->{comando} eq lc "check"){
+                my $obj=$self->get_item_by_nome($comando_usado->{alvo});
+                $obj->imprimi_objeto();
+            }
+        }
+        }
         print("$msg->");
         $entrada= <>;# aguarda a entrada do usuario
         chomp ($entrada);#transforma $entrada em uma string
     }
     return 0;
+}
+
+sub get_item_by_nome{
+    my $self = shift;
+    my $nome = shift;
+    foreach my $i (@{$self->{itens}}){
+        if(lc $i->get_nome eq lc $nome){
+            return $i;
+        }
+    }
 }
 
 1;

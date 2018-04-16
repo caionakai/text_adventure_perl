@@ -7,6 +7,7 @@ BEGIN {
 
 use Objeto;
 
+use Data::Dumper qw(Dumper);
 sub new {
     my $class = shift;
     my $self;
@@ -77,8 +78,21 @@ sub calcula_personagem{
     }
 }
 # use_item($comando,$item)
-sub use_item{ 
+sub remove_item{ 
     my $self=shift;
+    my $item=shift;
+    
+    @{$self->{itens}} = grep {$_ != $item}  @{$self->{itens}};
+}
+sub find_item{
+    my $self=shift;
+    my $item=shift;
+    foreach my $i (@{$self->{itens}}){
+        if ($i->get_id() == $item->get_id() ){
+            return 1;
+        }
+    }
+return 0;
 }
 sub add_item{
     my $self=shift;

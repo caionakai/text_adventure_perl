@@ -14,6 +14,8 @@
     <tipo>arma</tipo>
     <espaco>1</espaco>
     <nome>Espada de madeira</nome>
+    <preco_de_compra>10</preco_de_compra>
+    <preco_de_venda>8</preco_de_venda>
     <dano min="2" max="5"/>
     <durabilidade>5</durabilidade>
     <descricao>Espada produzida com minerio de ferro.</descricao>
@@ -26,6 +28,8 @@
     <nome>Espada de Pedra</nome>
     <dano min="5" max="15"/>
     <durabilidade>10</durabilidade>
+    <preco_de_compra>15</preco_de_compra>
+    <preco_de_venda>12</preco_de_venda>
     <slots>
         <slot>Empty</slot>
     </slots>
@@ -39,6 +43,8 @@
     <nome>Espada de Ferro</nome>
     <dano min="10" max="25"/>
     <durabilidade>20</durabilidade>
+    <preco_de_compra>20</preco_de_compra>
+    <preco_de_venda>15</preco_de_venda>
     <slots>
         <slot>Empty</slot>
         <slot>Empty</slot>
@@ -63,6 +69,8 @@
     <tipo>comum</tipo>
     <espaco>1</espaco>
     <nome>COPO DE CERVEJA</nome>
+    <preco_de_compra>1</preco_de_compra>
+    <preco_de_venda>0</preco_de_venda>
     <descricao>Esta é uma cerveja deixada por um aventureiro.</descricao>
 </object>
 
@@ -101,6 +109,8 @@
     <tipo>armadura</tipo>
     <espaco>1</espaco>
     <nome>ARMADURA DE COURO</nome>
+    <preco_de_compra>10</preco_de_compra>
+    <preco_de_venda>8</preco_de_venda>
     <descricao>Armadura feita usando couro de um monstro.</descricao>
     <defesa>5</defesa>
 </object>
@@ -110,6 +120,8 @@
     <tipo>espacial</tipo>
     <espaco>0</espaco>
     <nome>PEDRA DE TELETRANSPORTE</nome>
+    <preco_de_compra>2</preco_de_compra>
+    <preco_de_venda>0</preco_de_venda>
     <descricao>Um objeto misterioso criado por um grande mago, a qual interfere com as leis espaciais.</descricao>
 </object>
 
