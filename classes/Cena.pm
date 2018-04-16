@@ -31,6 +31,14 @@ sub set_cena_seguinte{
 
     $self->{cena_seguinte} = $value;
 }
+sub get_cena_anterior{
+    my $self = shift;
+    return $self->{cena_anterior};
+}
+sub get_cena_seguinte{
+    my $self = shift;
+    return $self->{cena_seguinte};
+}
 sub set_titulo{
     my $self = shift;
     my $value = shift;
@@ -60,6 +68,14 @@ sub comandos_possiveis{
         push @commands, ({comando=>"pick",alvo=>$i->get_nome});
         push @commands, ({comando=>"check",alvo=>$i->get_nome});
     }
+    #se tem cena anterior entao:
+    if($self->{cena_anterior}){
+        push @commands, ({comando=>"walk",alvo=>$self->{cena_anterior}->get_titulo});
+    }
+    if($self->{cena_seguinte}){
+        push @commands, ({comando=>"walk",alvo=>$self->{cena_seguinte}->get_titulo});
+    }
+
     push @commands, ({comando=>"quit"});
     return @commands;
 }
@@ -139,5 +155,7 @@ sub get_item_by_nome{
         }
     }
 }
+
+
 
 1;

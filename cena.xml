@@ -11,7 +11,7 @@
             <item>5</item>
         </itens>
         <cena_anterior>0</cena_anterior>
-        <cena_seguinte>3</cena_seguinte>
+        <cena_seguinte>2</cena_seguinte>
     </cena>
 
     <cena>
@@ -22,6 +22,8 @@
             <npc>3</npc>
             <npc>4</npc>
         </npcs>
+        <cena_anterior>1</cena_anterior>
+        <cena_seguinte>3</cena_seguinte>
 
     </cena>
 
@@ -34,8 +36,8 @@
             <monstro>7</monstro>
             <monstro>8</monstro>
         </monstros>
-        <cena_anterior>1</cena_anterior>
-        <cena_seguinte>0</cena_seguinte>
+        <cena_anterior>2</cena_anterior>
+        <cena_seguinte>4</cena_seguinte>
     </cena>
 
     <cena>
@@ -47,6 +49,8 @@
             <monstro>13</monstro>
             <monstro>14</monstro>
         </monstros>
+        <cena_anterior>3</cena_anterior>
+        <cena_seguinte>5</cena_seguinte>
 
     </cena>
 
@@ -60,6 +64,8 @@
             <monstro>16</monstro>
             <monstro>17</monstro>
         </monstros>
+        <cena_anterior>4</cena_anterior>
+        <cena_seguinte>6</cena_seguinte>
 
     </cena>
 
@@ -72,6 +78,8 @@
             <monstro>19</monstro>
             <monstro>20</monstro>
         </monstros>
+        <cena_anterior>5</cena_anterior>
+        <cena_seguinte>0</cena_seguinte>
 
     </cena>
 
