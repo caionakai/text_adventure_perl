@@ -26,9 +26,9 @@ use Audio::Play::MPlayer;
 #$player->poll(1) until $player->state == 0;
 
 
-#my $game = new Jogo();
-#$game->init();
-#$game->game_start;
+my $game = new Jogo();
+$game->init();
+$game->game_start;
 
 #my $test=$dump->xml2pl($file);
 #print (Dumper $test);
