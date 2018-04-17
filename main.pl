@@ -4,7 +4,6 @@ BEGIN {
 }
 use utf8;
 use strict;
-use warnings;
 use ObjetoRead;
 use Objeto;
 use CenaRead;
@@ -20,8 +19,8 @@ use Data::Dumper;
 use Audio::Play::MPlayer;
 sub play_song(){
   my $self=shift;
-  my $mp3 = "Naruto_Sadness.wav";
-  system( qq("START mplayer $mp3 /SEPARATE"));
+  my $mp3 = "Naruto_Rocks.mp3";
+  system( qq("START /MIN mplayer $mp3 /SEPARATE"));
 } 
 
 

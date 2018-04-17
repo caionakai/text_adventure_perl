@@ -4,7 +4,6 @@ BEGIN {
 }
 package Jogo;
 use strict;
-use warnings;
 use Cena;
 use CenaRead;
 use Personagem;
