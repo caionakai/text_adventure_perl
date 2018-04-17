@@ -148,7 +148,7 @@
 
 <object>
     <id>11</id>
-    <tipo>comum</tipo>
+    <tipo>pocao</tipo>
     <espaco>1</espaco>
     <nome>POCAO DE VIDA</nome>
     <descricao>Restaura um pouco de vida ao ser utilizada.</descricao>

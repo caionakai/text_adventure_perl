@@ -236,6 +236,15 @@ sub verifica_comando{
         $self->{cena_atual} = $id_to_go;
         return 1;
     }
+
+    #tratamento do comando use 'POCAO'
+    if($comando_usado->{comando} eq "use"){
+        my $objeto = ${$self->{cenas}}[$self->{cena_atual}]->get_item_by_nome($comando_usado->{alvo});
+        if($objeto->is_potion()){
+            $self->{inventario}->atualiza_vida(-50);          
+        }
+    }
+
     if($comando_usado->{comando} eq "savegame"){
         my $dump = new XML::Dumper;
         my $file = $temp2.".xml";
@@ -247,7 +256,7 @@ sub verifica_comando{
         $self->{personagem} = $dump->xml2pl($file);
     }
     
-    #Comando atakk dos animais
+    #Comando attack dos animais
     if($comando_usado->{comando} eq "attack"){
         my $lutar_com =${$self->{cenas}}[$self->{cena_atual}]->get_monstro_by_nome($comando_usado->{alvo});
        ${$self->{cenas}}[$self->{cena_atual}]->duelo($lutar_com,$self->{personagem});
