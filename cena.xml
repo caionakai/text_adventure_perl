@@ -2,7 +2,7 @@
     <cena>
         <id>1</id>
         <titulo>Guilda dos Aventureiros</titulo>
-        <descricao>Local onde os aventureiros se encontram para realizar missões e efetuar transações para adquirir renda ou itens.</descricao>
+        <descricao>Local onde os aventureiros se encontram para realizar missoes e efetuar transacoes para adquirir renda ou itens.</descricao>
         <npcs>
             <npc>1</npc>
             <npc>2</npc>
@@ -17,7 +17,7 @@
     <cena>
         <id>2</id>
         <titulo>Feira</titulo>
-        <descricao>Local onde é realizada a venda e compra de equipamentos e poções. É necessário ouro para comprar os itens.</descricao>
+        <descricao>Local onde e realizada a venda e compra de equipamentos e pocoes. E necessario ouro para comprar os itens.</descricao>
         <npcs>
             <npc>3</npc>
             <npc>4</npc>
@@ -30,7 +30,7 @@
     <cena>
         <id>3</id>
         <titulo>Covil dos Lobos</titulo>
-        <descricao>Este covil possui pouca iluminação e possui várias espécies de lobos vivendo por aqui, é recomendável utilizar equipamentos básicos.</descricao>
+        <descricao>Este covil possui pouca iluminacao e possui varias especies de lobos vivendo por aqui, e recomendavel utilizar equipamentos basicos.</descricao>
         <monstros>
             <monstro>6</monstro>
             <monstro>7</monstro>
@@ -43,7 +43,7 @@
     <cena>
         <id>4</id>
         <titulo>Floresta dos Goblins</titulo>
-        <descricao>Esta floresta possuem muitos goblins, eles são mais desenvolvidos do que os lobos, portanto é interessante utilizar equipamentos melhores para caçá-los. Existem três especies de goblins diferentes, você precisa enfrentá-los para descobrir sua verdadeira força!</descricao>
+        <descricao>Esta floresta possuem muitos goblins, eles sao mais desenvolvidos do que os lobos, portanto e interessante utilizar equipamentos melhores para caca-los. Existem tres especies de goblins diferentes, você precisa enfrenta-los para descobrir sua verdadeira forca!</descricao>
         <monstros>
             <monstro>12</monstro>
             <monstro>13</monstro>
@@ -58,7 +58,7 @@
     <cena>
         <id>5</id>
         <titulo>Mina dos Orcs</titulo>
-        <descricao>Nesta mina estão os orcs mais violentos, eles tomaram conta deste lugar há muito tempo atrás, um aventureiro sem experiência não sobreviveria nem mesmo alguns minutos.</descricao>
+        <descricao>Nesta mina estão os orcs mais violentos, eles tomaram conta deste lugar ha muito tempo atras, um aventureiro sem experiencia nao sobreviveria nem mesmo alguns minutos.</descricao>
         <monstros>
             <monstro>15</monstro>
             <monstro>16</monstro>
@@ -72,7 +72,7 @@
     <cena>
         <id>6</id>
         <titulo>Fortaleza dos Minotauros</titulo>
-        <descricao>Aqui vivem as criaturas mais fortes do reino, os Minotauros possuem inteligência e vivem em sociedade assim como os humanos, invadir a fortaleza dessas criaturas não será nada fácil.</descricao>
+        <descricao>Aqui vivem as criaturas mais fortes do reino, os Minotauros possuem inteligencia e vivem em sociedade assim como os humanos, invadir a fortaleza dessas criaturas não sera nada fácil.</descricao>
         <monstros>
             <monstro>18</monstro>
             <monstro>19</monstro>
