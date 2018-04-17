@@ -13,11 +13,18 @@ use Personagem;
 use Jogo;
 use Npc;
 use NpcRead;
+use Thread;
+use Time::HiRes qw(sleep);
 
 use Data::Dumper;
 use Audio::Play::MPlayer;
+sub play_song(){
+  my $self=shift;
+  my $mp3 = "Naruto_Sadness.wav";
+  system( qq("START mplayer $mp3 /SEPARATE"));
+} 
 
- my $mp3 = "Naruto Abertura 01 - Rocks.mp3";
+
 #my $result = Win32::Sound::Play($mp3);
 
 #$player->poll(1) until $player->state == 0;
@@ -25,10 +32,15 @@ use Audio::Play::MPlayer;
 #$player->load($mp3);
 #$player->poll(1) until $player->state == 0;
 
+#system( qq("mplayer $mp3"));
 
+    my $huh = Thread->new(\&play_song);
+    my $stuff = $huh->join;
 my $game = new Jogo();
-$game->init();
-$game->game_start;
+  $game->init();
+  $game->game_start;
+
+
 
 #my $test=$dump->xml2pl($file);
 #print (Dumper $test);

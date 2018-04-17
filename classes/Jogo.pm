@@ -241,7 +241,7 @@ sub verifica_comando{
     if($comando_usado->{comando} eq "use"){
         my $objeto = ${$self->{cenas}}[$self->{cena_atual}]->get_item_by_nome($comando_usado->{alvo});
         if($objeto->is_potion()){
-            $self->{inventario}->atualiza_vida(-50);          
+            $self->{personagem}->atualiza_vida(-50);          
         }
     }
 
@@ -276,6 +276,7 @@ sub verifica_comando{
         
         return $personagem->open_menu($comando_usado->{alvo});
     }
+    $self->comandos_disponiveis();
     return 0;
 }
 sub get_npc_by_nome{
