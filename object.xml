@@ -53,18 +53,6 @@
 </object>
 
 <object>
-    <id>4</id>
-    <tipo>missao</tipo>
-    <espaco>0</espaco>
-    <nome>MISSAO RANK A</nome>
-    <descricao>Alguns lobos estão aterrorizando os viagentes, por favor ajude-nos a eliminarmos essa ameaça.</descricao>
-    <recompensa>200</recompensa>
-    <quest>
-        <objetivo id="7" numero="5"></objetivo>
-    </quest>
-</object>
-
-<object>
     <id>5</id>
     <tipo>comum</tipo>
     <espaco>1</espaco>
@@ -552,5 +540,60 @@
     <preco_de_venda>10</preco_de_venda>
     <descricao>Esta mochila permite que voce carregue muitas coisas.</descricao>
 </object>
+
+<object>
+    <id>42</id>
+    <tipo>missao</tipo>
+    <espaco>0</espaco>
+    <nome>MISSAO RANK C</nome>
+    <descricao>Alguns lobos estao aterrorizando os viajantes, por favor ajude-nos a eliminarmos essa ameaça. Elimine 5 lobos sanguinario e 5 lobos.</descricao>
+    <recompensa>200</recompensa>
+    <quest>
+        <objetivo id="7" numero="5"></objetivo>
+        <objetivo id="6" numero="5"></objetivo>
+    </quest>
+</object>
+
+<object>
+    <id>43</id>
+    <tipo>missao</tipo>
+    <espaco>0</espaco>
+    <nome>MISSAO RANK B</nome>
+    <descricao>A populacao de goblins esta descontrolada precisamos fazer algo a respeito. Elimine 3 goblins, 2 hobgoblins e 1 goblin chefe.</descricao>
+    <recompensa>300</recompensa>
+    <quest>
+        <objetivo id="12" numero="3"></objetivo>
+        <objetivo id="13" numero="2"></objetivo>
+        <objetivo id="14" numero="1"></objetivo>
+    </quest>
+</object>
+
+<object>
+    <id>44</id>
+    <tipo>missao</tipo>
+    <espaco>0</espaco>
+    <nome>MISSAO RANK A</nome>
+    <descricao>A mina dos orcs possui muitos misterios, va ate la e colete informacoes. Elimine 5 orcs e 1 orc chefe.</descricao>
+    <recompensa>300</recompensa>
+    <quest>
+        <objetivo id="15" numero="3"></objetivo>
+        <objetivo id="17" numero="1"></objetivo>
+    </quest>
+</object>
+
+<object>
+    <id>45</id>
+    <tipo>missao</tipo>
+    <espaco>0</espaco>
+    <nome>MISSAO RANK S</nome>
+    <descricao>Ouvimos dizer que os minotauros estao preparando um grande ataque a vila, va ate a fortaleza dos minotauros e elimine-os. Mate 3 minotauros, 3 minotauros arqueiros e finalmente acabe com o minotauro chefe.</descricao>
+    <recompensa>300</recompensa>
+    <quest>
+        <objetivo id="18" numero="3"></objetivo>
+        <objetivo id="19" numero="3"></objetivo>
+        <objetivo id="20" numero="1"></objetivo>
+    </quest>
+</object>
+
 
 </list>
