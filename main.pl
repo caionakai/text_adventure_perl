@@ -15,16 +15,20 @@ use Npc;
 use NpcRead;
 
 use Data::Dumper;
+use Audio::Play::MPlayer;
 
-# my $mp3 = "Naruto Abertura 01 - Rocks.mp3";
+ my $mp3 = "Naruto Abertura 01 - Rocks.mp3";
 #my $result = Win32::Sound::Play($mp3);
 
 #$player->poll(1) until $player->state == 0;
+#my $player = Audio::Play::MPlayer->new;
+#$player->load($mp3);
+#$player->poll(1) until $player->state == 0;
 
-my $dump = new XML::Dumper;
-my $game = new Jogo();
-$game->init();
-$game->game_start;
+
+#my $game = new Jogo();
+#$game->init();
+#$game->game_start;
 
 #my $test=$dump->xml2pl($file);
 #print (Dumper $test);

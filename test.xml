@@ -1,29 +1,29 @@
 <perldata>
- <hashref blessed_package="Personagem" memory_address="0x5698490">
+ <hashref blessed_package="Personagem" memory_address="0x5690360">
   <item key="dinheiro">0</item>
   <item key="equipes">
-   <arrayref memory_address="0x2745e18">
+   <arrayref memory_address="0x56902b8">
     <item key="0">
-     <hashref blessed_package="Objeto" memory_address="0x2745e78">
+     <hashref blessed_package="Objeto" memory_address="0x4635e78">
       <item key="dano_max">5</item>
       <item key="dano_min">2</item>
       <item key="defesa">100</item>
       <item key="descricao">Aventureiro iniciante.</item>
       <item key="drops">
-       <arrayref memory_address="0x4a59fb0">
+       <arrayref memory_address="0x4a5ec10">
        </arrayref>
       </item>
       <item key="espaco">-10</item>
       <item key="id">0</item>
       <item key="nome">JOHN DOE</item>
       <item key="objetivo">
-       <arrayref memory_address="0x53c0638">
+       <arrayref memory_address="0x53af278">
        </arrayref>
       </item>
       <item key="preco_de_compra"></item>
       <item key="preco_de_venda"></item>
       <item key="slots">
-       <arrayref memory_address="0x53c0650">
+       <arrayref memory_address="0x53af290">
        </arrayref>
       </item>
       <item key="tipo">personagem</item>
@@ -32,18 +32,18 @@
    </arrayref>
   </item>
   <item key="itens">
-   <arrayref memory_address="0x2745db8">
+   <arrayref memory_address="0x53b7f90">
    </arrayref>
   </item>
   <item key="missoes_ativas">
-   <arrayref memory_address="0x273eaa8">
+   <arrayref memory_address="0x4635d58">
    </arrayref>
   </item>
   <item key="missoes_concluidas">
-   <arrayref memory_address="0x2745d58">
+   <arrayref memory_address="0x4635d70">
    </arrayref>
   </item>
-  <item key="ouro">50</item>
+  <item key="ouro">5000</item>
   <item key="quantidade">0</item>
   <item key="vida">0</item>
  </hashref>

@@ -238,12 +238,12 @@ sub verifica_comando{
     }
     if($comando_usado->{comando} eq "savegame"){
         my $dump = new XML::Dumper;
-        my $file = $temp2;
+        my $file = $temp2.".xml";
         my $xml = $dump->pl2xml( $self->{personagem} ,$file);
     }
     if($comando_usado->{comando} eq "loadgame"){
         my $dump = new XML::Dumper;
-        my $file = $temp2;
+        my $file = $temp2.".xml";
         $self->{personagem} = $dump->xml2pl($file);
     }
     
