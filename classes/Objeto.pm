@@ -41,6 +41,10 @@ sub set_recompensa(){
     my $self=shift;
     $self->{recompensa}=shift;
 }
+sub get_recompensa(){
+    my $self=shift;
+    return $self->{recompensa};
+}
 sub set_objetivo(){
     my $self=shift;
     @{$self->{objetivo}}=@_;

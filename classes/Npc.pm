@@ -97,7 +97,12 @@ sub comandos_possiveis{
         if($i->get_preco_de_compra>0){
             push @commandos, ({comando=>"buy",alvo=>$i->get_nome});
         }
+        if($i->is_mission){
+            push @commandos, ({comando=>"accept",alvo=>$i->get_nome});
+        }
+        else{
         push @commandos, ({comando=>"sell",alvo=>$i->get_nome});
+        }
         push @commandos, ({comando=>"check",alvo=>$i->get_nome});
     }
     push @commandos, {comando=>"bye"};
@@ -191,8 +196,12 @@ sub conversa{
         }
         else{
 
-            #comando escolhido como uma hash(comando, alvo)
             my $comando_usado=shift @cont2;
+            if(lc $comando_usado->{comando} eq lc "accept"){
+                 my $obj= dclone $self->get_item_by_nome($comando_usado->{alvo});
+                $inventario->add_mission($obj);
+                print("Missao aceita!\n");
+            }
             
             if(lc $comando_usado->{comando} eq lc "buy"){
                 my $obj= dclone $self->get_item_by_nome($comando_usado->{alvo});
@@ -213,9 +222,10 @@ sub conversa{
 
             if(lc $comando_usado->{comando} eq lc "sell"){
                 my $obj=$self->get_item_by_nome($comando_usado->{alvo});
-                if($inventario->find_item()){
+                if($inventario->find_item($obj)){
                     $inventario->remove_item($obj);
-                    $inventario->remove_ouro($obj->get_preco_de_venda() );
+                    $inventario->add_ouro($obj->get_preco_de_venda() );
+                    print("Voce vendeu o: ", $obj->get_nome,"\n")
                 }
                 else{
                     print("Item não encontrado no inventário!\n");

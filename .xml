@@ -1,38 +1,38 @@
 <perldata>
- <hashref blessed_package="Personagem" memory_address="0x584b5e0">
-  <item key="dano">2</item>
+ <hashref blessed_package="Personagem" memory_address="0x58a9e38">
+  <item key="dano">17</item>
   <item key="defesa">100</item>
   <item key="dinheiro">0</item>
   <item key="equipes">
-   <arrayref memory_address="0x2d50c90">
+   <arrayref memory_address="0x58b71d8">
     <item key="0">
-     <hashref blessed_package="Objeto" memory_address="0x56680f0">
+     <hashref blessed_package="Objeto" memory_address="0x58b2020">
       <item key="dano_max">5</item>
       <item key="dano_min">2</item>
       <item key="defesa">100</item>
       <item key="descricao">Aventureiro iniciante.</item>
       <item key="drops">
-       <arrayref memory_address="0x4b6b568">
+       <arrayref memory_address="0x58bafa8">
        </arrayref>
       </item>
       <item key="espaco">-10</item>
       <item key="id">0</item>
       <item key="nome">JOHN DOE</item>
       <item key="objetivo">
-       <arrayref memory_address="0x566f240">
+       <arrayref memory_address="0x58bb038">
        </arrayref>
       </item>
       <item key="preco_de_compra"></item>
       <item key="preco_de_venda"></item>
       <item key="slots">
-       <arrayref memory_address="0x566f258">
+       <arrayref memory_address="0x58bb0b0">
        </arrayref>
       </item>
       <item key="tipo">personagem</item>
      </hashref>
     </item>
     <item key="1">
-     <hashref blessed_package="Objeto" memory_address="0x585acd0">
+     <hashref blessed_package="Objeto" memory_address="0x58bb188">
       <item key="dano_max">15</item>
       <item key="dano_min">5</item>
       <item key="defesa">0</item>
@@ -41,13 +41,13 @@
       <item key="id">2</item>
       <item key="nome">Espada de Pedra</item>
       <item key="objetivo">
-       <arrayref memory_address="0x585adf0">
+       <arrayref memory_address="0x58bb230">
        </arrayref>
       </item>
       <item key="preco_de_compra">15</item>
       <item key="preco_de_venda">12</item>
       <item key="slots">
-       <arrayref memory_address="0x585ad00">
+       <arrayref memory_address="0x58bb2a8">
         <item key="0">Empty</item>
        </arrayref>
       </item>
@@ -57,20 +57,231 @@
    </arrayref>
   </item>
   <item key="itens">
-   <arrayref memory_address="0x5845d00">
+   <arrayref memory_address="0x58b1ff0">
+    <item key="0">
+     <hashref blessed_package="Objeto" memory_address="0x58b5ce8">
+      <item key="dano_max">0</item>
+      <item key="dano_min">0</item>
+      <item key="defesa">200</item>
+      <item key="descricao">A melhor armadura do jogo.</item>
+      <item key="espaco">1</item>
+      <item key="id">40</item>
+      <item key="nome">ARMADURA DO DEUS DRAGAO</item>
+      <item key="objetivo">
+       <arrayref memory_address="0x58b5dd8">
+       </arrayref>
+      </item>
+      <item key="preco_de_compra">1000</item>
+      <item key="preco_de_venda">500</item>
+      <item key="slots">
+       <arrayref memory_address="0x58b5d90">
+       </arrayref>
+      </item>
+      <item key="tipo">armadura</item>
+     </hashref>
+    </item>
+    <item key="1">
+     <hashref blessed_package="Objeto" memory_address="0x58b5e68">
+      <item key="dano_max">100</item>
+      <item key="dano_min">50</item>
+      <item key="defesa">0</item>
+      <item key="descricao">O ITEM MAIS FORTE DE TODO O REINO APENAS O MINOTAURO CHEFE O POSSUI.</item>
+      <item key="espaco">1</item>
+      <item key="id">36</item>
+      <item key="nome">PUNHAL DO DEUS DRAGAO</item>
+      <item key="objetivo">
+       <arrayref memory_address="0x58b5f10">
+       </arrayref>
+      </item>
+      <item key="preco_de_compra">1000</item>
+      <item key="preco_de_venda">500</item>
+      <item key="slots">
+       <arrayref memory_address="0x58b5ec8">
+        <item key="0">Empty</item>
+        <item key="1">Empty</item>
+       </arrayref>
+      </item>
+      <item key="tipo">arma</item>
+     </hashref>
+    </item>
    </arrayref>
   </item>
-  <item key="limite_bag">-10</item>
+  <item key="limite_bag">-9</item>
   <item key="missoes_ativas">
-   <arrayref memory_address="0x584b520">
+   <arrayref memory_address="0x58ba130">
+    <item key="0">
+     <hashref blessed_package="Objeto" memory_address="0x58a94c0">
+      <item key="dano_max">0</item>
+      <item key="dano_min">0</item>
+      <item key="defesa">0</item>
+      <item key="descricao">Alguns lobos estão aterrorizando os viagentes, por favor ajude-nos a eliminarmos essa ameaça.</item>
+      <item key="espaco">0</item>
+      <item key="id">4</item>
+      <item key="nome">MISSAO RANK A</item>
+      <item key="objetivo">
+       <arrayref memory_address="0x58a9490">
+        <item key="0">
+         <hashref memory_address="0x58a9e08">
+          <item key="alvo">
+           <hashref blessed_package="Objeto" memory_address="0x58a9d48">
+            <item key="dano_max">25</item>
+            <item key="dano_min">10</item>
+            <item key="defesa">20</item>
+            <item key="descricao">Um pequeno lobo selvagem e sanguinario.</item>
+            <item key="drops">
+             <arrayref memory_address="0x58aa0d8">
+              <item key="0">
+               <hashref blessed_package="Objeto" memory_address="0x58a9dd8">
+                <item key="dano_max">15</item>
+                <item key="dano_min">5</item>
+                <item key="defesa">0</item>
+                <item key="descricao">Espada produzida com pedras.</item>
+                <item key="espaco">1</item>
+                <item key="id">2</item>
+                <item key="nome">ESPADA DE PEDRA</item>
+                <item key="objetivo">
+                 <arrayref memory_address="0x58a9fa0">
+                 </arrayref>
+                </item>
+                <item key="preco_de_compra">15</item>
+                <item key="preco_de_venda">12</item>
+                <item key="slots">
+                 <arrayref memory_address="0x58aa018">
+                  <item key="0">Empty</item>
+                 </arrayref>
+                </item>
+                <item key="tipo">arma</item>
+               </hashref>
+              </item>
+              <item key="1">
+               <hashref blessed_package="Objeto" memory_address="0x58aa000">
+                <item key="dano_max">5</item>
+                <item key="dano_min">2</item>
+                <item key="defesa">0</item>
+                <item key="descricao">Espada produzida com minerio de ferro.</item>
+                <item key="espaco">1</item>
+                <item key="id">1</item>
+                <item key="nome">ESPADA DE MADEIRA</item>
+                <item key="objetivo">
+                 <arrayref memory_address="0x58a9b98">
+                 </arrayref>
+                </item>
+                <item key="preco_de_compra">10</item>
+                <item key="preco_de_venda">8</item>
+                <item key="slots">
+                 <arrayref memory_address="0x58b7588">
+                 </arrayref>
+                </item>
+                <item key="tipo">arma</item>
+               </hashref>
+              </item>
+              <item key="2">
+               <hashref blessed_package="Objeto" memory_address="0x58a9cd0">
+                <item key="dano_max">0</item>
+                <item key="dano_min">0</item>
+                <item key="defesa">0</item>
+                <item key="descricao">Restaura um pouco de vida ao ser utilizada.</item>
+                <item key="espaco">1</item>
+                <item key="id">11</item>
+                <item key="nome">POCAO DE VIDA</item>
+                <item key="objetivo">
+                 <arrayref memory_address="0x58b7600">
+                 </arrayref>
+                </item>
+                <item key="preco_de_compra">5</item>
+                <item key="preco_de_venda">3</item>
+                <item key="slots">
+                 <arrayref memory_address="0x58b7738">
+                 </arrayref>
+                </item>
+                <item key="tipo">pocao</item>
+               </hashref>
+              </item>
+              <item key="3">
+               <hashref blessed_package="Objeto" memory_address="0x58b76d8">
+                <item key="dano_max">0</item>
+                <item key="dano_min">0</item>
+                <item key="defesa">0</item>
+                <item key="descricao">Este item pode ser vendido na feira.</item>
+                <item key="espaco">1</item>
+                <item key="id">21</item>
+                <item key="nome">DENTE DE LOBO</item>
+                <item key="objetivo">
+                 <arrayref memory_address="0x58b77b0">
+                 </arrayref>
+                </item>
+                <item key="preco_de_compra">0</item>
+                <item key="preco_de_venda">7</item>
+                <item key="slots">
+                 <arrayref memory_address="0x58b7708">
+                 </arrayref>
+                </item>
+                <item key="tipo">comum</item>
+               </hashref>
+              </item>
+              <item key="4">
+               <hashref blessed_package="Objeto" memory_address="0x58b7918">
+                <item key="dano_max">0</item>
+                <item key="dano_min">0</item>
+                <item key="defesa">0</item>
+                <item key="descricao">Este item pode ser vendido na feira.</item>
+                <item key="espaco">1</item>
+                <item key="id">22</item>
+                <item key="nome">PELE DE LOBO</item>
+                <item key="objetivo">
+                 <arrayref memory_address="0x58b7900">
+                 </arrayref>
+                </item>
+                <item key="preco_de_compra">0</item>
+                <item key="preco_de_venda">11</item>
+                <item key="slots">
+                 <arrayref memory_address="0x58b7a68">
+                 </arrayref>
+                </item>
+                <item key="tipo">comum</item>
+               </hashref>
+              </item>
+             </arrayref>
+            </item>
+            <item key="espaco">0</item>
+            <item key="id">7</item>
+            <item key="nome">LOBO SANGUINARIO</item>
+            <item key="objetivo">
+             <arrayref memory_address="0x58a9868">
+             </arrayref>
+            </item>
+            <item key="preco_de_compra"></item>
+            <item key="preco_de_venda"></item>
+            <item key="slots">
+             <arrayref memory_address="0x58a9940">
+             </arrayref>
+            </item>
+            <item key="tipo">monstro</item>
+           </hashref>
+          </item>
+          <item key="quantidade">5</item>
+         </hashref>
+        </item>
+       </arrayref>
+      </item>
+      <item key="preco_de_compra"></item>
+      <item key="preco_de_venda"></item>
+      <item key="recompensa">200</item>
+      <item key="slots">
+       <arrayref memory_address="0x58b7c30">
+       </arrayref>
+      </item>
+      <item key="tipo">missao</item>
+     </hashref>
+    </item>
    </arrayref>
   </item>
   <item key="missoes_concluidas">
-   <arrayref memory_address="0x56680c0">
+   <arrayref memory_address="0x58ba160">
    </arrayref>
   </item>
-  <item key="ouro">35</item>
-  <item key="quantidade">1</item>
+  <item key="ouro">498000</item>
+  <item key="quantidade">3</item>
   <item key="vida">0</item>
  </hashref>
 </perldata>

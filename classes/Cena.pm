@@ -209,7 +209,13 @@ sub duelo{
 
         }
         if($enemy->get_defesa <=0){
-            print("Você matou o ",$enemy->get_nome,"\n");
+            print("Você matou: ",$enemy->get_nome,"\n");
+            my $complete=$personagem->mission($enemy);
+            if($complete){
+                print("Voce completou: ", $complete->get_nome, "\n");
+                $personagem->add_ouro($complete->get_recompensa);
+                $personagem->add_mission_complete($complete);
+            }
             $self->set_item($enemy->drop());
             return 3;
         }

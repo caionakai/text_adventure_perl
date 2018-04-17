@@ -34,6 +34,29 @@ sub new {
     $self->{quantidade}=0;  
     return bless $self, $class;
   }
+sub add_mission{
+    my $self=shift;
+    push @{$self->{missoes_ativas}},shift;
+}
+sub add_mission_complete{
+    my $self=shift;
+    push @{$self->{missoes_concluidas}},shift;
+}
+sub mission{
+    my $self=shift;
+    my $monster=shift;
+    foreach my $i (@{$self->{missoes_ativas}}){
+        foreach my $j ($i->get_objetivo){
+            if($j->{alvo}->get_id== $monster->get_id){
+                $j->{quantidade}-=1;
+                if($j->{quantidade}<1){
+                    return pop @{$self->{missoes_ativas}}, $i;
+                }
+            }
+        }
+    }
+}
+
 sub set_personagem{
     my $self=shift;
     ${$self->{equipes}}[0]=shift;
@@ -86,7 +109,7 @@ sub atualiza_vida{
         print("você perdeu $vida de vida\n");
     }
     else{
-        print("você foi curado com $vida de vida\n");
+        print("você foi curado com", $vida*-1," de vida\n");
     }
     $self->{vida}=$self->{vida}+$vida;
     if($self->{vida}<0){
@@ -109,7 +132,7 @@ sub remove_item{
     my $self=shift;
     my $item=shift;
     $self->{quantidade}= $item->get_espaco + $self->{quantidade};
-    return pop @{$self->{equipes}}, $item
+    return pop @{$self->{itens}}, $item
 }
 sub unequipe{ 
     my $self=shift;
@@ -152,9 +175,15 @@ sub open_menu{
     print("Menu personagem!\n");
     my @comando= $self->comandos_possiveis();
     if(lc $comando eq "inventario"){
+        print("Gold: ",$self->{ouro},"\n");
         print("Espaço disponivel: ",($self->{limite_bag} +$self->{quantidade})*-1,"\n");
         foreach my $i (@{$self->{itens}}){
             print("|",$i->get_nome,"| \n");
+        }
+        print("Missoes ativas: ","\n");
+        foreach my $i (@{$self->{missoes_ativas}}){
+            print("|",$i->get_nome,"| \n");
+            print $_->{quantidade}," ",$_->{alvo}->get_nome,"\n" for $i->get_objetivo; 
         }
         
         my $msg="inventário";
