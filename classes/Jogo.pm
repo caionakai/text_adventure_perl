@@ -73,8 +73,8 @@ sub game_start{
     #atribui 500 de ouro pro personagem
     $self->{personagem}->add_ouro(50);
 
-    print("Este jogo possui várias cenas, para cada cena é apresentado um título e uma descrição, é possível navegar entre as cenas.\n",
-        "Cada cena possui objetos utilizáveis, ou seja, eles resultam em algum efeito quando combinado com um comando, além disso os objetos utilizáveis são apresentados em letra maiúscula.\n\n");
+    print("Este jogo possui varias cenas, para cada cena e apresentado um titulo e uma descricao, e possivel navegar entre as cenas.\n",
+        "Cada cena possui objetos utilizaveis, ou seja, eles resultam em algum efeito quando combinado com um comando, alem disso os objetos utilizaveis sao apresentados em letra maiuscula.\n\n");
         #"Os comandos possíveis são: use, attack, buy, sell, talk, pick, help, save, load, newgame.\n\n");
         # IMPRIMIR CENA ATUAL
         my @comando=$self->comandos_disponiveis();
@@ -107,7 +107,7 @@ sub game_start{
              }
         }
         if (lc $entrada eq "sair" || lc $entrada eq "quit" ){
-            print ("\nAté a próxima velho amigo!");
+            print ("\nAte a proxima velho amigo!");
             exit(1);
         }
         $nova_cena=$self->verifica_comando($entrada);
@@ -166,7 +166,7 @@ sub verifica_comando{
 
     #verifica se existe o comando usado
     if(scalar @cont==0){
-        print("Comando Inválido! Digite 'help' para ajuda.\n");
+        print("Comando Invalido! Digite 'help' para ajuda.\n");
         return 0;
     }
 
@@ -203,7 +203,7 @@ sub verifica_comando{
     }
     #caso tenha mais de um coamndo disponivel lista todos e volta a tela de comandos
     if(scalar @cont2>1 ){
-        print("voce pode usar os seguintes comandos:\n");
+        print("Voce pode usar os seguintes comandos:\n");
         foreach (@cont2){
             print("\t- ", $_->{comando}," ", $_->{alvo},"\n");
         }
