@@ -158,6 +158,9 @@ sub comandos_possiveis{
         if($i->is_arma || $i->is_armadura){
             push @commands, ({comando=>"equip", alvo=>$i->get_nome});
         }
+        if($i->is_potion){
+            push @commands, ({comando=>"use",alvo=>$i->get_nome});
+        }
     }
     foreach my $i (@{$self->{equipes}}){
         push @commands, ({comando=>"check", alvo=>$i->get_nome});
@@ -264,6 +267,12 @@ sub open_menu{
                     if(lc $comando_usado->{comando} eq lc "check"){
                         my $obj=$self->get_item_by_nome($comando_usado->{alvo});
                         $obj->imprimi_objeto();
+                    }
+                    if($comando_usado->{comando} eq "use"){
+                        my $objeto = $self->get_item_by_nome($comando_usado->{alvo});
+                        if($objeto->is_potion()){
+                            $self->atualiza_vida(-50);          
+                        }
                     }
                     if(lc $comando_usado->{comando} eq lc "equip"){
                         my $obj=$self->get_item_by_nome($comando_usado->{alvo});

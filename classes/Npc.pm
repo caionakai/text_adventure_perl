@@ -91,34 +91,46 @@ sub get_item{
 
 sub comandos_possiveis{
     my $self=shift;
+    my $inventario=shift;
+
+    my $ouro=$inventario->get_ouro();
+
     my @commandos=();
 
     foreach my $i (@{$self->{itens}}){
-        if($i->get_preco_de_compra>0){
+        if($i->get_preco_de_compra>0 && $i->get_preco_de_compra <= $ouro){
             push @commandos, ({comando=>"buy",alvo=>$i->get_nome});
         }
         if($i->is_mission){
             push @commandos, ({comando=>"accept",alvo=>$i->get_nome});
         }
-        else{
-        push @commandos, ({comando=>"sell",alvo=>$i->get_nome});
+        if($inventario->get_item_by_nome($i->get_nome)){
+            push @commandos, ({comando=>"sell",alvo=>$i->get_nome});
         }
         push @commandos, ({comando=>"check",alvo=>$i->get_nome});
     }
     push @commandos, {comando=>"bye"};
     return @commandos;
 }
-
+sub print_itens{
+    my $self=shift;
+    my @comands=@_;
+    foreach my $i (@comands){
+        if($i->{comando} eq "check"){
+            print("|",$i->{alvo},"| ");
+        }
+    }
+}
 sub conversa{
     my $self=shift;
-    print "($self->{nome}):";
-    print "$_ \n" for @{$self->{falas}};
-    print ("|", $_->get_nome, "| ") for @{$self->{itens}};
-    my @comando= $self->comandos_possiveis();
+    print "[$self->{nome}]:";
+    print "$_ \n"for @{$self->{falas}};
+
     my $inventario=shift;
-    if(scalar @comando == 1){
-        return 0;
-    }
+    my @comando= $self->comandos_possiveis($inventario);
+    
+    $self->print_itens(@comando);
+
     my $msg=$self->get_nome;
     
     
@@ -136,6 +148,7 @@ sub conversa{
             print ("Até a próxima velho amigo!\n");
             return 0;
         }
+        @comando= $self->comandos_possiveis($inventario);
         if (lc $entrada eq "help" ){
             print("Comandos Disponiveis:\n");
              foreach (@comando){
