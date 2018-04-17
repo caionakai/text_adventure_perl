@@ -165,6 +165,13 @@ sub is_mochila{
     }
     return 0;
 }
+sub is_potion{
+    my $self=shift;
+    if ($self->{tipo} eq "pocao"){
+        return 1;
+    }
+    return 0;
+}
 sub is_espacial{
     my $self=shift;
     if ($self->{tipo} eq "espacial"){
