@@ -3,7 +3,7 @@
     <id>0</id>
     <tipo>personagem</tipo>
     <espaco>-10</espaco>
-    <nome>JOHN DOE</nome>
+    <nome>NARUTO</nome>
     <descricao>Aventureiro iniciante.</descricao>
     <dano min="2" max="5"/>
     <defesa>100</defesa>
@@ -13,7 +13,7 @@
     <id>1</id>
     <tipo>arma</tipo>
     <espaco>1</espaco>
-    <nome>Espada de madeira</nome>
+    <nome>ESPADA DE MADEIRA</nome>
     <preco_de_compra>10</preco_de_compra>
     <preco_de_venda>8</preco_de_venda>
     <dano min="2" max="5"/>
@@ -25,7 +25,7 @@
     <id>2</id>
     <tipo>arma</tipo>
     <espaco>1</espaco>
-    <nome>Espada de Pedra</nome>
+    <nome>ESPADA DE PEDRA</nome>
     <dano min="5" max="15"/>
     <durabilidade>10</durabilidade>
     <preco_de_compra>15</preco_de_compra>
@@ -40,7 +40,7 @@
     <id>3</id>
     <tipo>arma</tipo>
     <espaco>1</espaco>
-    <nome>Espada de Ferro</nome>
+    <nome>ESPADA DE FERRO</nome>
     <dano min="10" max="25"/>
     <durabilidade>20</durabilidade>
     <preco_de_compra>20</preco_de_compra>
@@ -71,7 +71,7 @@
     <nome>COPO DE CERVEJA</nome>
     <preco_de_compra>1</preco_de_compra>
     <preco_de_venda>0</preco_de_venda>
-    <descricao>Esta é uma cerveja deixada por um aventureiro.</descricao>
+    <descricao>Esta e uma cerveja deixada por um aventureiro.</descricao>
 </object>
 
 <object>
@@ -94,8 +94,8 @@
     <id>7</id>
     <tipo>monstro</tipo>
     <espaco>0</espaco>
-    <nome>LOBO SANGUINÁRIO</nome>
-    <descricao>Um pequeno lobo selvagem e sanguinário.</descricao>
+    <nome>LOBO SANGUINARIO</nome>
+    <descricao>Um pequeno lobo selvagem e sanguinario.</descricao>
     <dano min="10" max="25"/>
     <drops>
         <drop>2</drop>
@@ -209,7 +209,7 @@
     <tipo>monstro</tipo>
     <espaco>0</espaco>
     <nome>ORC</nome>
-    <descricao>ORCs possuem muita força fisica!</descricao>
+    <descricao>ORCs possuem muita forca fisica!</descricao>
     <dano min="20" max="26"/>
     <drops>
         <drop>27</drop>
@@ -241,7 +241,7 @@
     <tipo>monstro</tipo>
     <espaco>0</espaco>
     <nome>ORC CHEFE</nome>
-    <descricao>Melhor não enfrentá-lo sozinho!</descricao>
+    <descricao>Melhor nao enfrenta-lo sozinho!</descricao>
     <dano min="40" max="50"/>
     <drops>
         <drop>27</drop>
@@ -274,7 +274,7 @@
     <tipo>monstro</tipo>
     <espaco>0</espaco>
     <nome>MINOTAURO ARQUEIRO</nome>
-    <descricao>Realizam ataques a distância e possuem uma destreza inimaginável!</descricao>
+    <descricao>Realizam ataques a distância e possuem uma destreza inimaginavel!</descricao>
     <dano min="60" max="70"/>
     <drops>
         <drop>33</drop>
@@ -290,7 +290,7 @@
     <tipo>monstro</tipo>
     <espaco>0</espaco>
     <nome>MINOTAURO CHEFE</nome>
-    <descricao>Ninguém nunca foi capaz de enfrentá-lo, a criatura mais forte do reino, a resistência dele equivale a de 2 minotauros juntos. É melhor estar preparado!</descricao>
+    <descricao>Ninguem nunca foi capaz de enfrenta-lo, a criatura mais forte do reino, a resistencia dele equivale a de 2 minotauros juntos. E melhor estar preparado!</descricao>
     <dano min="70" max="80"/>
     <drops>
         <drop>32</drop>
@@ -330,7 +330,7 @@
     <nome>CABECA DO LOBO CHEFE</nome>
     <preco_de_compra>0</preco_de_compra>
     <preco_de_venda>30</preco_de_venda>
-    <descricao>Este item é valioso!</descricao>
+    <descricao>Este item e valioso!</descricao>
 </object>
 
 <object>
@@ -360,7 +360,7 @@
     <nome>CHAPEU DO GOBLIN CHEFE</nome>
     <preco_de_compra>0</preco_de_compra>
     <preco_de_venda>40</preco_de_venda>
-    <descricao>Este item é valioso!</descricao>
+    <descricao>Este item e valioso!</descricao>
 </object>
 
 <object>
@@ -397,7 +397,7 @@
     <id>30</id>
     <tipo>arma</tipo>
     <espaco>1</espaco>
-    <nome>Espada de Obsidiana</nome>
+    <nome>ESPADA DE OBSIDIANA</nome>
     <dano min="10" max="25"/>
     <durabilidade>20</durabilidade>
     <preco_de_compra>100</preco_de_compra>
@@ -413,7 +413,7 @@
     <id>31</id>
     <tipo>arma</tipo>
     <espaco>1</espaco>
-    <nome>Lanca De Ferro</nome>
+    <nome>LANCA DE FERRO</nome>
     <dano min="5" max="20"/>
     <durabilidade>20</durabilidade>
     <preco_de_compra>50</preco_de_compra>
@@ -429,7 +429,7 @@
     <id>32</id>
     <tipo>arma</tipo>
     <espaco>1</espaco>
-    <nome>Espada de Plenilunia</nome>
+    <nome>ESPADA DE PLENILUNIA</nome>
     <dano min="15" max="30"/>
     <durabilidade>20</durabilidade>
     <preco_de_compra>150</preco_de_compra>
@@ -455,7 +455,7 @@
     <id>34</id>
     <tipo>arma</tipo>
     <espaco>1</espaco>
-    <nome>Ferro Vermelho</nome>
+    <nome>FERRO VERMELHO</nome>
     <dano min="25" max="25"/>
     <durabilidade>20</durabilidade>
     <preco_de_compra>150</preco_de_compra>
