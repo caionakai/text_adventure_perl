@@ -72,6 +72,9 @@ sub comandos_possiveis{
     }
 
     foreach my $i (@{$self->{itens}}){
+        if($i->is_potion){
+            push @commands, ({comando=>"use",alvo=>$i->get_nome});
+        }
         push @commands, ({comando=>"pick",alvo=>$i->get_nome});
         push @commands, ({comando=>"check",alvo=>$i->get_nome});
     }
